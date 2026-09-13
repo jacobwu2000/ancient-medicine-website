@@ -1,0 +1,32 @@
+[
+  {
+    "id": "primary-1",
+    "category": "Primary Editions",
+    "citation": "[PLACEHOLDER: full citation for the primary edition/translation of the Hippocratic Corpus text used, e.g. a Loeb or CMG edition]"
+  },
+  {
+    "id": "primary-2",
+    "category": "Primary Editions",
+    "citation": "[PLACEHOLDER: full citation for the epigraphic edition of the Epidaurian iamata (cf. LiDonnici) and/or the relevant IG volume]"
+  },
+  {
+    "id": "primary-3",
+    "category": "Primary Editions",
+    "citation": "[PLACEHOLDER: additional primary source citation]"
+  },
+  {
+    "id": "secondary-1",
+    "category": "Secondary Literature",
+    "citation": "[PLACEHOLDER: secondary scholarship on Hippocratic medicine]"
+  },
+  {
+    "id": "secondary-2",
+    "category": "Secondary Literature",
+    "citation": "[PLACEHOLDER: secondary scholarship on the Asklepios cult and incubation healing]"
+  },
+  {
+    "id": "secondary-3",
+    "category": "Secondary Literature",
+    "citation": "[PLACEHOLDER: general secondary scholarship on the history of ancient medicine]"
+  }
+]

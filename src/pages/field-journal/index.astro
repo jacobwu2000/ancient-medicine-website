@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import JournalLayout from '../../layouts/JournalLayout.astro';
+
+const entries = (await getCollection('journal')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+<JournalLayout title="Field Journal">
+  <p class="eyebrow">Field Journal</p>
+  <h1>Field Journal</h1>
+  <p>[PLACEHOLDER: introduction to the field journal — travel narrative framing, kept reverse-chronological. Entries link out to Sources pages; Sources pages don't link back.]</p>
+  <ul class="journal-list">
+    {entries.map((e) => (
+      <li>
+        <a href={`/field-journal/${e.slug}`}>{e.data.title}</a>
+        <span class="journal-list__date">
+          {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+        </span>
+      </li>
+    ))}
+  </ul>
+</JournalLayout>

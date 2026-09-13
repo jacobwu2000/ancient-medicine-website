@@ -1,0 +1,15 @@
+---
+// Renders a Field Journal entry's outbound links to Sources pages.
+// Journal entries link OUT to Sources; Sources pages never link back in.
+const { items = [] } = Astro.props;
+---
+{items.length > 0 && (
+  <nav class="related-sources" aria-label="Related sources">
+    <h2>Related Sources</h2>
+    <ul>
+      {items.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+)}

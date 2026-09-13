@@ -1,0 +1,11 @@
+---
+// Reserved space for a photograph to be dropped in later. Auto-numbers as
+// "Fig. N" per page via a CSS counter reset on <main> (see styles.css).
+const { caption = '[PLACEHOLDER: photo + caption]' } = Astro.props;
+---
+<figure class="photo-placeholder">
+  <div class="photo-placeholder__box" aria-hidden="true">
+    <span>Photo</span>
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>

@@ -1,0 +1,10 @@
+---
+// Shared wrapper for all "scholarly apparatus" pages (Sources, The Argument,
+// the Map, Bibliography, About) — keeps their header treatment visually
+// distinct from JournalLayout.
+import BaseLayout from './BaseLayout.astro';
+const { title, description } = Astro.props;
+---
+<BaseLayout title={title} description={description} mode="scholarly">
+  <slot />
+</BaseLayout>

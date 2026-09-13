@@ -1,0 +1,17 @@
+---
+import ScholarlyLayout from '../layouts/ScholarlyLayout.astro';
+import SiteMap from '../components/SiteMap.jsx';
+import sites from '../data/sites.json';
+---
+<ScholarlyLayout title="Interactive Map">
+  <p class="eyebrow">Scholarly Apparatus</p>
+  <h1>Interactive Map</h1>
+  <p>
+    [PLACEHOLDER: short intro to the map's purpose.] Use the toggle below to switch
+    between two lenses on the same geography — the Hippocratic Corpus's environmental
+    medical geography, and the epigraphically attested sites of cult healing. A site
+    relevant to both lenses appears as a two-toned marker. Click any marker for a
+    summary and a link to its full dossier under Site Archaeology.
+  </p>
+  <SiteMap client:only="react" sites={sites} />
+</ScholarlyLayout>

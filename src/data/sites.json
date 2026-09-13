@@ -1,0 +1,79 @@
+[
+  {
+    "id": "messene",
+    "name": "Messene",
+    "lat": 37.1740,
+    "lng": 21.9096,
+    "shortDescription": "[PLACEHOLDER: short scholarly summary of the Asclepieion of Messene and its place at the center of the ancient city.]",
+    "layers": ["cult-healing"],
+    "relatedInscriptions": [],
+    "relatedHippocraticPassages": [],
+    "dossier": "/sources/site-archaeology/messene"
+  },
+  {
+    "id": "epidauros",
+    "name": "Epidauros",
+    "lat": 37.5966,
+    "lng": 23.0764,
+    "shortDescription": "[PLACEHOLDER: short summary of the Sanctuary of Asklepios at Epidauros and its role in the epigraphic record of cult healing.]",
+    "layers": ["cult-healing"],
+    "relatedInscriptions": ["iamata-001", "iamata-002"],
+    "relatedHippocraticPassages": ["awp-1"],
+    "dossier": "/sources/site-archaeology/epidauros"
+  },
+  {
+    "id": "argos",
+    "name": "Argos",
+    "lat": 37.6333,
+    "lng": 22.7167,
+    "shortDescription": "[PLACEHOLDER: short scholarly summary of the Serapeion-Asclepeion at Argos and its Ptolemaic/Hadrianic building history.]",
+    "layers": ["cult-healing"],
+    "relatedInscriptions": [],
+    "relatedHippocraticPassages": [],
+    "dossier": "/sources/site-archaeology/argos"
+  },
+  {
+    "id": "corinth",
+    "name": "Corinth",
+    "lat": 37.9061,
+    "lng": 22.8781,
+    "shortDescription": "[PLACEHOLDER: short scholarly summary of the Asclepieion of Corinth and its votive terracotta offerings.]",
+    "layers": ["cult-healing"],
+    "relatedInscriptions": [],
+    "relatedHippocraticPassages": [],
+    "dossier": "/sources/site-archaeology/corinth"
+  },
+  {
+    "id": "kos",
+    "name": "Kos",
+    "lat": 36.8925,
+    "lng": 27.2892,
+    "shortDescription": "[PLACEHOLDER: short summary of the Asclepieion of Kos and its association with the Hippocratic medical tradition.]",
+    "layers": ["hippocratic", "cult-healing"],
+    "relatedInscriptions": ["kos-inscr-001"],
+    "relatedHippocraticPassages": ["epidemics-1"],
+    "dossier": "/sources/site-archaeology/kos"
+  },
+  {
+    "id": "trikka",
+    "name": "Trikka (Trikala)",
+    "lat": 39.5561,
+    "lng": 21.7679,
+    "shortDescription": "[PLACEHOLDER: short summary of Trikka as a site of dream-incubation and a reputed early center of the Asklepios cult.]",
+    "layers": ["cult-healing"],
+    "relatedInscriptions": ["trikka-inscr-001"],
+    "relatedHippocraticPassages": [],
+    "dossier": "/sources/site-archaeology/trikka"
+  },
+  {
+    "id": "athens",
+    "name": "Athens",
+    "lat": 37.9715,
+    "lng": 23.7267,
+    "shortDescription": "[PLACEHOLDER: short scholarly summary of the Athenian Asclepieion on the south slope of the Acropolis.]",
+    "layers": ["cult-healing"],
+    "relatedInscriptions": [],
+    "relatedHippocraticPassages": [],
+    "dossier": "/sources/site-archaeology/athens"
+  }
+]

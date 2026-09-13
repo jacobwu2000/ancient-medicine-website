@@ -1,0 +1,10 @@
+---
+// Shared wrapper for Field Journal pages — visually distinct (accent color,
+// mode badge) from the scholarly apparatus so a reader always knows which
+// mode they're in.
+import BaseLayout from './BaseLayout.astro';
+const { title, description } = Astro.props;
+---
+<BaseLayout title={title} description={description} mode="journal">
+  <slot />
+</BaseLayout>

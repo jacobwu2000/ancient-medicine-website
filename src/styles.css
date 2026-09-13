@@ -1,0 +1,521 @@
+/* =========================================================================
+   Ancient Medicine & Healing — design system
+   Museum/archive register: restrained palette, serif reading type, a clear
+   visual split between "scholarly apparatus" pages (teal) and the
+   Field Journal (terracotta) — see body[data-mode].
+   ========================================================================= */
+
+:root {
+  --color-bg: #f7f4ee;
+  --color-bg-panel: #fffdf9;
+  --color-ink: #2a2724;
+  --color-ink-muted: #6b6459;
+  --color-border: #ddd6c9;
+
+  --color-scholarly: #3d6b73;
+  --color-scholarly-tint: #e8eeee;
+  --color-journal: #a3572c;
+  --color-journal-tint: #f3e6dc;
+
+  --color-accent: var(--color-scholarly);
+  --color-accent-tint: var(--color-scholarly-tint);
+
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+
+  --container-width: 980px;
+  --radius: 3px;
+}
+
+body[data-mode='journal'] {
+  --color-accent: var(--color-journal);
+  --color-accent-tint: var(--color-journal-tint);
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--color-bg); }
+
+body {
+  font-family: var(--font-serif);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1.0625rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-ink);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-ink);
+}
+h1 { font-size: 2rem; margin: 0.2em 0 0.6em; }
+h2 { font-size: 1.375rem; margin: 1.6em 0 0.6em; }
+h3 { font-size: 1.125rem; margin: 1.4em 0 0.5em; }
+
+p { margin: 0 0 1em; }
+
+a { color: var(--color-accent); text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+code {
+  font-family: ui-monospace, Consolas, monospace;
+  background: var(--color-accent-tint);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius);
+  font-size: 0.9em;
+}
+
+/* Greek text gets a touch more size/leading and is explicitly tagged
+   lang="grc" wherever it appears so assistive tech and future font
+   substitution can target it precisely. */
+[lang='grc'] {
+  font-size: 1.08em;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin: 0 0 0.4em;
+}
+
+/* ---------------------------------------------------------------------
+   Header / nav / mode badge
+   --------------------------------------------------------------------- */
+
+.site-header {
+  background: var(--color-bg-panel);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem 1.25rem 0.75rem;
+}
+
+.site-title {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--color-ink);
+}
+.site-title__main {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.site-title__sub {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+  letter-spacing: 0.02em;
+}
+
+.mode-badge {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  white-space: nowrap;
+  align-self: center;
+}
+
+.site-nav {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-accent-tint);
+}
+.site-nav__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 0.6rem 1.25rem;
+}
+.site-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--color-accent); }
+
+main { padding: 2.25rem 1.25rem 4rem; counter-reset: fig; }
+
+/* ---------------------------------------------------------------------
+   Photo placeholders (reserved space for images to be added later)
+   --------------------------------------------------------------------- */
+
+.photo-placeholder { margin: 1.75rem 0; counter-increment: fig; }
+.photo-placeholder__box {
+  aspect-ratio: 3 / 2;
+  max-width: 32rem;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.025) 10px,
+    rgba(0, 0, 0, 0.025) 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink-muted);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.photo-placeholder figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
+  margin-top: 0.5rem;
+  max-width: 32rem;
+}
+.photo-placeholder figcaption::before {
+  content: 'Fig. ' counter(fig) ' — ';
+  font-style: normal;
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-muted);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}
+
+/* ---------------------------------------------------------------------
+   Buttons / cards
+   --------------------------------------------------------------------- */
+
+.button {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.65em 1.3em;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  margin-right: 0.75rem;
+}
+.button--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.sources-card {
+  display: block;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  padding: 1.1rem 1.2rem;
+  text-decoration: none;
+  color: var(--color-ink);
+  border-radius: var(--radius);
+}
+.sources-card h2 { margin-top: 0; font-size: 1.1rem; }
+.sources-card p { margin-bottom: 0; color: var(--color-ink-muted); font-size: 0.92rem; }
+
+/* ---------------------------------------------------------------------
+   Home
+   --------------------------------------------------------------------- */
+
+.hero { padding: 1rem 0 2rem; max-width: 46rem; }
+.site-purpose { font-size: 1.05rem; }
+.hero-abstract {
+  font-size: 1.08rem;
+  color: var(--color-ink-muted);
+  font-style: italic;
+  border-left: 2px solid var(--color-border);
+  padding-left: 1rem;
+}
+.hero-actions { margin-top: 1.5rem; }
+
+.home-map-teaser, .home-journal-teaser { margin: 3rem 0; }
+
+.journal-teaser-card {
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-journal);
+  background: var(--color-bg-panel);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+}
+.journal-teaser-card__date {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted);
+  margin-bottom: 0.3em;
+}
+.journal-teaser-card h3 { margin-top: 0; }
+
+/* ---------------------------------------------------------------------
+   Map + layer toggle (prominent, not a buried Leaflet control)
+   --------------------------------------------------------------------- */
+
+.site-map { margin: 1.5rem 0; }
+
+.layer-toggle-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.layer-toggle {
+  --layer-color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.6em 1.1em;
+  border: 2px solid var(--layer-color);
+  border-radius: 999px;
+  background: var(--color-bg-panel);
+  color: var(--layer-color);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.layer-toggle__swatch {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background: var(--layer-color);
+  opacity: 0.35;
+}
+.layer-toggle.is-active {
+  background: var(--layer-color);
+  color: #fff;
+}
+.layer-toggle.is-active .layer-toggle__swatch { opacity: 1; background: #fff; }
+
+.layer-toggle-help {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  max-width: 46rem;
+}
+
+.site-map__frame {
+  height: 480px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.map-legend-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.6rem 0 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+}
+.legend-swatch {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.site-popup h3 { margin: 0 0 0.3em; font-size: 1rem; }
+.site-popup p { margin: 0 0 0.5em; font-size: 0.9rem; }
+.site-popup__meta {
+  display: flex;
+  gap: 0.75em;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+/* ---------------------------------------------------------------------
+   Hippocratic Corpus / Epigraphy close-reading layout
+   --------------------------------------------------------------------- */
+
+.corpus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.text-block {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+.text-block h2 {
+  margin-top: 0;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-muted);
+}
+.text-block--greek { border-top: 3px solid var(--color-scholarly); }
+.text-block--translation { border-top: 3px solid var(--color-ink-muted); }
+.text-block--commentary { border-top: 3px solid var(--color-border); }
+
+.citation {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.corpus-toc, .index-list, .epigraphy-list { padding-left: 1.25rem; }
+.corpus-toc li, .epigraphy-list li { margin-bottom: 0.5em; }
+
+.inscription-site {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+/* ---------------------------------------------------------------------
+   Site Archaeology dossiers
+   --------------------------------------------------------------------- */
+
+.site-quickfacts {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+}
+
+.personal-observations {
+  background: var(--color-journal-tint);
+  border: 1px solid var(--color-journal);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+}
+.personal-observations__label {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-journal);
+  margin-bottom: 0.5em;
+}
+.personal-observations__body :last-child { margin-bottom: 0; }
+
+.related-panel {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+.related-panel h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ---------------------------------------------------------------------
+   Field Journal
+   --------------------------------------------------------------------- */
+
+.journal-list { list-style: none; padding: 0; }
+.journal-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1.05rem;
+}
+.journal-list__date {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  white-space: nowrap;
+}
+
+.journal-date {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+.related-sources {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+.related-sources h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-muted);
+}
+.related-sources ul { padding-left: 1.1rem; }
+
+/* ---------------------------------------------------------------------
+   Bibliography
+   --------------------------------------------------------------------- */
+
+.bib-note {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  border-left: 3px solid var(--color-border);
+  padding-left: 0.9rem;
+}
+.bib-list { list-style: none; padding: 0; }
+.bib-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-border);
+}

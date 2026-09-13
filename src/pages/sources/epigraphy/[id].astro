@@ -1,0 +1,46 @@
+---
+import ScholarlyLayout from '../../../layouts/ScholarlyLayout.astro';
+import inscriptions from '../../../data/inscriptions.json';
+import sites from '../../../data/sites.json';
+
+export function getStaticPaths() {
+  return inscriptions.map((i) => ({ params: { id: i.id } }));
+}
+
+const { id } = Astro.params;
+const entry = inscriptions.find((i) => i.id === id);
+const site = entry ? sites.find((s) => s.id === entry.siteId) : null;
+---
+<ScholarlyLayout title={entry ? entry.title : 'Inscription'}>
+  {entry ? (
+    <article class="inscription-entry">
+      <p class="eyebrow">Sources — Epigraphy</p>
+      <h1>{entry.title}</h1>
+      {site && (
+        <p class="inscription-site">
+          Findspot: <a href={`/sources/site-archaeology/${site.id}`}>{site.name}</a>
+        </p>
+      )}
+
+      <div class="corpus-grid">
+        <section class="text-block text-block--greek">
+          <h2>Greek Text</h2>
+          <p lang="grc">{entry.greekText}</p>
+        </section>
+        <section class="text-block text-block--translation">
+          <h2>Translation</h2>
+          <p>{entry.translation}</p>
+        </section>
+      </div>
+
+      <section class="text-block text-block--commentary">
+        <h2>Commentary</h2>
+        <p>{entry.commentary}</p>
+      </section>
+
+      <p class="citation">{entry.citation}</p>
+    </article>
+  ) : (
+    <p>Inscription not found.</p>
+  )}
+</ScholarlyLayout>

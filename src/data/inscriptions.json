@@ -1,0 +1,38 @@
+[
+  {
+    "id": "iamata-001",
+    "title": "Iama 1",
+    "siteId": "epidauros",
+    "greekText": "[PLACEHOLDER: Greek text of iama 1]",
+    "translation": "[PLACEHOLDER: translation of iama 1]",
+    "commentary": "[PLACEHOLDER: commentary on healing narrative, formulaic structure, and relation to incubation ritual.]",
+    "citation": "[PLACEHOLDER: citation — LiDonnici edition no.; relevant IG IV² 1 entry]"
+  },
+  {
+    "id": "iamata-002",
+    "title": "Iama 2",
+    "siteId": "epidauros",
+    "greekText": "[PLACEHOLDER: Greek text of iama 2]",
+    "translation": "[PLACEHOLDER: translation of iama 2]",
+    "commentary": "[PLACEHOLDER: commentary]",
+    "citation": "[PLACEHOLDER: citation]"
+  },
+  {
+    "id": "kos-inscr-001",
+    "title": "Kos Inscription 1",
+    "siteId": "kos",
+    "greekText": "[PLACEHOLDER: Greek text]",
+    "translation": "[PLACEHOLDER: translation]",
+    "commentary": "[PLACEHOLDER: commentary]",
+    "citation": "[PLACEHOLDER: citation to relevant IG volume or edition]"
+  },
+  {
+    "id": "trikka-inscr-001",
+    "title": "Trikka Inscription 1",
+    "siteId": "trikka",
+    "greekText": "[PLACEHOLDER: Greek text]",
+    "translation": "[PLACEHOLDER: translation]",
+    "commentary": "[PLACEHOLDER: commentary]",
+    "citation": "[PLACEHOLDER: citation]"
+  }
+]

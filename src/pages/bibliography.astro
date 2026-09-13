@@ -1,0 +1,26 @@
+---
+import ScholarlyLayout from '../layouts/ScholarlyLayout.astro';
+import bibliography from '../data/bibliography.json';
+
+const categories = [...new Set(bibliography.map((b) => b.category))];
+---
+<ScholarlyLayout title="Bibliography">
+  <p class="eyebrow">Scholarly Apparatus</p>
+  <h1>Bibliography</h1>
+  <p class="bib-note">
+    [PLACEHOLDER: this is a placeholder structure pending the real bibliography.
+    Entries are data-driven from <code>src/data/bibliography.json</code> — add or
+    edit records there rather than in this page's markup.]
+  </p>
+
+  {categories.map((category) => (
+    <section>
+      <h2>{category}</h2>
+      <ul class="bib-list">
+        {bibliography
+          .filter((b) => b.category === category)
+          .map((b) => <li id={b.id}>{b.citation}</li>)}
+      </ul>
+    </section>
+  ))}
+</ScholarlyLayout>
