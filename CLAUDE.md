@@ -29,9 +29,9 @@ epigraphic record of dream healing.
 - Field Journal: 9 entries with real prose, written as travelogue and site
   description. Photos are still `<PhotoPlaceholder>` slots.
 - Epidemics constitution pages exist (`src/content/corpus/constitution-1.md`
-  … `constitution-4.md`) with the layout, labeling and synopsis structure in
-  place. The translation text, titles, synopses and commentary are still
-  placeholders. See "Epidemics constitution pages" below.
+  … `constitution-4.md`). Jones's translation is filled in (extracted by
+  script, not yet checked against the printed Loeb). Titles, synopses and
+  commentary are still placeholders. See "Epidemics constitution pages" below.
 - Almost everything else is `[PLACEHOLDER: ...]`: corpus entries (AWP §1–2),
   inscriptions, bibliography, The Argument, About, the home abstract, and
   site-dossier sections other than `<PersonalObservations>`.
