@@ -32,8 +32,17 @@ epigraphic record of dream healing.
   … `constitution-4.md`). Jones's translation is filled in (extracted by
   script, not yet checked against the printed Loeb). Titles, synopses and
   commentary are still placeholders. See "Epidemics constitution pages" below.
+- Home page: framing text (hero, the two "strands" cards for texts and
+  places, the "fieldwork is context, not evidence" note) was drafted by
+  Claude from this file and has not yet been reviewed by the author. The
+  itinerary excerpts are pulled automatically from the journal entries.
+- The Argument (`src/pages/the-argument.mdx`) is scaffolded around the
+  chosen direction: title, working-question box, table of contents, and one
+  section per part of "What the finished project looks like" below. Every
+  section body, including the Summary (which replaces the old home-page
+  abstract), is still a placeholder.
 - Almost everything else is `[PLACEHOLDER: ...]`: corpus entries (AWP §1–2),
-  inscriptions, bibliography, The Argument, About, the home abstract, and
+  inscriptions, bibliography, About, section intros on the index pages, and
   site-dossier sections other than `<PersonalObservations>`.
 
 ## Epidemics constitution pages
