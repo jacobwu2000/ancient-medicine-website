@@ -32,6 +32,9 @@ epigraphic record of dream healing.
   … `constitution-4.md`). Jones's translation is filled in (extracted by
   script, not yet checked against the printed Loeb). Titles, synopses and
   commentary are still placeholders. See "Epidemics constitution pages" below.
+- AWP pages exist for Airs (ch. 3–6), Waters (7–9) and Seasons (10–11), in
+  `airs.md`, `waters.md` and `seasons.md`, filled in the same way. Titles,
+  synopses and commentary are still placeholders. See "AWP pages" below.
 - Home page: framing text (hero, the two "strands" cards for texts and
   places, the "fieldwork is context, not evidence" note) was drafted by
   Claude from this file and has not yet been reviewed by the author. The
@@ -41,8 +44,7 @@ epigraphic record of dream healing.
   section per part of "What the finished project looks like" below. Every
   section body, including the Summary (which replaces the old home-page
   abstract), is still a placeholder.
-- Almost everything else is `[PLACEHOLDER: ...]`: corpus entries (AWP §1–2),
-  inscriptions, bibliography, About, section intros on the index pages, and
+- Almost everything else is `[PLACEHOLDER: ...]`: inscriptions, bibliography, About, section intros on the index pages, and
   site-dossier sections other than `<PersonalObservations>`.
 
 ## Epidemics constitution pages
@@ -67,8 +69,8 @@ epigraphic record of dream healing.
   Its ch. 16 is a methodological remark, kept because Jones places it in the
   section. The Perseus reader's URL labels are the reverse of the XML's
   ("chapter" = constitution, "section" = Jones chapter).
-- **Fetching the text:** `python scripts/extract-constitution.py BOOK SECTION`
-  prints a constitution's chapters as YAML `passages:`, with Jones's footnotes
+- **Fetching the text:** `python scripts/extract-jones.py epidemics BOOK.SECTION`
+  (e.g. `1.2`) prints a constitution's chapters as YAML `passages:`, with Jones's footnotes
   and headings removed, plus the Loeb page range. Perseus's own XML endpoint
   blocks scripted requests, so the script reads from GitHub.
 - **Page structure:** chapters go in the `passages` field and render with
@@ -79,6 +81,32 @@ epigraphic record of dream healing.
   a chapter (`[5](#ch-5)`). Any synopsis Claude drafts must be labeled as a
   draft for the author to verify.
 - Case-history pages go in the same collection with `kind: case`.
+
+## AWP pages
+
+- **Edition:** Jones's Loeb translation, English only: `Aer.` in Perseus
+  `1999.01.0251`, and `tlg0627.tlg002.perseus-eng4.xml` on GitHub (CC BY-SA 4.0).
+  AWP has no books; its chapters (1–24) are the XML's top-level sections.
+- **Pages** (`kind: chapter-group`), named by the author's grouping:
+
+  | Page | Chapters | Loeb pp. (from TEI, unverified) |
+  |---|---|---|
+  | Airs (`airs.md`) | 3–6 | 73–83 |
+  | Waters (`waters.md`) | 7–9 | 83–99 |
+  | Seasons (`seasons.md`) | 10–11 | 99–105 |
+
+  Ch. 10–11 are called Seasons, not Places. In Jones they are about the
+  seasons, and ch. 12 opens "So much for the changes of the seasons" before
+  turning to Asia and Europe, the treatise's actual "places" material. These
+  chapters are the main point of comparison with the constitutions. Ch. 1–2
+  (introduction) and 12–24 are not covered yet.
+- **Fetching the text:** `python scripts/extract-jones.py awp FIRST-LAST`
+  (e.g. `3-6`).
+- **Page structure:** the same as the constitutions, but the synopsis headings
+  are Conditions described; Predicted effects; Who is affected; Causal and
+  generalizing language; Candidate claims (condition → predicted tendency,
+  firm or loose, feeding the claim list). The Commentary ends with "Bearing
+  on the *Epidemics* constitutions".
 
 ## Research project: history and chosen direction
 

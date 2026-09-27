@@ -92,8 +92,9 @@ src/
   (the Greek column disappears without it). The Epidemics constitutions
   (`constitution-1.md`…`constitution-4.md`, Jones's translation) use
   `passages` instead: one item per Jones chapter, rendered with `#ch-N`
-  anchors. The labeling scheme is explained on the Epidemics index page.
-  `scripts/extract-constitution.py` prints a constitution's chapters as
+  anchors, and so do the AWP chapter groups (`airs.md`, `waters.md`,
+  `seasons.md`). The labeling schemes are explained on the Epidemics and AWP
+  index pages. `scripts/extract-jones.py` prints Jones's chapters as
   ready-to-paste YAML from the Perseus TEI (needs Python 3.7+ and internet).
   Case-history pages go in the same collection with `kind: case`.
 - `src/content/site-archaeology/*.mdx` — one dossier per site. The

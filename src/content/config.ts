@@ -19,8 +19,9 @@ const corpus = defineCollection({
       sectionNumber: z.string(),
       title: z.string(),
       order: z.number(),
-      // Epidemics only: constitution vs. illustrative case history.
-      kind: z.enum(['constitution', 'case']).optional(),
+      // Epidemics: constitution vs. illustrative case history.
+      // AWP: `chapter-group`, a run of chapters read together (e.g. Airs, 3–6).
+      kind: z.enum(['constitution', 'case', 'chapter-group']).optional(),
       // Display label, e.g. "Constitution 1" (see epidemics/index.astro for
       // the labeling scheme). Falls back to "§sectionNumber" when absent.
       label: z.string().optional(),

@@ -18,7 +18,7 @@
     "shortDescription": "[PLACEHOLDER: short summary of the Sanctuary of Asklepios at Epidauros and its role in the epigraphic record of cult healing.]",
     "layers": ["cult-healing"],
     "relatedInscriptions": ["iamata-001", "iamata-002"],
-    "relatedHippocraticPassages": ["awp-1"],
+    "relatedHippocraticPassages": [],
     "dossier": "/sources/site-archaeology/epidauros"
   },
   {
