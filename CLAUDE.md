@@ -44,8 +44,13 @@ epigraphic record of dream healing.
   section per part of "What the finished project looks like" below. Every
   section body, including the Summary (which replaces the old home-page
   abstract), is still a placeholder.
-- Almost everything else is `[PLACEHOLDER: ...]`: inscriptions, bibliography, About, section intros on the index pages, and
-  site-dossier sections other than `<PersonalObservations>`.
+- Almost everything else is `[PLACEHOLDER: ...]`: inscriptions,
+  bibliography, About, section intros on the index pages, and site-dossier
+  sections other than `<PersonalObservations>`.
+- Map: no site links to a Hippocratic passage (`relatedHippocraticPassages`
+  is empty everywhere). The old Kos → `epidemics-1` and Epidauros → `awp-1`
+  links pointed at scaffold placeholders and were removed, because neither
+  text is about those sites.
 
 ## Epidemics constitution pages
 
@@ -70,9 +75,12 @@ epigraphic record of dream healing.
   section. The Perseus reader's URL labels are the reverse of the XML's
   ("chapter" = constitution, "section" = Jones chapter).
 - **Fetching the text:** `python scripts/extract-jones.py epidemics BOOK.SECTION`
-  (e.g. `1.2`) prints a constitution's chapters as YAML `passages:`, with Jones's footnotes
-  and headings removed, plus the Loeb page range. Perseus's own XML endpoint
-  blocks scripted requests, so the script reads from GitHub.
+  (e.g. `1.2`) prints a constitution's chapters as YAML `passages:`, with
+  Jones's footnotes and headings removed, plus the Loeb page range. Perseus's
+  own XML endpoint blocks scripted requests, so the script reads from GitHub.
+  The page ranges in the citations come from the TEI page breaks and are
+  followed by a `[PLACEHOLDER: verify page range…]` until the author checks
+  them.
 - **Page structure:** chapters go in the `passages` field and render with
   `#ch-N` anchors. The body has a Synopsis with fixed headings (Place;
   Seasons and weather; Diseases that followed; Who was affected; Causal and
@@ -87,7 +95,7 @@ epigraphic record of dream healing.
 - **Edition:** Jones's Loeb translation, English only: `Aer.` in Perseus
   `1999.01.0251`, and `tlg0627.tlg002.perseus-eng4.xml` on GitHub (CC BY-SA 4.0).
   AWP has no books; its chapters (1–24) are the XML's top-level sections.
-- **Pages** (`kind: chapter-group`), named by the author's grouping:
+- **Pages** (`kind: chapter-group`), each named for its topic:
 
   | Page | Chapters | Loeb pp. (from TEI, unverified) |
   |---|---|---|
@@ -123,9 +131,10 @@ for one person, and it is shaped like a paper, not a website companion.
 ### Options considered
 1. *Site-anchored micro-study* (test AWP against observed wind/water at the
    visited sites). **Rejected.** No such observations were recorded during the
-   trip, and the visited sites are not where the Epidemics I/III texts are set
-   (as far as the author knows those are mostly Thasos, Abdera and Larisa;
-   verify against the Loeb).
+   trip, and the visited sites are not where the Epidemics I/III texts are set.
+   In Jones, Constitutions 1–3 all open "In Thasos"; Constitution 4's opening
+   sentence names no place. Where the case histories are set (Thasos, Abdera,
+   Larisa etc.) still needs checking in the Loeb.
 2. *AWP as a field checklist.* **Rejected** for the same reason: it needed to
    be done on site, in real time.
 3. *Iamata vs. case histories, a genre comparison.* **Optional secondary
@@ -148,12 +157,12 @@ A likely line of analysis (a lead to test, not a conclusion): the
 constitutions track *changing weather at one place over several seasons*,
 while most of AWP compares *fixed features of different places* (orientation
 to winds, water sources, terrain). So the real overlap may sit mainly in
-AWP's discussion of seasons and irregular weather (check which chapters in
-the Loeb). Where the two frameworks do and don't meet is itself a finding.
+AWP's discussion of seasons and irregular weather: ch. 10–11 in Jones (the
+Seasons page). Where the two frameworks do and don't meet is itself a finding.
 
 ### Scope
-- **All the Epidemics I/III constitutions** (about 4), read in full in the
-  Loeb (Jones). For each one, note: place, the sequence of seasons and
+- **All the Epidemics I/III constitutions** (4 in Jones's division), read in
+  full in the Loeb (Jones). For each one, note: place, the sequence of seasons and
   weather, the diseases that followed, who was affected, any causal or
   generalizing language ("such constitutions...", "most", "especially"), and
   anything the author flags as surprising.
@@ -212,7 +221,9 @@ component change, so discuss it before doing it.
   for the 3–4 illustrative cases. Each has its translation (with source
   cited), commentary, and links to the AWP claims it bears on.
 - **Hippocratic Corpus → AWP:** pages for the chapters the claim list draws
-  on. The claim list itself could be a single page or table.
+  on (so far Airs 3–6, Waters 7–9, Seasons 10–11). Each page's "Candidate
+  claims" section collects claims for the list. The claim list itself could
+  be a single page or table.
 - **Site dossiers and Journal:** real photos and personal observations that
   keep the fieldwork visible.
 - **Bibliography:** real citations.
@@ -255,3 +266,17 @@ component change, so discuss it before doing it.
 - Information architecture: journal entries link *out* to Sources via
   `relatedSources`, and Sources pages never link back in. Site
   geo/cross-reference data lives only in `src/data/sites.json`.
+- Only link a map site to a Hippocratic passage (`relatedHippocraticPassages`)
+  if the text actually concerns that place. Don't add links just to
+  connect the fieldwork to the texts.
+- Translations on corpus pages come from `scripts/extract-jones.py`, copied
+  word for word from the Perseus TEI. Never type, paraphrase or "fix" them by
+  hand. If the printed Loeb differs, the author makes that correction.
+- Chapter labels follow the text, not the treatise's title. For example,
+  AWP 10–11 is "Seasons" because that is what those chapters discuss. Check
+  what a chapter range actually covers before naming a page.
+- Git: commit or push only when asked. Don't add a `Co-Authored-By: Claude`
+  line (or any other Claude attribution) to commit messages. Before
+  committing, check `git status`/`git log`: the author sometimes commits from
+  another session at the same time, and changes already staged can end up in
+  their commit.
