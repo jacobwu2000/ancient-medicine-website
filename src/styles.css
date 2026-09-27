@@ -409,6 +409,36 @@ main { padding: 2.25rem 1.25rem 4rem; counter-reset: fig; }
 .text-block--greek { border-top: 3px solid var(--color-scholarly); }
 .text-block--translation { border-top: 3px solid var(--color-ink-muted); }
 .text-block--commentary { border-top: 3px solid var(--color-border); }
+.text-block--commentary h2:not(:first-child) { margin-top: 2rem; }
+
+/* English-only entries (no Greek column): keep a readable measure. */
+.corpus-grid--single { grid-template-columns: minmax(0, 1fr); }
+
+.corpus-reference {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  margin-top: -0.5rem;
+}
+
+/* Chapter-numbered translation (Epidemics constitutions). */
+.passage-list { list-style: none; padding: 0; margin: 0; }
+.passage {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.5rem;
+  scroll-margin-top: 1.5rem;
+}
+.passage + .passage { margin-top: 0.75rem; }
+.passage-number {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-scholarly);
+  text-decoration: none;
+  padding-top: 0.2rem;
+}
+.passage-text p:first-child { margin-top: 0; }
+.passage:target { background: var(--color-scholarly-tint); border-radius: var(--radius); }
 
 .citation {
   font-family: var(--font-sans);
@@ -518,4 +548,10 @@ main { padding: 2.25rem 1.25rem 4rem; counter-reset: fig; }
 .bib-list li {
   padding: 0.6rem 0;
   border-bottom: 1px solid var(--color-border);
+}
+
+.corpus-toc-ref {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
 }

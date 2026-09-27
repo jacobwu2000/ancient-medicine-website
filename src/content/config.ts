@@ -3,19 +3,46 @@ import { defineCollection, z } from 'astro:content';
 // Hippocratic Corpus — one entry per section/chapter, close-reading format.
 // Greek text and translation live in frontmatter so the layout can render
 // them in a fixed, consistent block regardless of collection (AWP vs Epidemics);
-// the markdown body is reserved for prose commentary.
+// the markdown body is reserved for prose commentary (and, on Epidemics
+// constitution pages, the synopsis).
+//
+// Short passages use the single `translation` string. Long passages (the
+// Epidemics constitutions) use `passages` instead: one item per chapter,
+// numbered as in Jones's Loeb / the Perseus TEI, so the synopsis can cite
+// and link to individual chapters (#ch-N).
 const corpus = defineCollection({
   type: 'content',
-  schema: z.object({
-    work: z.enum(['awp', 'epidemics']),
-    workTitle: z.string(),
-    sectionNumber: z.string(),
-    title: z.string(),
-    order: z.number(),
-    greekText: z.string(),
-    translation: z.string(),
-    citation: z.string().optional(),
-  }),
+  schema: z
+    .object({
+      work: z.enum(['awp', 'epidemics']),
+      workTitle: z.string(),
+      sectionNumber: z.string(),
+      title: z.string(),
+      order: z.number(),
+      // Epidemics only: constitution vs. illustrative case history.
+      kind: z.enum(['constitution', 'case']).optional(),
+      // Display label, e.g. "Constitution 1" (see epidemics/index.astro for
+      // the labeling scheme). Falls back to "§sectionNumber" when absent.
+      label: z.string().optional(),
+      // Standard reference, e.g. "Epid. I 1–3".
+      reference: z.string().optional(),
+      greekText: z.string().optional(),
+      translation: z.string().optional(),
+      passages: z
+        .array(
+          z.object({
+            chapter: z.string(),
+            // Paragraphs separated by a blank line.
+            text: z.string(),
+          })
+        )
+        .optional(),
+      citation: z.string().optional(),
+      sourceUrl: z.string().url().optional(),
+    })
+    .refine((d) => d.translation || d.passages?.length, {
+      message: 'Provide either `translation` or `passages`.',
+    }),
 });
 
 // Site Archaeology dossiers. Geographic / cross-reference data (lat/lng,

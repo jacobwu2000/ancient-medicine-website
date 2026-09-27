@@ -28,9 +28,48 @@ epigraphic record of dream healing.
 - The scaffold, routing, schema and map all work.
 - Field Journal: 9 entries with real prose, written as travelogue and site
   description. Photos are still `<PhotoPlaceholder>` slots.
-- Almost everything else is `[PLACEHOLDER: ...]`: corpus entries (AWP §1–2,
-  Epidemics §1–2), inscriptions, bibliography, The Argument, About, the home
-  abstract, and site-dossier sections other than `<PersonalObservations>`.
+- Epidemics constitution pages exist (`src/content/corpus/constitution-1.md`
+  … `constitution-4.md`) with the layout, labeling and synopsis structure in
+  place. The translation text, titles, synopses and commentary are still
+  placeholders. See "Epidemics constitution pages" below.
+- Almost everything else is `[PLACEHOLDER: ...]`: corpus entries (AWP §1–2),
+  inscriptions, bibliography, The Argument, About, the home abstract, and
+  site-dossier sections other than `<PersonalObservations>`.
+
+## Epidemics constitution pages
+
+- **Edition:** W. H. S. Jones's Loeb translation (*Hippocrates* Vol. I, 1923),
+  English only. Don't use the Adams translation, which is Perseus's default
+  (`1999.01.0248`). Jones is `1999.01.0251` on Perseus and
+  `tlg0627.tlg006.perseus-eng4.xml` in GitHub `PerseusDL/canonical-greekLit`.
+  That XML is licensed CC BY-SA 4.0, and each page's citation says so.
+- **Labeling:** Constitutions are numbered 1–4 across both books; this is the
+  site's own shorthand. Chapter numbers are Jones's, exactly as in the Perseus
+  XML:
+
+  | Page | Reference | Jones heading | TEI section | Loeb pp. (from TEI, unverified) |
+  |---|---|---|---|---|
+  | Constitution 1 | Epid. I 1–3 | First Constitution | 1.1 | 147–153 |
+  | Constitution 2 | Epid. I 4–12 | Second Constitution | 1.2 | 153–165 |
+  | Constitution 3 | Epid. I 13–26 | Third Constitution | 1.3 | 165–185 |
+  | Constitution 4 | Epid. III 2–16 | Constitution | 3.2 | 239–257 |
+
+  In Book III, section 1 is the 12 cases, so the constitution starts at ch. 2.
+  Its ch. 16 is a methodological remark, kept because Jones places it in the
+  section. The Perseus reader's URL labels are the reverse of the XML's
+  ("chapter" = constitution, "section" = Jones chapter).
+- **Fetching the text:** `python scripts/extract-constitution.py BOOK SECTION`
+  prints a constitution's chapters as YAML `passages:`, with Jones's footnotes
+  and headings removed, plus the Loeb page range. Perseus's own XML endpoint
+  blocks scripted requests, so the script reads from GitHub.
+- **Page structure:** chapters go in the `passages` field and render with
+  `#ch-N` anchors. The body has a Synopsis with fixed headings (Place;
+  Seasons and weather; Diseases that followed; Who was affected; Causal and
+  generalizing language; Surprises and exceptions) and a Commentary that ends
+  with "Bearing on *Airs, Waters, Places*". Each synopsis point should cite
+  a chapter (`[5](#ch-5)`). Any synopsis Claude drafts must be labeled as a
+  draft for the author to verify.
+- Case-history pages go in the same collection with `kind: case`.
 
 ## Research project: history and chosen direction
 

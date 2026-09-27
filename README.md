@@ -84,6 +84,14 @@ src/
 **Add content here:**
 - `src/content/corpus/*.md` — one file per Hippocratic Corpus section. Add a
   new section by copying an existing file and bumping `sectionNumber`/`order`.
+  Short sections use `greekText` + `translation`; `greekText` is optional
+  (the Greek column disappears without it). The Epidemics constitutions
+  (`constitution-1.md`…`constitution-4.md`, Jones's translation) use
+  `passages` instead: one item per Jones chapter, rendered with `#ch-N`
+  anchors. The labeling scheme is explained on the Epidemics index page.
+  `scripts/extract-constitution.py` prints a constitution's chapters as
+  ready-to-paste YAML from the Perseus TEI (needs Python 3.7+ and internet).
+  Case-history pages go in the same collection with `kind: case`.
 - `src/content/site-archaeology/*.mdx` — one dossier per site. The
   `<PersonalObservations>` block is the only component reference needed;
   everything else is plain Markdown headings.

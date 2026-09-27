@@ -2,31 +2,62 @@
 // Consistent close-reading layout for a single Hippocratic Corpus section,
 // shared by the Airs, Waters, Places and Epidemics routes so both texts
 // read the same way: Greek text and translation stacked, then commentary.
+//
+// The Greek column is dropped when an entry has no `greekText`. Long texts
+// supply `passages` (one per chapter, each with an #ch-N anchor) instead of
+// a single `translation` string. Epidemics constitution/case pages carry
+// their own "Synopsis" / "Commentary" headings in the markdown body, so the
+// wrapper heading is only added for plain entries.
 import ScholarlyLayout from './ScholarlyLayout.astro';
 
 const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await entry.render();
----
-<ScholarlyLayout title={`${data.workTitle} §${data.sectionNumber}`}>
-  <p class="eyebrow">Sources — Hippocratic Corpus — {data.workTitle}</p>
-  <h1>§{data.sectionNumber}. {data.title}</h1>
 
-  <div class="corpus-grid">
-    <section class="text-block text-block--greek">
-      <h2>Greek Text</h2>
-      <p lang="grc">{data.greekText}</p>
-    </section>
+const heading = data.label ?? `§${data.sectionNumber}`;
+const bodyHasOwnHeadings = Boolean(data.kind);
+const paragraphs = (text) => text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+---
+<ScholarlyLayout title={`${data.workTitle} — ${heading}`}>
+  <p class="eyebrow">Sources — Hippocratic Corpus — {data.workTitle}</p>
+  <h1>{heading}. {data.title}</h1>
+  {data.reference && <p class="corpus-reference">{data.reference}</p>}
+
+  <div class={`corpus-grid${data.greekText ? '' : ' corpus-grid--single'}`}>
+    {data.greekText && (
+      <section class="text-block text-block--greek">
+        <h2>Greek Text</h2>
+        <p lang="grc">{data.greekText}</p>
+      </section>
+    )}
     <section class="text-block text-block--translation">
       <h2>Translation</h2>
-      <p>{data.translation}</p>
+      {data.passages ? (
+        <ol class="passage-list">
+          {data.passages.map((p) => (
+            <li id={`ch-${p.chapter}`} class="passage">
+              <a class="passage-number" href={`#ch-${p.chapter}`}>{p.chapter}</a>
+              <div class="passage-text">
+                {paragraphs(p.text).map((para) => <p>{para}</p>)}
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>{data.translation}</p>
+      )}
     </section>
   </div>
 
   <section class="text-block text-block--commentary">
-    <h2>Commentary</h2>
+    {!bodyHasOwnHeadings && <h2>Commentary</h2>}
     <Content />
   </section>
 
-  {data.citation && <p class="citation">{data.citation}</p>}
+  {(data.citation || data.sourceUrl) && (
+    <p class="citation">
+      {data.citation}
+      {data.sourceUrl && <> <a href={data.sourceUrl}>View source text</a>.</>}
+    </p>
+  )}
 </ScholarlyLayout>

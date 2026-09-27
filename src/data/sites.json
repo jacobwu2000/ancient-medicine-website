@@ -51,7 +51,7 @@
     "shortDescription": "[PLACEHOLDER: short summary of the Asclepieion of Kos and its association with the Hippocratic medical tradition.]",
     "layers": ["hippocratic", "cult-healing"],
     "relatedInscriptions": ["kos-inscr-001"],
-    "relatedHippocraticPassages": ["epidemics-1"],
+    "relatedHippocraticPassages": [],
     "dossier": "/sources/site-archaeology/kos"
   },
   {
