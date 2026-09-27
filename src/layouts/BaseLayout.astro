@@ -4,8 +4,26 @@ import '../styles.css';
 const {
   title = 'Ancient Medicine & Healing',
   description = 'A digital humanities study of ancient Greek medicine and healing, combining fieldwork with textual and epigraphic research.',
-  mode = 'scholarly', // 'scholarly' | 'journal' — controls header accent and mode badge
+  mode = 'scholarly', // 'scholarly' | 'journal' — controls the accent color
 } = Astro.props;
+
+// Nav is grouped by the site's two strands: the textual research and the
+// fieldwork. Groups render with a divider between them.
+const navGroups = [
+  [{ href: '/', label: 'Home' }],
+  [
+    { href: '/the-argument', label: 'The Argument' },
+    { href: '/sources', label: 'Sources' },
+    { href: '/bibliography', label: 'Bibliography' },
+  ],
+  [
+    { href: '/field-journal', label: 'Field Journal' },
+    { href: '/map', label: 'Map' },
+  ],
+  [{ href: '/about', label: 'About' }],
+];
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href) => (href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`));
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -30,32 +48,33 @@ const {
           <span class="site-title__main">Ancient Medicine &amp; Healing</span>
           <span class="site-title__sub">Word and Ritual in Greek Sanctuaries</span>
         </a>
-        <span class="mode-badge" data-mode={mode}>
-          {mode === 'journal' ? 'Field Journal' : 'Scholarly Apparatus'}
-        </span>
+        <nav class="site-nav" aria-label="Primary">
+          {navGroups.map((group) => (
+            <ul class="site-nav__group">
+              {group.map((item) => (
+                <li>
+                  <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </nav>
       </div>
-      <nav class="site-nav" aria-label="Primary">
-        <div class="container site-nav__row">
-          <a href="/">Home</a>
-          <a href="/the-argument">The Argument</a>
-          <a href="/map">Interactive Map</a>
-          <a href="/sources">Sources</a>
-          <a href="/field-journal">Field Journal</a>
-          <a href="/bibliography">Bibliography</a>
-          <a href="/about">About</a>
-        </div>
-      </nav>
     </header>
 
-    <main id="main" class="container">
+    <main id="main" class="container site-main">
       <slot />
     </main>
 
     <footer class="site-footer">
       <div class="container">
         <p>
-          Ancient Medicine &amp; Healing — an undergraduate research project.
-          Text marked <code>[PLACEHOLDER]</code> is scaffolding pending original research and citation.
+          <strong>Ancient Medicine &amp; Healing</strong> — an undergraduate research notebook:
+          a close reading of the Hippocratic <em>Epidemics</em> and <em>Airs, Waters, Places</em>,
+          with fieldwork at Greek healing sanctuaries, July–August 2026.
+        </p>
+        <p>
+          Work in progress. Text marked <code>[PLACEHOLDER]</code> is scaffolding pending original research and citation.
         </p>
       </div>
     </footer>

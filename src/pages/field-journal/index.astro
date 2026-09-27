@@ -1,23 +1,26 @@
 ---
 import { getCollection } from 'astro:content';
 import JournalLayout from '../../layouts/JournalLayout.astro';
+import { excerpt, formatDate, stopNumber } from '../../utils/journal.js';
 
 const entries = (await getCollection('journal')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 ---
 <JournalLayout title="Field Journal">
-  <p class="eyebrow">Field Journal</p>
+  <p class="eyebrow">Fieldwork · 12 July – 2 August 2026</p>
   <h1>Field Journal</h1>
   <p>[PLACEHOLDER: introduction to the field journal — travel narrative framing, kept reverse-chronological. Entries link out to Sources pages; Sources pages don't link back.]</p>
-  <ul class="journal-list">
-    {entries.map((e) => (
-      <li>
-        <a href={`/field-journal/${e.slug}`}>{e.data.title}</a>
-        <span class="journal-list__date">
-          {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
-        </span>
+  <ol class="itinerary" reversed>
+    {entries.map((e, i) => (
+      <li class="itinerary__stop">
+        <a href={`/field-journal/${e.slug}`}>
+          <span class="itinerary__date">{stopNumber(entries.length - i)} · {formatDate(e.data.date, 'short')}</span>
+          <span class="itinerary__title">{e.data.title}</span>
+          {e.data.location && <span class="itinerary__place">{e.data.location}</span>}
+          <span class="itinerary__excerpt">{excerpt(e.body, 220)}</span>
+        </a>
       </li>
     ))}
-  </ul>
+  </ol>
 </JournalLayout>

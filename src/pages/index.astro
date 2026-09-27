@@ -3,56 +3,104 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteMap from '../components/SiteMap.jsx';
 import sites from '../data/sites.json';
 import { getCollection } from 'astro:content';
+import { excerpt, formatDate, stopNumber } from '../utils/journal.js';
 
-const journalEntries = (await getCollection('journal')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+// Trip order (oldest first) for the itinerary.
+const stops = (await getCollection('journal')).sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
 );
-const latest = journalEntries[0];
 ---
 <BaseLayout title="Home" mode="scholarly">
   <section class="hero">
-    <p class="eyebrow">A Digital Humanities Field &amp; Textual Study</p>
-    <h1>Ancient Medicine &amp; Healing: Word and Ritual in Greek Sanctuaries</h1>
-    <p class="site-purpose">
-      This site documents a month of summer 2026 fieldwork at Asclepieia and related
-      healing sites across Greece — Epidauros, Kos, Trikka, and a wider circuit
-      including Messene, Argos, Corinth, and Athens — read alongside the Hippocratic
-      Corpus and the epigraphic record of dream healing. It brings together an
-      interactive map, source dossiers for the textual and epigraphic evidence, and a
-      chronological field journal, as a working research notebook rather than a
-      finished argument.
+    <p class="eyebrow">An undergraduate research notebook · Summer 2026</p>
+    <h1>Word and Ritual in Greek Sanctuaries</h1>
+    <p class="lede">
+      How did Greek physicians explain disease, and how did it look beside the
+      healing people sought from the gods? This site pairs a close reading of two
+      Hippocratic texts with a month of fieldwork at the sanctuaries of Asklepios.
     </p>
-    <p class="hero-abstract">
-      [PLACEHOLDER: 3–5 sentence abstract/thesis statement summarizing the research
-      question — the relationship between the environmental-empirical medicine of the
-      Hippocratic Corpus (Airs, Waters, Places; Epidemics) and the ritual, incubatory
-      healing attested in the epigraphic record at Epidauros, Kos, and Trikka.]
+    <p>
+      It is a working research notebook rather than a finished argument. The
+      textual study and the site visits are kept side by side, but they do
+      different jobs, as set out below.
     </p>
     <div class="hero-actions">
-      <a class="button button--primary" href="/map">Explore the Interactive Map</a>
-      <a class="button" href="/the-argument">Read the Argument</a>
+      <a class="button button--primary" href="/the-argument">Read the Argument</a>
+      <a class="button" href="/field-journal">Open the Field Journal</a>
     </div>
   </section>
 
-  <section class="home-map-teaser">
-    <h2>Sites</h2>
-    <p>[PLACEHOLDER: one-sentence framing for the map teaser — toggle between the Hippocratic and cult-healing lenses below.]</p>
-    <SiteMap client:only="react" sites={sites} />
+  <div class="strands">
+    <article class="strand">
+      <p class="eyebrow">Strand 1 · The texts</p>
+      <h2>Hippocratic medicine: weather, place, and disease</h2>
+      <p class="strand__question">
+        Do the “constitutions” of <em>Epidemics</em> I and III look like the
+        environmental theory of <em>Airs, Waters, Places</em> applied to one place
+        over time, or like the raw observation that such a theory could have been
+        built from?
+      </p>
+      <ul class="strand__facts">
+        <li><strong>Read in full:</strong> the four constitutions of <em>Epidemics</em> I &amp; III</li>
+        <li><strong>Compared with:</strong> a short list of claims from <em>Airs, Waters, Places</em></li>
+        <li><strong>Translation:</strong> W. H. S. Jones, Loeb (1923)</li>
+      </ul>
+      <p class="strand__links">
+        <a href="/the-argument">The Argument &rarr;</a>
+        <a href="/sources/hippocratic-corpus/epidemics">The constitutions &rarr;</a>
+      </p>
+    </article>
+
+    <article class="strand strand--field">
+      <p class="eyebrow">Strand 2 · The places</p>
+      <h2>Fieldwork at Greek healing sanctuaries</h2>
+      <p>
+        Visits to the Asklepieia at Epidauros, Kos, Trikka, Messene, Corinth,
+        Argos and Athens: the setting of temple healing, the “other” model of
+        medicine. At Kos, the traditional home of the Hippocratic tradition, the
+        two shared one place.
+      </p>
+      <ul class="strand__facts">
+        <li><strong>Dates:</strong> 12 July – 2 August 2026</li>
+        <li><strong>Stops:</strong> {stops.length} journal entries, from the Peloponnese to Crete, Kos and Thessaly</li>
+        <li><strong>Record:</strong> field journal, site dossiers, photographs</li>
+      </ul>
+      <p class="strand__links">
+        <a href="/field-journal">Field Journal &rarr;</a>
+        <a href="/map">Map of sites &rarr;</a>
+      </p>
+    </article>
+  </div>
+  <p class="strands-note">
+    The fieldwork gives context and setting. It is not evidence for the textual
+    argument: the places the <em>Epidemics</em> describe were not among the sites
+    visited.
+  </p>
+
+  <section class="home-section">
+    <h2>The itinerary</h2>
+    <p class="home-section__intro">
+      Nine field-journal entries, in the order the sites were visited.
+    </p>
+    <ol class="itinerary">
+      {stops.map((e, i) => (
+        <li class="itinerary__stop">
+          <a href={`/field-journal/${e.slug}`}>
+            <span class="itinerary__date">{stopNumber(i + 1)} · {formatDate(e.data.date, 'short')}</span>
+            <span class="itinerary__title">{e.data.title}</span>
+            <span class="itinerary__excerpt">{excerpt(e.body)}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
   </section>
 
-  <section class="home-journal-teaser">
-    <h2>From the Field Journal</h2>
-    {latest ? (
-      <article class="journal-teaser-card">
-        <p class="journal-teaser-card__date">
-          {latest.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
-        </p>
-        <h3><a href={`/field-journal/${latest.slug}`}>{latest.data.title}</a></h3>
-        <p>[PLACEHOLDER: short teaser excerpt of the latest entry.]</p>
-      </article>
-    ) : (
-      <p>[PLACEHOLDER: no journal entries yet.]</p>
-    )}
-    <p><a href="/field-journal">All Field Journal entries &rarr;</a></p>
+  <section class="home-section">
+    <h2>The sites on the map</h2>
+    <p class="home-section__intro">
+      Every site is shown through two lenses: Hippocratic medical geography and
+      cult healing. Toggle either one, or click a marker to open that site’s dossier.
+    </p>
+    <SiteMap client:only="react" sites={sites} />
   </section>
 </BaseLayout>

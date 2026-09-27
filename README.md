@@ -53,7 +53,8 @@ src/
                                 photo should eventually go
 
   layouts/
-    BaseLayout.astro           shell: head, nav, footer, mode badge
+    BaseLayout.astro           shell: head, grouped nav (current page
+                                highlighted), footer
     ScholarlyLayout.astro      wraps BaseLayout mode="scholarly" (teal)
     JournalLayout.astro        wraps BaseLayout mode="journal" (terracotta)
     CorpusEntryLayout.astro    Greek/translation/commentary layout, shared
@@ -75,6 +76,9 @@ src/
     field-journal/{index,[...slug]}.astro
     bibliography.astro
     about.astro
+
+  utils/journal.js           date formatting + auto-excerpts for the
+                                journal itinerary cards (home, journal index)
 
   styles.css                 ← the whole design system (palette, type, layout)
 ```
@@ -142,7 +146,13 @@ routes read `sites.json` directly.
 - Palette: parchment background, ink text, teal accent for the scholarly
   apparatus, terracotta accent for the Field Journal — set via
   `body[data-mode]` in `styles.css`, driven by the `mode` prop on
-  `BaseLayout`/`ScholarlyLayout`/`JournalLayout`.
+  `BaseLayout`/`ScholarlyLayout`/`JournalLayout`. The accent shows as a
+  stripe on top of the header and on the current nav item.
+- The nav is grouped by the project's two strands: research (The Argument,
+  Sources, Bibliography) and fieldwork (Field Journal, Map).
+- The home page explains the project as two strands (texts / places) and
+  lists the journal entries as an itinerary; excerpts are pulled
+  automatically from each entry's first paragraph.
 - The map's layer toggle is a custom control bar above the map (not
   Leaflet's built-in corner control), since it's the site's core scholarly
   contribution and needs to stay visible.
