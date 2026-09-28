@@ -30,15 +30,18 @@ epigraphic record of dream healing.
   description. Photos are still `<PhotoPlaceholder>` slots.
 - Epidemics constitution pages exist (`src/content/corpus/constitution-1.md`
   … `constitution-4.md`). Jones's translation is filled in (extracted by
-  script, not yet checked against the printed Loeb). Titles, synopses and
-  commentary are still placeholders. See "Epidemics constitution pages" below.
+  script, not yet checked against the printed Loeb). Not yet annotated:
+  titles, synopses and commentary are still placeholders. See "Epidemics
+  constitution pages" below.
 - AWP pages exist for Airs (ch. 3–6), Waters (7–9) and Seasons (10–11), in
-  `airs.md`, `waters.md` and `seasons.md`, filled in the same way. Airs is
-  further along: the author's highlighting of the text (with a key), the
-  author's synopsis above the translation, no title (heading is just "Airs"),
-  and only a Candidate claims placeholder in the body. Waters and Seasons
-  still have placeholder titles, synopses and commentary. See "AWP pages"
-  below.
+  `airs.md`, `waters.md` and `seasons.md`, filled in the same way. **Airs is
+  annotated** (see "Author's annotations" below): the author's highlighting
+  and key, the author's synopsis, no title, and only a Candidate claims
+  placeholder in the body. Waters and Seasons are not annotated yet and
+  still have the older placeholder sections.
+- The author plans to annotate the other AWP pages and the four
+  constitutions the same way. The claim list and the comparison itself
+  haven't been started.
 - Home page: framing text (hero, the two "strands" cards for texts and
   places, the "fieldwork is context, not evidence" note) was drafted by
   Claude from this file and has not yet been reviewed by the author. The
@@ -86,12 +89,14 @@ epigraphic record of dream healing.
   followed by a `[PLACEHOLDER: verify page range…]` until the author checks
   them.
 - **Page structure:** chapters go in the `passages` field and render with
-  `#ch-N` anchors. The body has a Synopsis with fixed headings (Place;
-  Seasons and weather; Diseases that followed; Who was affected; Causal and
-  generalizing language; Surprises and exceptions) and a Commentary that ends
-  with "Bearing on *Airs, Waters, Places*". Each synopsis point should cite
-  a chapter (`[5](#ch-5)`). Any synopsis Claude drafts must be labeled as a
-  draft for the author to verify.
+  `#ch-N` anchors. The unannotated pages still carry the original
+  placeholder body: a Synopsis with fixed headings (Place; Seasons and
+  weather; Diseases that followed; Who was affected; Causal and generalizing
+  language; Surprises and exceptions) and a Commentary ending "Bearing on
+  *Airs, Waters, Places*". When the author annotates a constitution,
+  convert it to the annotated layout (see "Author's annotations"). What
+  replaces "Candidate claims" on a constitution page is the author's call;
+  ask.
 - Case-history pages go in the same collection with `kind: case`.
 
 ## AWP pages
@@ -114,20 +119,59 @@ epigraphic record of dream healing.
   (introduction) and 12–24 are not covered yet.
 - **Fetching the text:** `python scripts/extract-jones.py awp FIRST-LAST`
   (e.g. `3-6`).
-- **Page structure:** the same as the constitutions, but the synopsis headings
-  are Conditions described; Predicted effects; Who is affected; Causal and
-  generalizing language; Candidate claims (condition → predicted tendency,
-  firm or loose, feeding the claim list). The Commentary ends with "Bearing
-  on the *Epidemics* constitutions". Airs uses a leaner layout set by the
-  author: a short prose `synopsis` field (rendered above the translation),
-  then only "Candidate claims" in the body.
-- **Highlighting:** the author's highlights and bolding live in each
-  passage's `marks` list (exact phrase + category), with the categories in
-  the page's `highlightKey`. `text` itself is never edited. The build fails
-  if a marked phrase isn't found exactly once, so re-check `marks` after
-  re-extracting a text. Add marks only from the author's own markup; don't
-  invent categories or highlights.
-- Every AWP chapter links to its own section on Perseus (added by the layout).
+- **Page structure:** unannotated pages (Waters, Seasons) still carry the
+  original placeholder body: a Synopsis with fixed headings (Conditions
+  described; Predicted effects; Who is affected; Causal and generalizing
+  language; Candidate claims) and a Commentary ending "Bearing on the
+  *Epidemics* constitutions". Annotated pages (Airs) use the layout in
+  "Author's annotations". The body keeps only **Candidate claims**
+  (condition → predicted tendency, firm or loose), which feeds the claim
+  list.
+
+## Author's annotations
+
+The author highlights and bolds each page's text by category outside the
+site, writes a short synopsis, and sends it as a PDF. Claude transfers
+the annotations to the page. Airs (`airs.md`, from "Ancient Medicine Project
+(1).pdf") is the model. The other AWP pages and the four constitutions will
+presumably follow.
+
+- **Marks, not edited text.** Each passage keeps its extracted `text`
+  untouched. The annotations go in that passage's `marks` list, one
+  `{ category, text }` per highlighted or bolded span, with `text` copied
+  exactly from the passage. The build fails if a mark's phrase isn't found
+  exactly once in its paragraph, or if marks overlap. So re-check `marks`
+  after re-extracting a text, and lengthen a phrase if it's ambiguous.
+- **Key.** The page's `highlightKey` lists the categories in the PDF's order:
+  `id`, the PDF's label, and `style` (`bold` or `highlight`). Highlight
+  colours are the `.hl--<id>` classes in `styles.css`, matched to the PDF.
+  Airs's key: Conditions of the Air (bold); General Health Characteristics;
+  Digestive & Dietary; Head, Brain & Nervous; Respiratory & Chest; Eye
+  Conditions; Skin, Discharges & Other Bodily Afflictions; Reproductive
+  Health. A page with a different key needs any new `id`s added to
+  `styles.css`. Ask the author before adding them rather than guessing a
+  colour scheme. Where a category means the same thing on an AWP page and a
+  constitution, keep the same `id` and colour so the two can be read
+  side by side.
+- **Transcribe exactly what the PDF marks.** Don't add, extend, merge or
+  "improve" highlights, and don't invent categories. If the PDF's text
+  differs from Jones's (e.g. the author's "[epilepsy]" glosses after
+  "sacred disease"), leave the gloss out of the mark and tell the author.
+  Glosses belong in commentary, never inside the translation.
+- **Synopsis.** The author's synopsis goes in the frontmatter `synopsis`
+  field, word for word. It renders above the translation. Don't edit it
+  into a different register, and don't replace it with a Claude draft.
+- **Title.** Annotated pages drop the `title` placeholder. The heading is
+  just the `label` (e.g. "Airs", no period). `title` is optional in the
+  schema.
+- **Body.** Delete the other placeholder sections and keep only the one
+  that feeds the comparison: "Candidate claims" on AWP pages.
+- **Perseus links.** The layout adds a "Read on Perseus" link above each
+  translation and, on AWP pages, a per-chapter Perseus link. All Perseus
+  links open in a new tab. `sourceUrl` uses the URL-encoded form
+  (`…Perseus%3Atext%3A1999.01.0251%3Atext%3DAer.%3Asection%3D3`).
+  Per-chapter links for the Epidemics would need the reversed Perseus URL
+  labels (see "Epidemics constitution pages").
 
 ## Research project: history and chosen direction
 
@@ -234,8 +278,9 @@ component change, so discuss it before doing it.
   for the 3–4 illustrative cases. Each has its translation (with source
   cited), commentary, and links to the AWP claims it bears on.
 - **Hippocratic Corpus → AWP:** pages for the chapters the claim list draws
-  on (so far Airs 3–6, Waters 7–9, Seasons 10–11). Each page's "Candidate
-  claims" section collects claims for the list. The claim list itself could
+  on (so far Airs 3–6, Waters 7–9, Seasons 10–11), each annotated by the
+  author (see "Author's annotations"). Each page's "Candidate claims"
+  section collects claims for the list. The claim list itself could
   be a single page or table.
 - **Site dossiers and Journal:** real photos and personal observations that
   keep the fieldwork visible.
