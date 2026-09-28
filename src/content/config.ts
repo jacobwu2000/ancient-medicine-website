@@ -17,7 +17,8 @@ const corpus = defineCollection({
       work: z.enum(['awp', 'epidemics']),
       workTitle: z.string(),
       sectionNumber: z.string(),
-      title: z.string(),
+      // Optional: without it the heading is just the label (e.g. "Airs").
+      title: z.string().optional(),
       order: z.number(),
       // Epidemics: constitution vs. illustrative case history.
       // AWP: `chapter-group`, a run of chapters read together (e.g. Airs, 3–6).
@@ -27,6 +28,9 @@ const corpus = defineCollection({
       label: z.string().optional(),
       // Standard reference, e.g. "Epid. I 1–3".
       reference: z.string().optional(),
+      // Short prose synopsis shown above the translation. Paragraphs
+      // separated by a blank line.
+      synopsis: z.string().optional(),
       greekText: z.string().optional(),
       translation: z.string().optional(),
       passages: z
@@ -35,6 +39,23 @@ const corpus = defineCollection({
             chapter: z.string(),
             // Paragraphs separated by a blank line.
             text: z.string(),
+            // Author's highlighting/bolding, kept apart from `text` so the
+            // translation stays exactly as extracted. Each `text` must occur
+            // exactly once in its paragraph, or the build fails.
+            marks: z
+              .array(z.object({ text: z.string(), category: z.string() }))
+              .optional(),
+          })
+        )
+        .optional(),
+      // Key for the `marks` on this page's passages. `style: bold` renders
+      // as bold text; `highlight` as a coloured highlight (.hl--<id>).
+      highlightKey: z
+        .array(
+          z.object({
+            id: z.string(),
+            label: z.string(),
+            style: z.enum(['bold', 'highlight']).default('highlight'),
           })
         )
         .optional(),

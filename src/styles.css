@@ -572,6 +572,8 @@ code {
 .text-block--greek { border-top: 3px solid var(--color-scholarly); }
 .text-block--translation { border-top: 3px solid var(--color-ink-muted); }
 .text-block--commentary { border-top: 3px solid var(--color-border); }
+.text-block--synopsis { border-top: 3px solid var(--color-scholarly); margin-bottom: 1.5rem; }
+.text-block--synopsis p:last-child { margin-bottom: 0; }
 .text-block--commentary h2:not(:first-child) { margin-top: 2rem; }
 
 /* English-only entries (no Greek column): keep a readable measure. */
@@ -600,7 +602,52 @@ code {
   text-decoration: none;
   padding-top: 0.2rem;
 }
+.passage-gutter { display: flex; flex-direction: column; gap: 0.15rem; }
+.passage-source {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: var(--color-ink-muted);
+}
 .passage-text p:first-child { margin-top: 0; }
+
+.translation-source {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+/* Author's highlighting of the translation (AWP pages), with its key. */
+.highlight-key {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 1.25rem;
+}
+.highlight-key__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-muted);
+}
+.highlight-key ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+}
+.hl { color: inherit; padding: 0 0.1em; border-radius: 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.hl--general { background: #fbe7a1; }
+.hl--digestive { background: #cfe6c0; }
+.hl--head { background: #c7dbf1; }
+.hl--respiratory { background: #f8cf9f; }
+.hl--eyes { background: #d9d9d9; }
+.hl--skin { background: #f1b8b8; }
+.hl--reproductive { background: #d9c8ec; }
 .passage:target { background: var(--color-scholarly-tint); border-radius: var(--radius); }
 
 .citation {

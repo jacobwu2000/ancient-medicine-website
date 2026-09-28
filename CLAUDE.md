@@ -33,8 +33,12 @@ epigraphic record of dream healing.
   script, not yet checked against the printed Loeb). Titles, synopses and
   commentary are still placeholders. See "Epidemics constitution pages" below.
 - AWP pages exist for Airs (ch. 3–6), Waters (7–9) and Seasons (10–11), in
-  `airs.md`, `waters.md` and `seasons.md`, filled in the same way. Titles,
-  synopses and commentary are still placeholders. See "AWP pages" below.
+  `airs.md`, `waters.md` and `seasons.md`, filled in the same way. Airs is
+  further along: the author's highlighting of the text (with a key), the
+  author's synopsis above the translation, no title (heading is just "Airs"),
+  and only a Candidate claims placeholder in the body. Waters and Seasons
+  still have placeholder titles, synopses and commentary. See "AWP pages"
+  below.
 - Home page: framing text (hero, the two "strands" cards for texts and
   places, the "fieldwork is context, not evidence" note) was drafted by
   Claude from this file and has not yet been reviewed by the author. The
@@ -114,7 +118,16 @@ epigraphic record of dream healing.
   are Conditions described; Predicted effects; Who is affected; Causal and
   generalizing language; Candidate claims (condition → predicted tendency,
   firm or loose, feeding the claim list). The Commentary ends with "Bearing
-  on the *Epidemics* constitutions".
+  on the *Epidemics* constitutions". Airs uses a leaner layout set by the
+  author: a short prose `synopsis` field (rendered above the translation),
+  then only "Candidate claims" in the body.
+- **Highlighting:** the author's highlights and bolding live in each
+  passage's `marks` list (exact phrase + category), with the categories in
+  the page's `highlightKey`. `text` itself is never edited. The build fails
+  if a marked phrase isn't found exactly once, so re-check `marks` after
+  re-extracting a text. Add marks only from the author's own markup; don't
+  invent categories or highlights.
+- Every AWP chapter links to its own section on Perseus (added by the layout).
 
 ## Research project: history and chosen direction
 

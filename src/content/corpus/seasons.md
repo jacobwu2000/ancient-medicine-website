@@ -20,7 +20,7 @@ passages:
     text: |
       By studying and observing after this fashion one may foresee most of the consequences of the changes. One should be especially on one’s guard against the most violent changes of the seasons, and unless compelled one should neither purge, nor apply cautery or knife to the bowels, before at least ten days are past. The following are the four most violent changes and the most dangerous:—both solstices, especially the summer solstice, both the equinoxes, so reckoned, especially the autumnal. One must also guard against the risings of the stars, especially of the Dog Star, then of Arcturus, and also of the setting of the Pleiades. For it is especially at these times that diseases come to a crisis. Some prove fatal, some come to an end, all others change to another form and another constitution.
 citation: "Hippocrates, Airs, Waters, Places 10–11, trans. W. H. S. Jones, in Hippocrates, Vol. I, Loeb Classical Library (London: Heinemann; Cambridge, MA: Harvard University Press, 1923), pp. 99–105 [PLACEHOLDER: verify page range against the printed Loeb]. English text from the Perseus Digital Library TEI edition (urn:cts:greekLit:tlg0627.tlg002.perseus-eng4), CC BY-SA 4.0."
-sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0251:text=Aer.:section=10"
+sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0251%3Atext%3DAer.%3Asection%3D10"
 ---
 
 ## Synopsis

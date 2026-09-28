@@ -17,11 +17,64 @@ const { Content } = await entry.render();
 const heading = data.label ?? `§${data.sectionNumber}`;
 const bodyHasOwnHeadings = Boolean(data.kind);
 const paragraphs = (text) => text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+
+// Author's highlighting (see `marks` / `highlightKey` in content/config.ts).
+// Splits a paragraph into plain and marked segments. Throws if a mark's text
+// isn't found exactly once, so a typo or a re-extracted text can't silently
+// drop or misplace a highlight.
+const keyById = new Map((data.highlightKey ?? []).map((k) => [k.id, k]));
+const segments = (para, marks = [], chapter) => {
+  const found = marks
+    .filter((m) => para.includes(m.text))
+    .map((m) => {
+      if (!keyById.has(m.category)) {
+        throw new Error(`${entry.id} ch. ${chapter}: unknown highlight category "${m.category}"`);
+      }
+      const start = para.indexOf(m.text);
+      if (para.indexOf(m.text, start + 1) !== -1) {
+        throw new Error(`${entry.id} ch. ${chapter}: mark "${m.text}" occurs more than once`);
+      }
+      return { start, end: start + m.text.length, key: keyById.get(m.category) };
+    })
+    .sort((a, b) => a.start - b.start);
+  const out = [];
+  let pos = 0;
+  for (const f of found) {
+    if (f.start < pos) throw new Error(`${entry.id} ch. ${chapter}: overlapping marks at "${para.slice(f.start, f.end)}"`);
+    if (f.start > pos) out.push({ text: para.slice(pos, f.start) });
+    out.push({ text: para.slice(f.start, f.end), key: f.key });
+    pos = f.end;
+  }
+  if (pos < para.length) out.push({ text: para.slice(pos) });
+  return out;
+};
+for (const p of data.passages ?? []) {
+  const paras = paragraphs(p.text);
+  for (const m of p.marks ?? []) {
+    if (!paras.some((para) => para.includes(m.text))) {
+      throw new Error(`${entry.id} ch. ${p.chapter}: mark "${m.text}" not found in the text`);
+    }
+  }
+}
+
+// Per-chapter link to the same chapter of Jones on Perseus (AWP only: its
+// chapters are Perseus's top-level sections).
+const perseusChapterUrl = (chapter) =>
+  data.work === 'awp'
+    ? `https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0251%3Atext%3DAer.%3Asection%3D${chapter}`
+    : null;
 ---
 <ScholarlyLayout title={`${data.workTitle} — ${heading}`}>
   <p class="eyebrow">Sources — Hippocratic Corpus — {data.workTitle}</p>
-  <h1>{heading}. {data.title}</h1>
+  <h1>{heading}{data.title && `. ${data.title}`}</h1>
   {data.reference && <p class="corpus-reference">{data.reference}</p>}
+
+  {data.synopsis && (
+    <section class="text-block text-block--synopsis">
+      <h2>Synopsis</h2>
+      {paragraphs(data.synopsis).map((para) => <p>{para}</p>)}
+    </section>
+  )}
 
   <div class={`corpus-grid${data.greekText ? '' : ' corpus-grid--single'}`}>
     {data.greekText && (
@@ -32,13 +85,45 @@ const paragraphs = (text) => text.split(/\n\s*\n/).map((p) => p.trim()).filter(B
     )}
     <section class="text-block text-block--translation">
       <h2>Translation</h2>
+      {data.sourceUrl && (
+        <p class="translation-source">
+          W. H. S. Jones (Loeb, 1923). <a href={data.sourceUrl}>Read on Perseus</a>
+        </p>
+      )}
+      {data.highlightKey && (
+        <div class="highlight-key">
+          <p class="highlight-key__title">Key</p>
+          <ul>
+            {data.highlightKey.map((k) => (
+              <li>
+                {k.style === 'bold'
+                  ? <strong>{k.label}</strong>
+                  : <mark class={`hl hl--${k.id}`}>{k.label}</mark>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {data.passages ? (
         <ol class="passage-list">
           {data.passages.map((p) => (
             <li id={`ch-${p.chapter}`} class="passage">
-              <a class="passage-number" href={`#ch-${p.chapter}`}>{p.chapter}</a>
+              <div class="passage-gutter">
+                <a class="passage-number" href={`#ch-${p.chapter}`}>{p.chapter}</a>
+                {perseusChapterUrl(p.chapter) && (
+                  <a class="passage-source" href={perseusChapterUrl(p.chapter)} title={`Chapter ${p.chapter} on Perseus`}>Perseus</a>
+                )}
+              </div>
               <div class="passage-text">
-                {paragraphs(p.text).map((para) => <p>{para}</p>)}
+                {paragraphs(p.text).map((para) => (
+                  <p>
+                    {segments(para, p.marks, p.chapter).map((seg) =>
+                      !seg.key ? seg.text
+                      : seg.key.style === 'bold' ? <strong>{seg.text}</strong>
+                      : <mark class={`hl hl--${seg.key.id}`}>{seg.text}</mark>
+                    )}
+                  </p>
+                ))}
               </div>
             </li>
           ))}

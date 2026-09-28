@@ -19,7 +19,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
   <ol class="corpus-toc">
     {constitutions.map((s) => (
       <li>
-        <a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}. {s.data.title}</a>
+        <a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
         {s.data.reference && <span class="corpus-toc-ref"> — {s.data.reference}</span>}
       </li>
     ))}
@@ -30,7 +30,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
     <ol class="corpus-toc">
       {cases.map((s) => (
         <li>
-          <a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}. {s.data.title}</a>
+          <a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
           {s.data.reference && <span class="corpus-toc-ref"> — {s.data.reference}</span>}
         </li>
       ))}
@@ -42,7 +42,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
   {other.length > 0 && (
     <ol class="corpus-toc">
       {other.map((s) => (
-        <li><a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}. {s.data.title}</a></li>
+        <li><a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a></li>
       ))}
     </ol>
   )}
