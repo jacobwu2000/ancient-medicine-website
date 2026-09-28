@@ -1,4 +1,5 @@
 ---
+import { url } from '../../utils/url.js';
 import { getCollection } from 'astro:content';
 import JournalLayout from '../../layouts/JournalLayout.astro';
 import { excerpt, formatDate, stopNumber } from '../../utils/journal.js';
@@ -14,7 +15,7 @@ const entries = (await getCollection('journal')).sort(
   <ol class="itinerary" reversed>
     {entries.map((e, i) => (
       <li class="itinerary__stop">
-        <a href={`/field-journal/${e.slug}`}>
+        <a href={url(`/field-journal/${e.slug}`)}>
           <span class="itinerary__date">{stopNumber(entries.length - i)} · {formatDate(e.data.date, 'short')}</span>
           <span class="itinerary__title">{e.data.title}</span>
           {e.data.location && <span class="itinerary__place">{e.data.location}</span>}

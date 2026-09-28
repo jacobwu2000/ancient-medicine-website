@@ -1,4 +1,5 @@
 ---
+import { url } from '../../../../utils/url.js';
 import { getCollection } from 'astro:content';
 import ScholarlyLayout from '../../../../layouts/ScholarlyLayout.astro';
 
@@ -19,7 +20,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
   <ol class="corpus-toc">
     {constitutions.map((s) => (
       <li>
-        <a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
+        <a href={url(`/sources/hippocratic-corpus/epidemics/${s.slug}`)}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
         {s.data.reference && <span class="corpus-toc-ref"> — {s.data.reference}</span>}
       </li>
     ))}
@@ -30,7 +31,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
     <ol class="corpus-toc">
       {cases.map((s) => (
         <li>
-          <a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
+          <a href={url(`/sources/hippocratic-corpus/epidemics/${s.slug}`)}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
           {s.data.reference && <span class="corpus-toc-ref"> — {s.data.reference}</span>}
         </li>
       ))}
@@ -42,7 +43,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
   {other.length > 0 && (
     <ol class="corpus-toc">
       {other.map((s) => (
-        <li><a href={`/sources/hippocratic-corpus/epidemics/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a></li>
+        <li><a href={url(`/sources/hippocratic-corpus/epidemics/${s.slug}`)}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a></li>
       ))}
     </ol>
   )}
@@ -62,6 +63,6 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
     constitution in Book I (1–3, 4–12, 13–26). In Book III the constitution
     occupies chapters 2–16 of its section. Every chapter has its own link
     (for example <code>constitution-2#ch-5</code>), so the synopsis and
-    <a href="/the-argument">The Argument</a> can point to a specific chapter.
+    <a href={url('/the-argument')}>The Argument</a> can point to a specific chapter.
   </p>
 </ScholarlyLayout>

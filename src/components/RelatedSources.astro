@@ -1,4 +1,5 @@
 ---
+import { url } from '../utils/url.js';
 // Renders a Field Journal entry's outbound links to Sources pages.
 // Journal entries link OUT to Sources; Sources pages never link back in.
 const { items = [] } = Astro.props;
@@ -8,7 +9,7 @@ const { items = [] } = Astro.props;
     <h2>Related Sources</h2>
     <ul>
       {items.map((item) => (
-        <li><a href={item.href}>{item.label}</a></li>
+        <li><a href={url(item.href)}>{item.label}</a></li>
       ))}
     </ul>
   </nav>

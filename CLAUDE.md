@@ -324,6 +324,11 @@ component change, so discuss it before doing it.
 - Information architecture: journal entries link *out* to Sources via
   `relatedSources`, and Sources pages never link back in. Site
   geo/cross-reference data lives only in `src/data/sites.json`.
+- The site deploys to GitHub Pages under `/ancient-medicine-website/` (the
+  `base` in `astro.config.mjs`). In templates and components, wrap internal
+  links in `url()` from `src/utils/url.js`. Markdown/MDX links, frontmatter
+  `href`s and `sites.json` keep plain `/…` paths; a rehype plugin and the
+  components add the prefix.
 - Only link a map site to a Hippocratic passage (`relatedHippocraticPassages`)
   if the text actually concerns that place. Don't add links just to
   connect the fieldwork to the texts.

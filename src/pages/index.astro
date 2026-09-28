@@ -1,4 +1,5 @@
 ---
+import { url } from '../utils/url.js';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteMap from '../components/SiteMap.jsx';
 import sites from '../data/sites.json';
@@ -25,8 +26,8 @@ const stops = (await getCollection('journal')).sort(
       different jobs, as set out below.
     </p>
     <div class="hero-actions">
-      <a class="button button--primary" href="/the-argument">Read the Argument</a>
-      <a class="button" href="/field-journal">Open the Field Journal</a>
+      <a class="button button--primary" href={url('/the-argument')}>Read the Argument</a>
+      <a class="button" href={url('/field-journal')}>Open the Field Journal</a>
     </div>
   </section>
 
@@ -46,8 +47,8 @@ const stops = (await getCollection('journal')).sort(
         <li><strong>Translation:</strong> W. H. S. Jones, Loeb (1923)</li>
       </ul>
       <p class="strand__links">
-        <a href="/the-argument">The Argument &rarr;</a>
-        <a href="/sources/hippocratic-corpus/epidemics">The constitutions &rarr;</a>
+        <a href={url('/the-argument')}>The Argument &rarr;</a>
+        <a href={url('/sources/hippocratic-corpus/epidemics')}>The constitutions &rarr;</a>
       </p>
     </article>
 
@@ -66,8 +67,8 @@ const stops = (await getCollection('journal')).sort(
         <li><strong>Record:</strong> field journal, site dossiers, photographs</li>
       </ul>
       <p class="strand__links">
-        <a href="/field-journal">Field Journal &rarr;</a>
-        <a href="/map">Map of sites &rarr;</a>
+        <a href={url('/field-journal')}>Field Journal &rarr;</a>
+        <a href={url('/map')}>Map of sites &rarr;</a>
       </p>
     </article>
   </div>
@@ -85,7 +86,7 @@ const stops = (await getCollection('journal')).sort(
     <ol class="itinerary">
       {stops.map((e, i) => (
         <li class="itinerary__stop">
-          <a href={`/field-journal/${e.slug}`}>
+          <a href={url(`/field-journal/${e.slug}`)}>
             <span class="itinerary__date">{stopNumber(i + 1)} · {formatDate(e.data.date, 'short')}</span>
             <span class="itinerary__title">{e.data.title}</span>
             <span class="itinerary__excerpt">{excerpt(e.body)}</span>

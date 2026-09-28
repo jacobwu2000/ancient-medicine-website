@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
+import { url } from '../utils/url.js';
 import 'leaflet/dist/leaflet.css';
 
 // The layer toggle is the site's core scholarly contribution, so it is
@@ -110,7 +111,7 @@ export default function SiteMap({ sites }) {
                       </span>
                     )}
                   </p>
-                  <a href={site.dossier}>Open site dossier &rarr;</a>
+                  <a href={url(site.dossier)}>Open site dossier &rarr;</a>
                 </div>
               </Popup>
             </Marker>

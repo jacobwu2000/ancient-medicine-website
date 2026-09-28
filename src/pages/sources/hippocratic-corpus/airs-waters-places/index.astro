@@ -1,4 +1,5 @@
 ---
+import { url } from '../../../../utils/url.js';
 import { getCollection } from 'astro:content';
 import ScholarlyLayout from '../../../../layouts/ScholarlyLayout.astro';
 
@@ -14,7 +15,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
   <ol class="corpus-toc">
     {sections.map((s) => (
       <li>
-        <a href={`/sources/hippocratic-corpus/airs-waters-places/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
+        <a href={url(`/sources/hippocratic-corpus/airs-waters-places/${s.slug}`)}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
         {s.data.reference && <span class="corpus-toc-ref"> — {s.data.reference}</span>}
       </li>
     ))}
@@ -26,7 +27,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
     site uses to group them. Chapters carry the numbers of W. H. S. Jones’s Loeb
     translation as encoded by the Perseus Digital Library, cited as “AWP 5”.
     Every chapter has its own link (for example <code>airs#ch-5</code>), so the
-    synopsis and <a href="/the-argument">The Argument</a> can point to a
+    synopsis and <a href={url('/the-argument')}>The Argument</a> can point to a
     specific chapter.
   </p>
 </ScholarlyLayout>
