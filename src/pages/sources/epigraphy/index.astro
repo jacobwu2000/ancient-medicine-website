@@ -1,5 +1,4 @@
 ---
-import { url } from '../../../utils/url.js';
 import ScholarlyLayout from '../../../layouts/ScholarlyLayout.astro';
 import inscriptions from '../../../data/inscriptions.json';
 import sites from '../../../data/sites.json';
@@ -17,8 +16,8 @@ import sites from '../../../data/sites.json';
       const site = sites.find((s) => s.id === i.siteId);
       return (
         <li>
-          <a href={url(`/sources/epigraphy/${i.id}`)}>{i.title}</a>
-          {site && <> — <a href={url(`/sources/site-archaeology/${site.id}`)}>{site.name}</a></>}
+          <a href={`/sources/epigraphy/${i.id}`}>{i.title}</a>
+          {site && <> — <a href={`/sources/site-archaeology/${site.id}`}>{site.name}</a></>}
         </li>
       );
     })}

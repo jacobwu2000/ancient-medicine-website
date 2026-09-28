@@ -1,5 +1,4 @@
 ---
-import { base, url } from '../utils/url.js';
 import '../styles.css';
 
 const {
@@ -23,8 +22,7 @@ const navGroups = [
   ],
   [{ href: '/about', label: 'About' }],
 ];
-// Current path without the `base` prefix, so it compares against the nav hrefs.
-const path = Astro.url.pathname.replace(/\/$/, '').slice(base.length) || '/';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isCurrent = (href) => (href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`));
 ---
 <!DOCTYPE html>
@@ -46,7 +44,7 @@ const isCurrent = (href) => (href === '/' ? path === '/' : path === href || path
 
     <header class="site-header">
       <div class="container site-header__row">
-        <a class="site-title" href={url('/')}>
+        <a class="site-title" href="/">
           <span class="site-title__main">Ancient Medicine &amp; Healing</span>
           <span class="site-title__sub">Word and Ritual in Greek Sanctuaries</span>
         </a>
@@ -55,7 +53,7 @@ const isCurrent = (href) => (href === '/' ? path === '/' : path === href || path
             <ul class="site-nav__group">
               {group.map((item) => (
                 <li>
-                  <a href={url(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+                  <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
                 </li>
               ))}
             </ul>

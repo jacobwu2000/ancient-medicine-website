@@ -1,5 +1,4 @@
 ---
-import { url } from '../../utils/url.js';
 import ScholarlyLayout from '../../layouts/ScholarlyLayout.astro';
 ---
 <ScholarlyLayout title="Sources">
@@ -8,15 +7,15 @@ import ScholarlyLayout from '../../layouts/ScholarlyLayout.astro';
   <p>[PLACEHOLDER: framing paragraph describing the three bodies of source material this project draws on and how they relate.]</p>
 
   <div class="sources-grid">
-    <a class="sources-card" href={url('/sources/hippocratic-corpus')}>
+    <a class="sources-card" href="/sources/hippocratic-corpus">
       <h2>Hippocratic Corpus</h2>
       <p>Close readings of Airs, Waters, Places and Epidemics.</p>
     </a>
-    <a class="sources-card" href={url('/sources/epigraphy')}>
+    <a class="sources-card" href="/sources/epigraphy">
       <h2>Epigraphy</h2>
       <p>The Epidaurian iamata and related dream-healing inscriptions.</p>
     </a>
-    <a class="sources-card" href={url('/sources/site-archaeology')}>
+    <a class="sources-card" href="/sources/site-archaeology">
       <h2>Site Archaeology</h2>
       <p>Dossiers on Epidauros, Kos, Trikka, and related sites.</p>
     </a>

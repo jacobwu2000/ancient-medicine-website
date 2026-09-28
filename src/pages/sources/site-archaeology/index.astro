@@ -1,5 +1,4 @@
 ---
-import { url } from '../../../utils/url.js';
 import { getCollection } from 'astro:content';
 import ScholarlyLayout from '../../../layouts/ScholarlyLayout.astro';
 import sites from '../../../data/sites.json';
@@ -20,7 +19,7 @@ const dossiers = (await getCollection('site-archaeology')).sort(
       const site = sites.find((s) => s.id === d.data.siteId);
       return (
         <li>
-          <a href={url(`/sources/site-archaeology/${d.slug}`)}>{d.data.title}</a>
+          <a href={`/sources/site-archaeology/${d.slug}`}>{d.data.title}</a>
           {site && <> — {site.shortDescription}</>}
         </li>
       );
