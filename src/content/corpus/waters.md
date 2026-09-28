@@ -10,7 +10,6 @@ kind: chapter-group
 sectionNumber: "7–9"
 label: "Waters"
 reference: "Airs, Waters, Places 7–9"
-title: "[PLACEHOLDER: short descriptive title]"
 order: 2
 passages:
   - chapter: "7"

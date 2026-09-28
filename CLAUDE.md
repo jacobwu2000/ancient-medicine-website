@@ -38,7 +38,9 @@ epigraphic record of dream healing.
   and Seasons are annotated** (see "Author's annotations" below): the
   author's highlighting and key, the author's synopsis, no title, and only a
   Candidate claims placeholder in the body. Waters is not annotated yet and
-  still has the older placeholder sections.
+  still has the older placeholder sections, but no `title` placeholder. The
+  AWP index flags any page without a `highlightKey` as "[WIP]", so the flag
+  goes away by itself once a page is annotated.
 - The author plans to annotate Waters and the four constitutions the same
   way. The claim list and the comparison itself
   haven't been started.
@@ -119,7 +121,7 @@ epigraphic record of dream healing.
   (introduction) and 12–24 are not covered yet.
 - **Fetching the text:** `python scripts/extract-jones.py awp FIRST-LAST`
   (e.g. `3-6`).
-- **Page structure:** unannotated pages (Waters, Seasons) still carry the
+- **Page structure:** unannotated pages (Waters) still carry the
   original placeholder body: a Synopsis with fixed headings (Conditions
   described; Predicted effects; Who is affected; Causal and generalizing
   language; Candidate claims) and a Commentary ending "Bearing on the
@@ -168,7 +170,12 @@ Seasons by weather "case".
   (`crisis`). Its colours are the exact Google Docs hex values from the PDF.
   A page with a different key needs any new `id`s added to `styles.css`:
   use the PDF's extracted colours, and ask the author only if they can't be
-  read from the PDF. Don't invent a colour scheme. Where a category means the same thing on an AWP page and a
+  read from the PDF. Don't invent a colour scheme.
+- **Author's later corrections win over the PDF.** In Seasons ch. 10 the
+  PDF marks "the summer cannot fail to be feverladen" as a Case B
+  conditional. At the author's request it is a Case B prognosis, matching
+  their synopsis (Case B's conditions are winter and spring only). Keep this
+  if the page is ever re-transcribed from the PDF. Where a category means the same thing on an AWP page and a
   constitution, keep the same `id` and colour so the two can be read
   side by side.
 - **Transcribe exactly what the PDF marks.** Don't add, extend, merge or

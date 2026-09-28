@@ -6,6 +6,8 @@ const sections = (await getCollection('corpus', ({ data }) => data.work === 'awp
   (a, b) => a.data.order - b.data.order
 );
 const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
+// Pages not yet annotated by the author (no highlight key) are flagged [WIP].
+const wip = (s) => (s.data.highlightKey ? '' : ' [WIP]');
 ---
 <ScholarlyLayout title="Airs, Waters, Places">
   <p class="eyebrow">Sources — Hippocratic Corpus</p>
@@ -14,7 +16,7 @@ const heading = (s) => s.data.label ?? `§${s.data.sectionNumber}`;
   <ol class="corpus-toc">
     {sections.map((s) => (
       <li>
-        <a href={`/sources/hippocratic-corpus/airs-waters-places/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}</a>
+        <a href={`/sources/hippocratic-corpus/airs-waters-places/${s.slug}`}>{heading(s)}{s.data.title && `. ${s.data.title}`}{wip(s)}</a>
         {s.data.reference && <span class="corpus-toc-ref"> — {s.data.reference}</span>}
       </li>
     ))}
