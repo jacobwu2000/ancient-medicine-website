@@ -87,7 +87,7 @@ const perseusChapterUrl = (chapter) =>
       <h2>Translation</h2>
       {data.sourceUrl && (
         <p class="translation-source">
-          W. H. S. Jones (Loeb, 1923). <a href={data.sourceUrl}>Read on Perseus</a>
+          W. H. S. Jones (Loeb, 1923). <a href={data.sourceUrl} target="_blank" rel="noopener noreferrer">Read on Perseus</a>
         </p>
       )}
       {data.highlightKey && (
@@ -111,7 +111,7 @@ const perseusChapterUrl = (chapter) =>
               <div class="passage-gutter">
                 <a class="passage-number" href={`#ch-${p.chapter}`}>{p.chapter}</a>
                 {perseusChapterUrl(p.chapter) && (
-                  <a class="passage-source" href={perseusChapterUrl(p.chapter)} title={`Chapter ${p.chapter} on Perseus`}>Perseus</a>
+                  <a class="passage-source" href={perseusChapterUrl(p.chapter)} target="_blank" rel="noopener noreferrer" title={`Chapter ${p.chapter} on Perseus`}>Perseus</a>
                 )}
               </div>
               <div class="passage-text">
@@ -142,7 +142,7 @@ const perseusChapterUrl = (chapter) =>
   {(data.citation || data.sourceUrl) && (
     <p class="citation">
       {data.citation}
-      {data.sourceUrl && <> <a href={data.sourceUrl}>View source text</a>.</>}
+      {data.sourceUrl && <> <a href={data.sourceUrl} target="_blank" rel="noopener noreferrer">View source text</a>.</>}
     </p>
   )}
 </ScholarlyLayout>
