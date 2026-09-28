@@ -10,48 +10,77 @@ kind: chapter-group
 sectionNumber: "10–11"
 label: "Seasons"
 reference: "Airs, Waters, Places 10–11"
-title: "[PLACEHOLDER: short descriptive title]"
 order: 3
 passages:
   - chapter: "10"
     text: |
       This, or something very like this, is the truth concerning these matters. As to the seasons, a consideration of the following points will make it possible to decide whether the year will prove unhealthy or healthy. If the signs prove normal when the stars set and rise; if there be rains in autumn, if the winter be moderate, neither too mild nor unseasonably cold, and if the rains be seasonable in spring and in summer, the year is likely to be very healthy. If, on the other hand, the winter prove dry and northerly, the spring rainy and southerly, the summer cannot fail to be feverladen, causing ophthalmia and dysenteries. For whenever the great heat comes on suddenly while the earth is soaked by reason of the spring rains and the south wind, the heat cannot fail to be doubled, coming from the hot, sodden earth and the burning sun; men’s bowels not being braced nor their brain dried—for when spring is such the body and its flesh must necessarily be flabby—the fevers that attack are of the acutest type in all cases, especially among the phlegmatic. Dysenteries are also likely to come upon women and the most humid constitutions. If at the rising of the Dog Star stormy rain occurs and the Etesian winds blow, there is hope that the distempers will cease and that the autumn will be healthy. Otherwise there is danger lest deaths occur among the women and children, and least of all among the old men; and lest those that get better lapse into quartans, and from quartans into dropsies. But if the winter be southerly, rainy and mild, and the spring be northerly, dry and wintry, in the first place women with child whose delivery is due by spring suffer abortion; and if they do bring forth, their children are weak and sickly, so that either they die at once, or live puny, weak and sickly. Such is the fate of the women. The others have dysenteries and dry ophthalmia, and in some cases catarrhs descend from the head to the lungs. Phlegmatics are liable to dysenteries, and women also, phlegm running down from the brain because of the humidity of their constitution. The bilious have dry ophthalmia because of the warm dryness of their flesh. Old men have catarrhs because of their flabbiness and the wasting of their veins, so that some die suddenly, while others become paralyzed on the right side or the left. For whenever, owing to the winter being southerly and the body warm, neither brain nor veins are hardened, a northerly, dry, cold spring supervening, the brain, just at the time when it ought to have been relaxed along with spring and purged by cold in the head and hoarseness, congeals and hardens, so that the heat of summer having suddenly supervened and the change supervening, these diseases befall. Such cities as are well situated with regard to sun and winds, and use good waters, are less affected by such changes; but if they use marshy or standing waters, and are not well situated with regard to winds and sun, they are more affected. If the summer prove dry, the diseases cease more quickly; if it be rainy, they are protracted. Sores are apt to fester from the slightest cause. Lienteries and dropsies supervene on the conclusion of the diseases, as the bowels do not readily dry up. If the summer and the autumn be rainy and southerly, the winter must be unhealthy; phlegmatics and men over forty are likely to suffer from ardent fevers, bilious people from pleurisy and pneumonia. If the summer prove dry and northerly, and the autumn rainy and southerly, it is likely that in winter headaches occur and mortifications of the brain, and in addition hoarseness, colds in the head, coughs, and in some cases consumption as well. But if the weather be northerly and dry, with no rain either during the Dog Star or at Arcturus, it is very beneficial to those who have a phlegmatic or humid constitution, and to women, but it is very harmful to the bilious. For these dry up overmuch, and are attacked by dry ophthalmia and by acute, protracted fevers, in some cases too by melancholies. For the most humid and watery part of the bile is dried up and is spent, while the thickest and most acrid part is left, and similarly with the blood. Consequently these diseases come upon them. But all these conditions are helpful to the phlegmatic, for they dry up and reach winter dried up and not flabby.
+    marks:
+      - { category: case-a-cond, text: "If the signs prove normal when the stars set and rise; if there be rains in autumn, if the winter be moderate, neither too mild nor unseasonably cold, and if the rains be seasonable in spring and in summer" }
+      - { category: case-a-prog, text: "the year is likely to be very healthy" }
+      - { category: case-b-cond, text: "If, on the other hand, the winter prove dry and northerly, the spring rainy and southerly" }
+      - { category: case-b-prog, text: "the summer cannot fail to be feverladen" }
+      - { category: case-b-prog, text: "causing ophthalmia and dysenteries" }
+      - { category: case-b-prog, text: "the fevers that attack are of the acutest type in all cases, especially among the phlegmatic" }
+      - { category: case-b-prog, text: "Dysenteries are also likely to come upon women and the most humid constitutions" }
+      - { category: case-b-cond, text: "If at the rising of the Dog Star stormy rain occurs and the Etesian winds blow" }
+      - { category: case-b-prog, text: "there is hope that the distempers will cease and that the autumn will be healthy" }
+      - { category: case-b-cond, text: "Otherwise" }
+      - { category: case-b-prog, text: "there is danger lest deaths occur among the women and children, and least of all among the old men; and lest those that get better lapse into quartans, and from quartans into dropsies" }
+      - { category: case-c-cond, text: "But if the winter be southerly, rainy and mild, and the spring be northerly, dry and wintry" }
+      - { category: case-c-prog, text: "in the first place women with child whose delivery is due by spring suffer abortion; and if they do bring forth, their children are weak and sickly, so that either they die at once, or live puny, weak and sickly" }
+      - { category: case-c-prog, text: "The others have dysenteries and dry ophthalmia, and in some cases catarrhs descend from the head to the lungs" }
+      - { category: case-c-prog, text: "Old men have catarrhs because of their flabbiness and the wasting of their veins, so that some die suddenly, while others become paralyzed on the right side or the left" }
+      - { category: case-c-cond, text: "Such cities as are well situated with regard to sun and winds, and use good waters" }
+      - { category: case-c-prog, text: "less affected by such changes" }
+      - { category: case-c-cond, text: "if they use marshy or standing waters, and are not well situated with regard to winds and sun" }
+      - { category: case-c-prog, text: "they are more affected" }
+      # "If the summer prove dry" also begins case E's condition later in the chapter.
+      - { category: case-c-cond, text: "If the summer prove dry", occurrence: 1 }
+      - { category: case-c-prog, text: "diseases cease more quickly" }
+      - { category: case-c-cond, text: "if it be rainy" }
+      - { category: case-c-prog, text: "they are protracted" }
+      - { category: case-d-cond, text: "If the summer and the autumn be rainy and southerly" }
+      - { category: case-d-prog, text: "the winter must be unhealthy" }
+      - { category: case-d-prog, text: "phlegmatics and men over forty are likely to suffer from ardent fevers, bilious people from pleurisy and pneumonia" }
+      - { category: case-e-cond, text: "If the summer prove dry and northerly, and the autumn rainy and southerly" }
+      - { category: case-e-prog, text: "it is likely that in winter headaches occur and mortifications of the brain, and in addition hoarseness, colds in the head, coughs, and in some cases consumption as well" }
+      - { category: case-f-cond, text: "if the weather be northerly and dry, with no rain either during the Dog Star or at Arcturus" }
+      - { category: case-f-prog, text: "it is very beneficial to those who have a phlegmatic or humid constitution, and to women, but it is very harmful to the bilious" }
+      - { category: case-f-prog, text: "For these dry up overmuch, and are attacked by dry ophthalmia and by acute, protracted fevers, in some cases too by melancholies" }
   - chapter: "11"
     text: |
       By studying and observing after this fashion one may foresee most of the consequences of the changes. One should be especially on one’s guard against the most violent changes of the seasons, and unless compelled one should neither purge, nor apply cautery or knife to the bowels, before at least ten days are past. The following are the four most violent changes and the most dangerous:—both solstices, especially the summer solstice, both the equinoxes, so reckoned, especially the autumnal. One must also guard against the risings of the stars, especially of the Dog Star, then of Arcturus, and also of the setting of the Pleiades. For it is especially at these times that diseases come to a crisis. Some prove fatal, some come to an end, all others change to another form and another constitution.
+    marks:
+      - { category: crisis, text: "both solstices, especially the summer solstice, both the equinoxes, so reckoned, especially the autumnal" }
+      - { category: crisis, text: "the risings of the stars, especially of the Dog Star, then of Arcturus, and also of the setting of the Pleiades" }
+synopsis: |
+  AWP 10-11 provides an overview of how shifts in weather across seasons affect epidemics and health tendencies. I identified six cases where some kind of prognosis was provided given a specific seasonal weather condition:
+
+  (A) Rainy autumn; moderate winter; seasonable spring and summer (a normal year)
+  (B) Dry, northerly winter; rainy, southerly spring
+  (C) Rainy, mild, southerly winter; dry, wintry, northerly spring
+  (D) Rainy, southerly summer and autumn
+  (E) Dry, northerly summer; rainy, southerly autumn
+  (F) Dry, northerly overall; no rain mid-summer
+highlightKey:
+  - { id: case-a-cond, group: "Case A", label: "conditionals" }
+  - { id: case-a-prog, group: "Case A", label: "prognoses" }
+  - { id: case-b-cond, group: "Case B", label: "conditionals" }
+  - { id: case-b-prog, group: "Case B", label: "prognoses" }
+  - { id: case-c-cond, group: "Case C", label: "conditionals" }
+  - { id: case-c-prog, group: "Case C", label: "prognoses" }
+  - { id: case-d-cond, group: "Case D", label: "conditionals" }
+  - { id: case-d-prog, group: "Case D", label: "prognoses" }
+  - { id: case-e-cond, group: "Case E", label: "conditionals" }
+  - { id: case-e-prog, group: "Case E", label: "prognoses" }
+  - { id: case-f-cond, group: "Case F", label: "conditionals" }
+  - { id: case-f-prog, group: "Case F", label: "prognoses" }
+  - { id: crisis, label: "Dangerous Crisis Points" }
 citation: "Hippocrates, Airs, Waters, Places 10–11, trans. W. H. S. Jones, in Hippocrates, Vol. I, Loeb Classical Library (London: Heinemann; Cambridge, MA: Harvard University Press, 1923), pp. 99–105 [PLACEHOLDER: verify page range against the printed Loeb]. English text from the Perseus Digital Library TEI edition (urn:cts:greekLit:tlg0627.tlg002.perseus-eng4), CC BY-SA 4.0."
 sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0251%3Atext%3DAer.%3Asection%3D10"
 ---
 
-## Synopsis
-
-*Draft synopsis of the translation above. Every point cites a chapter number
-([10](#ch-10) etc.) so it can be checked against the text on this page.*
-
-### Conditions described
-
-[PLACEHOLDER: the environmental conditions these chapters discuss, in the text's own terms.]
-
-### Predicted effects
-
-[PLACEHOLDER: the effects on bodies, health and disease that the text predicts, with chapter references.]
-
-### Who is affected
-
-[PLACEHOLDER: age, sex, constitution or other groups the text singles out.]
-
-### Causal and generalizing language
-
-[PLACEHOLDER: quoted phrases such as "most", "for the most part", "necessarily", with chapter references.]
-
-### Candidate claims
+## Candidate claims
 
 [PLACEHOLDER: claims for the AWP claim list, each written as condition → predicted tendency and marked as a firm causal claim or a looser correlation.]
-
-## Commentary
-
-[PLACEHOLDER: commentary on AWP 10–11.]
-
-### Bearing on the *Epidemics* constitutions
-
-[PLACEHOLDER: which constitutions these chapters can be compared with, and where the two frameworks meet or don't.]

@@ -29,7 +29,7 @@ const corpus = defineCollection({
       // Standard reference, e.g. "Epid. I 1–3".
       reference: z.string().optional(),
       // Short prose synopsis shown above the translation. Paragraphs
-      // separated by a blank line.
+      // separated by a blank line; a single newline is a line break.
       synopsis: z.string().optional(),
       greekText: z.string().optional(),
       translation: z.string().optional(),
@@ -41,20 +41,30 @@ const corpus = defineCollection({
             text: z.string(),
             // Author's highlighting/bolding, kept apart from `text` so the
             // translation stays exactly as extracted. Each `text` must occur
-            // exactly once in its paragraph, or the build fails.
+            // exactly once in its paragraph, or the build fails, unless
+            // `occurrence` (1-based) says which of several matches is meant.
             marks: z
-              .array(z.object({ text: z.string(), category: z.string() }))
+              .array(
+                z.object({
+                  text: z.string(),
+                  category: z.string(),
+                  occurrence: z.number().int().positive().optional(),
+                })
+              )
               .optional(),
           })
         )
         .optional(),
       // Key for the `marks` on this page's passages. `style: bold` renders
       // as bold text; `highlight` as a coloured highlight (.hl--<id>).
+      // Consecutive entries sharing a `group` share one line of the key,
+      // e.g. "Case A: conditionals and prognoses".
       highlightKey: z
         .array(
           z.object({
             id: z.string(),
             label: z.string(),
+            group: z.string().optional(),
             style: z.enum(['bold', 'highlight']).default('highlight'),
           })
         )

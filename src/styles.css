@@ -648,6 +648,20 @@ code {
 .hl--eyes { background: #d9d9d9; }
 .hl--skin { background: #f1b8b8; }
 .hl--reproductive { background: #d9c8ec; }
+/* Seasons (AWP 10–11): Google Docs colours from the author's PDF. */
+.hl--case-a-cond { background: #f4cccc; }
+.hl--case-a-prog { background: #ea9999; }
+.hl--case-b-cond { background: #fce5cd; }
+.hl--case-b-prog { background: #f9cb9c; }
+.hl--case-c-cond { background: #fff2cc; }
+.hl--case-c-prog { background: #ffe599; }
+.hl--case-d-cond { background: #d9ead3; }
+.hl--case-d-prog { background: #b6d7a8; }
+.hl--case-e-cond { background: #cfe2f3; }
+.hl--case-e-prog { background: #9fc5e8; }
+.hl--case-f-cond { background: #d9d2e9; }
+.hl--case-f-prog { background: #b4a7d6; }
+.hl--crisis { background: #d5a6bd; }
 .passage:target { background: var(--color-scholarly-tint); border-radius: var(--radius); }
 
 .citation {

@@ -20,8 +20,8 @@ const paragraphs = (text) => text.split(/\n\s*\n/).map((p) => p.trim()).filter(B
 
 // Author's highlighting (see `marks` / `highlightKey` in content/config.ts).
 // Splits a paragraph into plain and marked segments. Throws if a mark's text
-// isn't found exactly once, so a typo or a re-extracted text can't silently
-// drop or misplace a highlight.
+// isn't found exactly once (or, with `occurrence`, at least that many times),
+// so a typo or a re-extracted text can't silently drop or misplace a highlight.
 const keyById = new Map((data.highlightKey ?? []).map((k) => [k.id, k]));
 const segments = (para, marks = [], chapter) => {
   const found = marks
@@ -30,8 +30,13 @@ const segments = (para, marks = [], chapter) => {
       if (!keyById.has(m.category)) {
         throw new Error(`${entry.id} ch. ${chapter}: unknown highlight category "${m.category}"`);
       }
-      const start = para.indexOf(m.text);
-      if (para.indexOf(m.text, start + 1) !== -1) {
+      let start = para.indexOf(m.text);
+      if (m.occurrence) {
+        for (let n = 1; n < m.occurrence && start !== -1; n++) start = para.indexOf(m.text, start + 1);
+        if (start === -1) {
+          throw new Error(`${entry.id} ch. ${chapter}: mark "${m.text}" has no occurrence ${m.occurrence}`);
+        }
+      } else if (para.indexOf(m.text, start + 1) !== -1) {
         throw new Error(`${entry.id} ch. ${chapter}: mark "${m.text}" occurs more than once`);
       }
       return { start, end: start + m.text.length, key: keyById.get(m.category) };
@@ -57,6 +62,16 @@ for (const p of data.passages ?? []) {
   }
 }
 
+// Key rows: consecutive entries with the same `group` share one row.
+const keyRows = [];
+for (const k of data.highlightKey ?? []) {
+  const last = keyRows[keyRows.length - 1];
+  if (k.group && last?.group === k.group) last.items.push(k);
+  else keyRows.push({ group: k.group, items: [k] });
+}
+const keySeparator = (i, n) => (i === 0 ? null : i === n - 1 ? ' and ' : ', ');
+const synopsisLines = (para) => para.split(/\n/);
+
 // Per-chapter link to the same chapter of Jones on Perseus (AWP only: its
 // chapters are Perseus's top-level sections).
 const perseusChapterUrl = (chapter) =>
@@ -72,7 +87,9 @@ const perseusChapterUrl = (chapter) =>
   {data.synopsis && (
     <section class="text-block text-block--synopsis">
       <h2>Synopsis</h2>
-      {paragraphs(data.synopsis).map((para) => <p>{para}</p>)}
+      {paragraphs(data.synopsis).map((para) => (
+        <p>{synopsisLines(para).map((line, i) => <>{i > 0 && <br />}{line}</>)}</p>
+      ))}
     </section>
   )}
 
@@ -94,11 +111,17 @@ const perseusChapterUrl = (chapter) =>
         <div class="highlight-key">
           <p class="highlight-key__title">Key</p>
           <ul>
-            {data.highlightKey.map((k) => (
+            {keyRows.map((row) => (
               <li>
-                {k.style === 'bold'
-                  ? <strong>{k.label}</strong>
-                  : <mark class={`hl hl--${k.id}`}>{k.label}</mark>}
+                {row.group && <>{row.group}: </>}
+                {row.items.map((k, i) => (
+                  <>
+                    {keySeparator(i, row.items.length)}
+                    {k.style === 'bold'
+                      ? <strong>{k.label}</strong>
+                      : <mark class={`hl hl--${k.id}`}>{k.label}</mark>}
+                  </>
+                ))}
               </li>
             ))}
           </ul>

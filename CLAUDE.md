@@ -34,13 +34,13 @@ epigraphic record of dream healing.
   titles, synopses and commentary are still placeholders. See "Epidemics
   constitution pages" below.
 - AWP pages exist for Airs (ch. 3–6), Waters (7–9) and Seasons (10–11), in
-  `airs.md`, `waters.md` and `seasons.md`, filled in the same way. **Airs is
-  annotated** (see "Author's annotations" below): the author's highlighting
-  and key, the author's synopsis, no title, and only a Candidate claims
-  placeholder in the body. Waters and Seasons are not annotated yet and
-  still have the older placeholder sections.
-- The author plans to annotate the other AWP pages and the four
-  constitutions the same way. The claim list and the comparison itself
+  `airs.md`, `waters.md` and `seasons.md`, filled in the same way. **Airs
+  and Seasons are annotated** (see "Author's annotations" below): the
+  author's highlighting and key, the author's synopsis, no title, and only a
+  Candidate claims placeholder in the body. Waters is not annotated yet and
+  still has the older placeholder sections.
+- The author plans to annotate Waters and the four constitutions the same
+  way. The claim list and the comparison itself
   haven't been started.
 - Home page: framing text (hero, the two "strands" cards for texts and
   places, the "fieldwork is context, not evidence" note) was drafted by
@@ -123,7 +123,7 @@ epigraphic record of dream healing.
   original placeholder body: a Synopsis with fixed headings (Conditions
   described; Predicted effects; Who is affected; Causal and generalizing
   language; Candidate claims) and a Commentary ending "Bearing on the
-  *Epidemics* constitutions". Annotated pages (Airs) use the layout in
+  *Epidemics* constitutions". Annotated pages (Airs, Seasons) use the layout in
   "Author's annotations". The body keeps only **Candidate claims**
   (condition → predicted tendency, firm or loose), which feeds the claim
   list.
@@ -133,24 +133,42 @@ epigraphic record of dream healing.
 The author highlights and bolds each page's text by category outside the
 site, writes a short synopsis, and sends it as a PDF. Claude transfers
 the annotations to the page. Airs (`airs.md`, from "Ancient Medicine Project
-(1).pdf") is the model. The other AWP pages and the four constitutions will
-presumably follow.
+(1).pdf") and Seasons (`seasons.md`, from "Ancient Medicine Project
+(2).pdf") are the models. Waters and the four constitutions will presumably
+follow. The key can differ from page to page: Airs is by body system,
+Seasons by weather "case".
 
 - **Marks, not edited text.** Each passage keeps its extracted `text`
   untouched. The annotations go in that passage's `marks` list, one
   `{ category, text }` per highlighted or bolded span, with `text` copied
   exactly from the passage. The build fails if a mark's phrase isn't found
   exactly once in its paragraph, or if marks overlap. So re-check `marks`
-  after re-extracting a text, and lengthen a phrase if it's ambiguous.
+  after re-extracting a text. If a highlighted phrase occurs more than once
+  in its paragraph, add `occurrence: N` (1-based) rather than lengthening it
+  past what the PDF marks (Seasons ch. 10, "If the summer prove dry").
+- **Reading the PDF.** Don't transcribe from the page image: the author's PDFs
+  are Google Docs exports, so the highlight rectangles, their colours and
+  the text colours can be extracted exactly (e.g. with `pdfplumber`,
+  installed into the scratchpad, not the project). Treat an unhighlighted
+  space at a line wrap as part of the span; a gap at punctuation (", ", ". ")
+  splits it into separate marks. Adjacent spans in different shades are
+  separate marks too.
 - **Key.** The page's `highlightKey` lists the categories in the PDF's order:
-  `id`, the PDF's label, and `style` (`bold` or `highlight`). Highlight
+  `id`, the PDF's label, and `style` (`bold` or `highlight`). Where the
+  PDF puts several swatches on one line (Seasons: "Case A: conditionals and
+  prognoses"), give each entry the same `group` ("Case A") and the swatch's
+  own word as `label`; the key then renders them on one line. Highlight
   colours are the `.hl--<id>` classes in `styles.css`, matched to the PDF.
   Airs's key: Conditions of the Air (bold); General Health Characteristics;
   Digestive & Dietary; Head, Brain & Nervous; Respiratory & Chest; Eye
   Conditions; Skin, Discharges & Other Bodily Afflictions; Reproductive
-  Health. A page with a different key needs any new `id`s added to
-  `styles.css`. Ask the author before adding them rather than guessing a
-  colour scheme. Where a category means the same thing on an AWP page and a
+  Health. Seasons's key: Cases A–F, each with conditionals (light shade,
+  `case-x-cond`) and prognoses (darker shade, `case-x-prog`), in red,
+  orange, yellow, green, blue, purple; then Dangerous Crisis Points
+  (`crisis`). Its colours are the exact Google Docs hex values from the PDF.
+  A page with a different key needs any new `id`s added to `styles.css`:
+  use the PDF's extracted colours, and ask the author only if they can't be
+  read from the PDF. Don't invent a colour scheme. Where a category means the same thing on an AWP page and a
   constitution, keep the same `id` and colour so the two can be read
   side by side.
 - **Transcribe exactly what the PDF marks.** Don't add, extend, merge or
@@ -161,6 +179,11 @@ presumably follow.
 - **Synopsis.** The author's synopsis goes in the frontmatter `synopsis`
   field, word for word. It renders above the translation. Don't edit it
   into a different register, and don't replace it with a Claude draft.
+  Paragraphs are separated by a blank line, and a single newline is a line
+  break (used for Seasons's (A)–(F) list), so write prose paragraphs on one
+  line rather than copying the PDF's wrapping. Text colour in the synopsis
+  (Seasons colours its season names) can't be carried over; tell the
+  author it was dropped.
 - **Title.** Annotated pages drop the `title` placeholder. The heading is
   just the `label` (e.g. "Airs", no period). `title` is optional in the
   schema.
