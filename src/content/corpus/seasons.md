@@ -19,8 +19,7 @@ passages:
       - { category: case-a-cond, text: "If the signs prove normal when the stars set and rise; if there be rains in autumn, if the winter be moderate, neither too mild nor unseasonably cold, and if the rains be seasonable in spring and in summer" }
       - { category: case-a-prog, text: "the year is likely to be very healthy" }
       - { category: case-b-cond, text: "If, on the other hand, the winter prove dry and northerly, the spring rainy and southerly" }
-      - { category: case-b-prog, text: "the summer cannot fail to be feverladen" }
-      - { category: case-b-prog, text: "causing ophthalmia and dysenteries" }
+      - { category: case-b-prog, text: "the summer cannot fail to be feverladen, causing ophthalmia and dysenteries" }
       - { category: case-b-prog, text: "the fevers that attack are of the acutest type in all cases, especially among the phlegmatic" }
       - { category: case-b-prog, text: "Dysenteries are also likely to come upon women and the most humid constitutions" }
       - { category: case-b-cond, text: "If at the rising of the Dog Star stormy rain occurs and the Etesian winds blow" }

@@ -11,7 +11,6 @@ kind: constitution
 sectionNumber: "C3"
 label: "Constitution 3"
 reference: "Epidemics I 13–26 · Jones: “Third Constitution”"
-title: "[PLACEHOLDER: short descriptive title]"
 order: 3
 passages:
   - chapter: "13"

@@ -11,7 +11,6 @@ kind: constitution
 sectionNumber: "C2"
 label: "Constitution 2"
 reference: "Epidemics I 4–12 · Jones: “Second Constitution”"
-title: "[PLACEHOLDER: short descriptive title]"
 order: 2
 passages:
   - chapter: "4"

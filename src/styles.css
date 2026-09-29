@@ -641,13 +641,15 @@ code {
   gap: 0.35rem 0.75rem;
 }
 .hl { color: inherit; padding: 0 0.1em; border-radius: 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-.hl--general { background: #fbe7a1; }
-.hl--digestive { background: #cfe6c0; }
-.hl--head { background: #c7dbf1; }
-.hl--respiratory { background: #f8cf9f; }
-.hl--eyes { background: #d9d9d9; }
-.hl--skin { background: #f1b8b8; }
-.hl--reproductive { background: #d9c8ec; }
+/* Body-system categories (Airs, AWP 3–6; Constitution 1): Google Docs
+   colours from the author's PDFs. */
+.hl--general { background: #ffe599; }
+.hl--digestive { background: #b6d7a8; }
+.hl--head { background: #9fc5e8; }
+.hl--respiratory { background: #f9cb9c; }
+.hl--eyes { background: #cccccc; }
+.hl--skin { background: #ea9999; }
+.hl--reproductive { background: #b4a7d6; }
 /* Seasons (AWP 10–11): Google Docs colours from the author's PDF. */
 .hl--case-a-cond { background: #f4cccc; }
 .hl--case-a-prog { background: #ea9999; }

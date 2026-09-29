@@ -23,16 +23,20 @@ epigraphic record of dream healing.
   The site has to show (1) real proof of fieldwork and (2) research that is
   small but real and defensible.
 
-## Current state (as of 2026-09-27)
+## Current state (as of 2026-09-28)
 
 - The scaffold, routing, schema and map all work.
 - Field Journal: 9 entries with real prose, written as travelogue and site
   description. Photos are still `<PhotoPlaceholder>` slots.
 - Epidemics constitution pages exist (`src/content/corpus/constitution-1.md`
   … `constitution-4.md`). Jones's translation is filled in (extracted by
-  script, not yet checked against the printed Loeb). Not yet annotated:
-  titles, synopses and commentary are still placeholders. See "Epidemics
-  constitution pages" below.
+  script, not yet checked against the printed Loeb). **Constitution 1 is
+  annotated** (see "Author's annotations"): highlighting, key, synopsis, no
+  title, and a Commentary placeholder ending "Bearing on *Airs, Waters,
+  Places*". Constitutions 2–4 are not annotated yet: synopses and
+  commentary are still placeholders (their `title` placeholders were
+  dropped). The Epidemics index, like the AWP index, flags any page without
+  a `highlightKey` as "[WIP]". See "Epidemics constitution pages" below.
 - AWP pages exist for Airs (ch. 3–6), Waters (7–9) and Seasons (10–11), in
   `airs.md`, `waters.md` and `seasons.md`, filled in the same way. **Airs
   and Seasons are annotated** (see "Author's annotations" below): the
@@ -41,9 +45,8 @@ epigraphic record of dream healing.
   still has the older placeholder sections, but no `title` placeholder. The
   AWP index flags any page without a `highlightKey` as "[WIP]", so the flag
   goes away by itself once a page is annotated.
-- The author plans to annotate Waters and the four constitutions the same
-  way. The claim list and the comparison itself
-  haven't been started.
+- The author plans to annotate Waters and Constitutions 2–4 the same way.
+  The claim list and the comparison itself haven't been started.
 - Home page: framing text (hero, the two "strands" cards for texts and
   places, the "fieldwork is context, not evidence" note) was drafted by
   Claude from this file and has not yet been reviewed by the author. The
@@ -96,9 +99,10 @@ epigraphic record of dream healing.
   weather; Diseases that followed; Who was affected; Causal and generalizing
   language; Surprises and exceptions) and a Commentary ending "Bearing on
   *Airs, Waters, Places*". When the author annotates a constitution,
-  convert it to the annotated layout (see "Author's annotations"). What
-  replaces "Candidate claims" on a constitution page is the author's call;
-  ask.
+  convert it to the annotated layout (see "Author's annotations"). The
+  author chose the body for annotated constitutions (Constitution 1 is the
+  model): drop the fixed Synopsis headings and keep "## Commentary" (a
+  placeholder) with its "### Bearing on *Airs, Waters, Places*" subsection.
 - Case-history pages go in the same collection with `kind: case`.
 
 ## AWP pages
@@ -134,11 +138,13 @@ epigraphic record of dream healing.
 
 The author highlights and bolds each page's text by category outside the
 site, writes a short synopsis, and sends it as a PDF. Claude transfers
-the annotations to the page. Airs (`airs.md`, from "Ancient Medicine Project
-(1).pdf") and Seasons (`seasons.md`, from "Ancient Medicine Project
-(2).pdf") are the models. Waters and the four constitutions will presumably
-follow. The key can differ from page to page: Airs is by body system,
-Seasons by weather "case".
+the annotations to the page. The current PDFs are named after the page
+("Airs.docx.pdf", "Seasons.docx.pdf", "Constitution 1.docx.pdf", in the
+author's Downloads); they replace the earlier "Ancient Medicine Project
+(1)/(2).pdf". Airs (`airs.md`), Seasons (`seasons.md`) and Constitution 1
+(`constitution-1.md`) are the models. Waters and Constitutions 2–4 will
+presumably follow. The key can differ from page to page: Airs and
+Constitution 1 are by body system, Seasons by weather "case".
 
 - **Marks, not edited text.** Each passage keeps its extracted `text`
   untouched. The annotations go in that passage's `marks` list, one
@@ -164,20 +170,24 @@ Seasons by weather "case".
   Airs's key: Conditions of the Air (bold); General Health Characteristics;
   Digestive & Dietary; Head, Brain & Nervous; Respiratory & Chest; Eye
   Conditions; Skin, Discharges & Other Bodily Afflictions; Reproductive
-  Health. Seasons's key: Cases A–F, each with conditionals (light shade,
+  Health. Constitution 1's key is the same except that its bold category is
+  Season (`season`: the season names and phrases like "early in the
+  spring"). Both use the same body-system `id`s and colours. Seasons's key: Cases A–F, each with conditionals (light shade,
   `case-x-cond`) and prognoses (darker shade, `case-x-prog`), in red,
   orange, yellow, green, blue, purple; then Dangerous Crisis Points
-  (`crisis`). Its colours are the exact Google Docs hex values from the PDF.
+  (`crisis`). All colours in `styles.css` are the exact Google Docs hex
+  values from the PDFs.
   A page with a different key needs any new `id`s added to `styles.css`:
   use the PDF's extracted colours, and ask the author only if they can't be
   read from the PDF. Don't invent a colour scheme.
-- **Author's later corrections win over the PDF.** In Seasons ch. 10 the
-  PDF marks "the summer cannot fail to be feverladen" as a Case B
-  conditional. At the author's request it is a Case B prognosis, matching
-  their synopsis (Case B's conditions are winter and spring only). Keep this
-  if the page is ever re-transcribed from the PDF. Where a category means the same thing on an AWP page and a
-  constitution, keep the same `id` and colour so the two can be read
-  side by side.
+- **Author's later corrections win over the PDF.** If the author asks for
+  a mark to differ from their PDF, record it here and keep it on any
+  re-transcription. (The one earlier case, Seasons ch. 10 "the summer cannot
+  fail to be feverladen" as a Case B prognosis, is now in the current PDF
+  itself, as one mark running on to "…ophthalmia and dysenteries".)
+- **Shared categories.** Where a category means the same thing on an AWP
+  page and a constitution, keep the same `id` and colour so the two can be
+  read side by side.
 - **Transcribe exactly what the PDF marks.** Don't add, extend, merge or
   "improve" highlights, and don't invent categories. If the PDF's text
   differs from Jones's (e.g. the author's "[epilepsy]" glosses after
@@ -195,11 +205,13 @@ Seasons by weather "case".
   just the `label` (e.g. "Airs", no period). `title` is optional in the
   schema.
 - **Body.** Delete the other placeholder sections and keep only the one
-  that feeds the comparison: "Candidate claims" on AWP pages.
+  that feeds the comparison: "Candidate claims" on AWP pages, "Commentary"
+  with "Bearing on *Airs, Waters, Places*" on constitution pages.
 - **Perseus links.** The layout adds a "Read on Perseus" link above each
   translation and, on AWP pages, a per-chapter Perseus link. All Perseus
   links open in a new tab. `sourceUrl` uses the URL-encoded form
-  (`…Perseus%3Atext%3A1999.01.0251%3Atext%3DAer.%3Asection%3D3`).
+  (`…Perseus%3Atext%3A1999.01.0251%3Atext%3DAer.%3Asection%3D3`;
+  Constitution 1: `…%3Atext%3DEpid.%3Abook%3D1%3Achapter%3D1`).
   Per-chapter links for the Epidemics would need the reversed Perseus URL
   labels (see "Epidemics constitution pages").
 

@@ -19,18 +19,25 @@ passages:
       - { category: air, text: "hot winds" }
       - { category: air, text: "between the winter rising of the sun and its winter setting" }
       - { category: air, text: "sheltered from the north winds" }
-      - { category: digestive, text: "The heads of the inhabitants are moist and full of phlegm, and their digestive organs are frequently deranged from the phlegm that runs down into them from the head" }
+      - { category: head, text: "The heads of the inhabitants are moist and full of phlegm" }
+      - { category: digestive, text: "their digestive organs are frequently deranged from the phlegm that runs down into them from the head" }
       - { category: general, text: "rather flabby physique" }
-      - { category: general, text: "poor eaters and poor drinkers" }
-      - { category: reproductive, text: "women are unhealthy and subject to excessive fluxes" }
-      - { category: reproductive, text: "many are barren through disease and not by nature, while abortions are frequent" }
+      - { category: digestive, text: "they are poor eaters and poor drinkers. For men" }
+      - { category: head, text: "with weak heads" }
+      - { category: digestive, text: "will be poor drinkers, as the after-effects are more distressing to them" }
+      - { category: reproductive, text: "the women are unhealthy and subject to excessive fluxes. Then many are barren through disease and not by nature, while abortions are frequent" }
       - { category: head, text: "Children are liable to convulsions" }
       - { category: respiratory, text: "asthma" }
-      - { category: head, text: "a sacred disease" }
-      - { category: skin, text: "dysentery, diarrhoea, ague, chronic fevers in winter, many attacks of eczema, and from hemorrhoids" }
-      - { category: respiratory, text: "pleurisy, pneumonia, ardent fever, and of diseases considered acute, rarely occur" }
+      - { category: head, text: "to what they think causes the disease of childhood, and to be a sacred disease" }
+      - { category: digestive, text: "Men suffer from dysentery, diarrhoea" }
+      - { category: general, text: "ague, chronic fevers in winter" }
+      - { category: skin, text: "many attacks of eczema, and from hemorrhoids" }
+      - { category: respiratory, text: "Cases of pleurisy, pneumonia" }
+      - { category: general, text: "ardent fever, and of diseases considered acute, rarely occur" }
+      - { category: digestive, text: "where the bowels are loose" }
       - { category: eyes, text: "Inflammations of the eyes occur with running, but are not serious; they are of short duration" }
       - { category: head, text: "When they are more than fifty years old, they are paralyzed by catarrhs supervening from the brain, when the sun suddenly strikes their head or they are chilled" }
+      - { category: general, text: "they are liable to any epidemic disease that prevails through the change of the seasons" }
   - chapter: "4"
     text: |
       But the following is the condition of cities with the opposite situation, facing the cold winds that blow from between the summer setting and the summer rising of the sun, being habitually exposed to these winds, but sheltered from the hot winds and from the south. First, the waters of the region are generally hard and cold. The natives must be sinewy and spare, and in most cases their digestive organs are costive and hard in their lower parts, but more relaxed in the upper. They must be bilious rather than phlegmatic. Their heads are healthy and hard, but they have in most cases a tendency to internal lacerations. Their endemic diseases are as follow. Pleurisies are common, likewise those diseases which are accounted acute. It must be so, since their digestive organs are hard, and the slightest cause inevitably produces in many patients abscesses, the result of a stiff body and hard digestive organs. For their dryness, combined with the coldness of the water, makes them liable to internal lacerations. Such constitutions necessarily make men eat much and drink little; for one cannot be both a great eater and a great drinker. Inflammations of the eyes occur at last; they are hard and violent, and rapidly cause rupture of the eyes. Men under thirty suffer from violent bleedings at the nose in summer. Instances of the disease called sacred are rare but violent. These men are more likely to be long-lived than are others. Their sores become neither phlegmatic nor malignant, but their characters incline to fierceness, not to mildness. For men these diseases are endemic, besides there are epidemic diseases which may prevail through the change of the seasons. As to the women, firstly many become barren through the waters being hard, indigestible and cold. Their menstrual discharges are not healthy, but are scanty and bad. Then childbirth is difficult, although abortion is rare. After bearing children they cannot rear them, for their milk is dried up through the hardness and indigestibility of the waters, while cases of phthisis are frequent after parturition, for the violence of it causes ruptures and strains. Children suffer from dropsies in the testicles while they are little, which disappear as they grow older. In such a city puberty is late.
@@ -39,23 +46,34 @@ passages:
       - { category: air, text: "between the summer setting and the summer rising of the sun" }
       - { category: air, text: "sheltered from the hot winds and from the south" }
       - { category: general, text: "The natives must be sinewy and spare" }
-      - { category: digestive, text: "their digestive organs are costive and hard in their lower parts, but more relaxed in the upper. They must be bilious rather than phlegmatic" }
-      - { category: general, text: "Their heads are healthy and hard, but they have in most cases a tendency to internal lacerations" }
-      - { category: respiratory, text: "Pleurisies are common, likewise those diseases which are accounted acute" }
-      - { category: general, text: "eat much and drink little" }
+      - { category: digestive, text: "their digestive organs are costive and hard in their lower parts, but more relaxed in the upper" }
+      - { category: general, text: "They must be bilious rather than phlegmatic" }
+      - { category: head, text: "Their heads are healthy and hard" }
+      - { category: skin, text: "they have in most cases a tendency to internal lacerations" }
+      - { category: respiratory, text: "Pleurisies are common" }
+      - { category: general, text: "likewise those diseases which are accounted acute" }
+      - { category: digestive, text: "since their digestive organs are hard" }
+      - { category: skin, text: "the slightest cause inevitably produces in many patients abscesses" }
+      - { category: skin, text: "makes them liable to internal lacerations" }
+      - { category: digestive, text: "eat much and drink little; for one cannot be both a great eater and a great drinker" }
       - { category: eyes, text: "Inflammations of the eyes occur at last; they are hard and violent, and rapidly cause rupture of the eyes" }
       - { category: head, text: "Men under thirty suffer from violent bleedings at the nose in summer. Instances of the disease called sacred are rare but violent" }
       - { category: general, text: "These men are more likely to be long-lived than are others" }
-      - { category: skin, text: "Their sores become neither phlegmatic nor malignant, but their characters incline to fierceness, not to mildness" }
-      - { category: reproductive, text: "As to the women, firstly many become barren through the waters being hard, indigestible and cold. Their menstrual discharges are not healthy, but are scanty and bad. Then childbirth is difficult, although abortion is rare. After bearing children they cannot rear them, for their milk is dried up through the hardness and indigestibility of the waters, while cases of phthisis are frequent after parturition, for the violence of it causes ruptures and strains. Children suffer from dropsies in the testicles while they are little, which disappear as they grow older. In such a city puberty is late" }
+      - { category: skin, text: "Their sores become neither phlegmatic nor malignant" }
+      - { category: general, text: "their characters incline to fierceness, not to mildness" }
+      - { category: general, text: "there are epidemic diseases which may prevail through the change of the seasons" }
+      - { category: reproductive, text: "As to the women, firstly many become barren through the waters being hard, indigestible and cold. Their menstrual discharges are not healthy, but are scanty and bad. Then childbirth is difficult, although abortion is rare. After bearing children they cannot rear them, for their milk is dried up through the hardness and indigestibility of the waters" }
+      - { category: respiratory, text: "cases of phthisis are frequent" }
+      - { category: reproductive, text: "after parturition, for the violence of it causes ruptures and strains. Children suffer from dropsies in the testicles while they are little, which disappear as they grow older. In such a city puberty is late" }
   - chapter: "5"
     text: |
       The effects of hot winds and of cold winds on these cities are such as I have described; the following are the effects of winds on cities lying exposed to those between the summer and winter risings of the sun, and to those opposite to these. Those that lie towards the risings of the sun are likely to be healthier than those facing the north and those exposed to the hot winds, even though they be but a furlong apart. In the first place, the heat and the cold are more moderate. Then the waters that face the risings of the sun must be clear, sweet-smelling, soft and delightful, in such a city. For the sun, shining down upon them when it rises, purifies them. The persons of the inhabitants are of better complexion and more blooming than elsewhere, unless some disease prevents this. They are clear-voiced, and with better temper and intelligence than those who are exposed to the north, just as all things growing there are better. A city so situated is just like spring, because the heat and the cold are tempered; the diseases, while resembling those which we said occur in cities facing the hot winds, are both fewer and less severe. The women there very readily conceive and have easy deliveries.
     marks:
       - { category: air, text: "between the summer and winter risings of the sun" }
-      - { category: general, text: "likely to be healthier than those facing the north" }
+      - { category: general, text: "likely to be healthier than those facing the north and those exposed to the hot winds" }
       - { category: general, text: "persons of the inhabitants are of better complexion and more blooming than elsewhere" }
-      - { category: general, text: "They are clear-voiced, and with better temper and intelligence" }
+      - { category: respiratory, text: "They are clear-voiced" }
+      - { category: general, text: "with better temper and intelligence" }
       - { category: general, text: "diseases, while resembling those which we said occur in cities facing the hot winds, are both fewer and less severe" }
       - { category: reproductive, text: "The women there very readily conceive and have easy deliveries" }
   - chapter: "6"
@@ -65,14 +83,10 @@ passages:
       - { category: air, text: "towards the settings of the sun" }
       - { category: air, text: "sheltered from the east winds" }
       - { category: general, text: "most unhealthy situation" }
-      - { category: general, text: "they are likely to be pale and sickly" }
-      - { category: general, text: "likely to have deep, hoarse voices" }
-synopsis: >-
-  AWP 3-6 describes the general health tendencies of inhabitants of south-facing, north-facing,
-  east-facing, and west-facing cities respectively, as a result of the types of winds that occur in
-  those locations. I have highlighted the specific enumerated tendencies and health
-  characteristics of the inhabitants of such locations, and divided them into various categories
-  based on the specific affected region or aspect of the body.
+      - { category: general, text: "they are likely to be pale and sickly, subject to all the diseases aforesaid" }
+      - { category: respiratory, text: "likely to have deep, hoarse voices" }
+synopsis: |
+  AWP 3-6 describes the general health tendencies of inhabitants of south-facing, north-facing, east-facing, and west-facing cities respectively, as a result of the types of winds that occur in those locations. I have highlighted the specific enumerated tendencies and health characteristics of the inhabitants of such locations, and divided them into various categories based on the specific affected region or aspect of the body.
 highlightKey:
   - { id: air, label: "Conditions of the Air", style: bold }
   - { id: general, label: "General Health Characteristics" }

@@ -11,7 +11,6 @@ kind: constitution
 sectionNumber: "C1"
 label: "Constitution 1"
 reference: "Epidemics I 1–3 · Jones: “First Constitution”"
-title: "[PLACEHOLDER: short descriptive title]"
 order: 1
 passages:
   - chapter: "1"
@@ -19,48 +18,73 @@ passages:
       IN Thasos during autumn, about the time of the equinox to near the setting of the Pleiades, there were many rains, gently continuous, with southerly winds. Winter southerly, north winds light, droughts; on the whole, the winter was like a spring. Spring southerly and chilly; slight showers. Summer in general cloudy. No rain. Etesian winds few, light and irregular.
 
       The whole weather proved southerly, with droughts, but early in the spring, as the previous constitution had proved the opposite and northerly, a few patients suffered from ardent fevers, and these very mild, causing hemorrhage in few cases and no deaths. Many had swellings beside one ear, or both ears, in most cases unattended with fever, so that confinement to bed was unnecessary. In some cases there was slight heat, but in all the swellings subsided without causing harm; in no case was there suppuration such as attends swellings of other origin. This was the character of them:—-flabby, big, spreading, with neither inflammation nor pain; in every case they disappeared without a sign. The sufferers were youths, young men, and men in their prime, usually those who frequented the wrestling school and gymnasia. Few women were attacked. Many had dry coughs which brought up nothing when they coughed, but their voices were hoarse. Soon after, though in some cases after some time, painful inflammations occurred either in one testicle or in both, sometimes accompanied with fever, in other cases not. Usually they caused much suffering. In other respects the people had no ailments requiring medical assistance.
+    marks:
+      - { category: season, text: "autumn" }
+      - { category: season, text: "Winter" }
+      - { category: season, text: "Spring" }
+      - { category: season, text: "Summer" }
+      - { category: season, text: "early in the spring" }
+      - { category: general, text: "a few patients suffered from ardent fevers, and these very mild" }
+      - { category: skin, text: "causing hemorrhage in few cases" }
+      - { category: general, text: "and no deaths" }
+      - { category: skin, text: "Many had swellings beside one ear, or both ears" }
+      - { category: general, text: "in most cases unattended with fever, so that confinement to bed was unnecessary. In some cases there was slight heat" }
+      - { category: skin, text: "but in all the swellings subsided without causing harm; in no case was there suppuration such as attends swellings of other origin. This was the character of them:—-flabby, big, spreading, with neither inflammation nor pain; in every case they disappeared without a sign" }
+      - { category: general, text: "The sufferers were youths, young men, and men in their prime, usually those who frequented the wrestling school and gymnasia. Few women were attacked" }
+      - { category: respiratory, text: "Many had dry coughs which brought up nothing when they coughed, but their voices were hoarse" }
+      - { category: reproductive, text: "painful inflammations occurred either in one testicle or in both" }
+      - { category: general, text: "sometimes accompanied with fever, in other cases not" }
+      - { category: reproductive, text: "Usually they caused much suffering" }
+      - { category: general, text: "In other respects the people had no ailments requiring medical assistance" }
   - chapter: "2"
     text: |
       Beginning early in the summer, throughout the summer and in winter many of those who had been ailing a long time took to their beds in a state of consumption, while many also who had hitherto been doubtful sufferers at this time showed undoubted symptoms. Some showed the symptoms now for the first time; these were those whose constitution inclined to be consumptive. Many, in fact most of these, died; of those who took to their beds I do not know one who survived even for a short time. Death came more promptly than is usual in consumption, and yet the other complaints, which will be described presently, though longer and attended with fever, were easily supported and did not prove fatal. For consumption was the worst of the diseases that occurred, and alone was responsible for the great mortality.
 
       In the majority of cases the symptoms were these. Fever with shivering, continuous, acute, not completely intermitting, but of the semitertian type; remitting during one day they were exacerbated on the next, becoming on the whole more acute. Sweats were continual, but not all over the body. Severe chill in the extremities, which with difficulty recovered their warmth. Bowels disordered, with bilious, scanty, unmixed, thin, smarting stools, causing the patient to get up often. Urine either thin, colourless, unconcocted and scanty, or thick and with a slight deposit, not settling favourably, but with a crude and unfavourable deposit. The patients frequently coughed up small, concocted sputa, brought up little by little with difficulty. Those exhibiting the symptoms in their most violent form showed no concoction at all, but continued spitting crude sputa. In the majority of these cases the throat was throughout painful from the beginning, being red and inflamed. Fluxes slight, thin, pungent. Patients quickly wasted away and grew worse, being throughout averse to all food and experiencing no thirst. Delirium in many cases as death approached. Such were the symptoms of the consumption.
+    marks:
+      - { category: season, text: "early in the summer, throughout the summer and in winter" }
+      - { category: respiratory, text: "many of those who had been ailing a long time took to their beds in a state of consumption, while many also who had hitherto been doubtful sufferers at this time showed undoubted symptoms. Some showed the symptoms now for the first time; these were those whose constitution inclined to be consumptive" }
+      - { category: respiratory, text: "For consumption was the worst of the diseases that occurred, and alone was responsible for the great mortality" }
+      - { category: general, text: "Fever with shivering, continuous, acute, not completely intermitting, but of the semitertian type; remitting during one day they were exacerbated on the next, becoming on the whole more acute" }
+      - { category: skin, text: "Sweats were continual, but not all over the body" }
+      - { category: general, text: "Severe chill in the extremities, which with difficulty recovered their warmth" }
+      - { category: digestive, text: "Bowels disordered, with bilious, scanty, unmixed, thin, smarting stools, causing the patient to get up often" }
+      - { category: skin, text: "Urine either thin, colourless, unconcocted and scanty, or thick and with a slight deposit, not settling favourably, but with a crude and unfavourable deposit" }
+      - { category: respiratory, text: "The patients frequently coughed up small, concocted sputa, brought up little by little with difficulty. Those exhibiting the symptoms in their most violent form showed no concoction at all, but continued spitting crude sputa. In the majority of these cases the throat was throughout painful from the beginning, being red and inflamed" }
+      - { category: skin, text: "Fluxes slight, thin, pungent" }
+      - { category: general, text: "Patients quickly wasted away and grew worse" }
+      - { category: digestive, text: "being throughout averse to all food and experiencing no thirst" }
+      - { category: head, text: "Delirium in many cases as death approached" }
   - chapter: "3"
     text: |
       But when summer came, and during autumn occurred many continuous but not violent fevers, which attacked persons who were long ailing without suffering distress in any other particular manner; for the bowels were in most cases quite easy, and hurt to no appreciable extent. Urine in most cases of good colour and clear, but thin, and after a time near the crisis it grew concocted. Coughing was slight, and caused no distress. No lack of appetite; in fact it was quite possible even to give food. In general the patients did not sicken, as did the consumptives, with shivering fevers, but with slight sweats, the paroxysms being variable and irregular. The earliest crisis was about the twentieth day; in most cases the crisis was about the fortieth day, though in many it was about the eightieth. In some cases the illness did not end in this way, but in an irregular manner without a crisis. In the majority of these cases the fevers relapsed after a brief interval, and after the relapse a crisis occurred at the end of the same periods as before. The disease in many of these instances was so protracted that it even lasted during the winter.
 
       Out of all those described in this constitution only the consumptives showed a high mortality-rate; for all the other patients bore up well, and the other fevers did not prove fatal.
+    marks:
+      - { category: season, text: "when summer came, and during autumn" }
+      - { category: general, text: "many continuous but not violent fevers, which attacked persons who were long ailing without suffering distress in any other particular manner" }
+      - { category: digestive, text: "for the bowels were in most cases quite easy, and hurt to no appreciable extent" }
+      - { category: skin, text: "Urine in most cases of good colour and clear, but thin, and after a time near the crisis it grew concocted" }
+      - { category: respiratory, text: "Coughing was slight, and caused no distress" }
+      - { category: digestive, text: "No lack of appetite; in fact it was quite possible even to give food" }
+      - { category: general, text: "In general the patients did not sicken, as did the consumptives, with shivering fevers" }
+      - { category: skin, text: "but with slight sweats" }
+      - { category: general, text: "the paroxysms being variable and irregular" }
+      - { category: season, text: "lasted during the winter" }
+synopsis: |
+  Epidemics I 1-3 describes the first Constitution. The specific weather pattern is that of rainy, southerly autumn; dry, southerly winter; rainy, southerly spring; and dry, northerly summer. This best corresponds to Case E from Seasons (AWP 10-11). I have highlighted the specific health observations during each season of the year with this weather pattern, and divided them into various categories based on the specific affected region or aspect of the body.
+highlightKey:
+  - { id: season, label: "Season", style: bold }
+  - { id: general, label: "General Health Characteristics" }
+  - { id: digestive, label: "Digestive & Dietary" }
+  - { id: head, label: "Head, Brain & Nervous" }
+  - { id: respiratory, label: "Respiratory & Chest" }
+  - { id: eyes, label: "Eye Conditions" }
+  - { id: skin, label: "Skin, Discharges & Other Bodily Afflictions" }
+  - { id: reproductive, label: "Reproductive Health" }
 citation: "Hippocrates, Epidemics I 1–3, trans. W. H. S. Jones, in Hippocrates, Vol. I, Loeb Classical Library (London: Heinemann; Cambridge, MA: Harvard University Press, 1923), pp. 147–153 [PLACEHOLDER: verify page range against the printed Loeb]. English text from the Perseus Digital Library TEI edition (urn:cts:greekLit:tlg0627.tlg006.perseus-eng4), CC BY-SA 4.0."
-sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0251:text=Epid.:book=1:chapter=1"
+sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0251%3Atext%3DEpid.%3Abook%3D1%3Achapter%3D1"
 ---
-
-## Synopsis
-
-*Draft synopsis of the translation above. Every point cites a chapter number
-([1](#ch-1) etc.) so it can be checked against the text on this page.*
-
-### Place
-
-[PLACEHOLDER: where the constitution is set, as the text states it.]
-
-### Seasons and weather
-
-[PLACEHOLDER: the sequence of seasons and weather, in order, with chapter references.]
-
-### Diseases that followed
-
-[PLACEHOLDER: the diseases described, in the text's own terms (no retrospective diagnosis).]
-
-### Who was affected
-
-[PLACEHOLDER: age, sex, constitution or other groups the text singles out.]
-
-### Causal and generalizing language
-
-[PLACEHOLDER: quoted phrases such as "most", "especially", "such constitutions…", with chapter references.]
-
-### Surprises and exceptions
-
-[PLACEHOLDER: anything the author flags as unexpected, and any exceptions to the general picture.]
 
 ## Commentary
 
