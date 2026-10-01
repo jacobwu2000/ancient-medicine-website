@@ -28,6 +28,28 @@ else:
     chapters = [d for d in body.findall(f"{T}div/{T}div")
                 if first <= int(d.get("n")) <= last]
 
+# Dashes the GitHub TEI drops, so the words on either side run together.
+# Restored from the Perseus reader (hopper), which prints them as "--" (e.g.
+# "continuous fevers--in some few cases ardent--day"); written here as "—" like
+# the dashes the TEI does keep. Found by checking every "--" in the reader for
+# Constitutions 1-4 and AWP 3-11; only the Epidemics chapters below were affected.
+# Keyed by (book, Jones chapter): chapter numbers restart in Book III.
+DASH_FIXES = {
+    ("1", "5"): [("feversin", "fevers—in"), ("ardentday", "ardent—day")],
+    ("1", "10"): [("childrenthose", "children—those")],
+    ("1", "11"): [("thingsto", "things—to")],
+    ("1", "15"): [("disappearedand", "disappeared—and"), ("hipafter", "hip—after")],
+    ("1", "21"): [("relapsein", "relapse—in")],
+    ("1", "23"): [("prescriberfor", "prescriber—for")],
+    ("3", "8"): [("childrenall", "children—all"), ("pubertyand", "puberty—and")],
+}
+
+def fix_dashes(chapter, para):
+    book = ref.split(".")[0] if work == "epidemics" else None
+    for wrong, right in DASH_FIXES.get((book, chapter), []):
+        para = para.replace(wrong, right)
+    return para
+
 def text(el):
     """Running text of an element, skipping Jones's footnotes (<note>)."""
     out = [el.text or ""]
@@ -50,7 +72,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 print(f"# Loeb pages: {pages[0]}–{pages[-1]}  (check against the printed volume)")
 print("passages:")
 for ch in chapters:
-    paras = [" ".join(text(p).split()) for p in ch.findall(f"{T}p")
+    paras = [fix_dashes(ch.get("n"), " ".join(text(p).split())) for p in ch.findall(f"{T}p")
              if p.get("rend") != "align(center)"]  # skip centered headings
     print(f'  - chapter: "{ch.get("n")}"')
     print("    text: |")

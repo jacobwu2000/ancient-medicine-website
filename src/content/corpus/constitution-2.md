@@ -16,62 +16,118 @@ passages:
   - chapter: "4"
     text: |
       In Thasos early in autumn occurred unseasonable wintry storms, suddenly with many north and south winds bursting out into rains. These conditions continued until the setting of the Pleiades and during their season. Winter was northerly; many violent and abundant rains; snows; generally there were fine intervals. With all this, however, the cold weather was not exceptionally unseasonable. But immediately after the winter solstice, when the west wind usually begins to blow, there was a return of severe wintry weather, much north wind, snow and copious rains continuously, sky stormy and clouded. These conditions lasted on, and did not remit before the equinox. Spring cold, northerly, wet, cloudy. Summer did not turn out excessively hot, the Etesian winds blowing continuously. But soon after, near the rising of Arcturus, there was much rain again, with northerly winds.
+    marks:
+      - { category: season, text: "autumn" }
+      - { category: season, text: "Winter" }
+      - { category: season, text: "Spring" }
+      - { category: season, text: "Summer" }
   - chapter: "5"
     text: |
-      The whole year having been wet, cold and northerly, in the winter the public health in most respects was good, but in early spring many, in fact most, suffered illnesses. Now there began at first inflammations of the eyes, marked by rheum, pain, and unconcocted discharges. Small gummy sores, in many cases causing distress when they broke out; the great majority relapsed, and ceased late on the approach of autumn. In summer and autumn dysenteric diseases, tenesmus and lientery; bilious diarrhœa, with copious, thin, crude, smarting stools; in some cases it was also watery. In many cases there were also painful, bilious defluxions, watery, full of thin particles, purulent and causing strangury. No kidney trouble, but their various symptoms succeeded in various orders. Vomitings of phlegm, bile, and undigested food. Sweats; in all cases much moisture over all the body. These complaints in many cases were unattended with fever, and the sufferers were not confined to bed; but in many others there was fever, as I am going to describe. Those who showed all the symptoms mentioned above were consumptives who suffered pain. When autumn came, and during winter, continuous feversin some few cases ardentday fevers, night fevers, semitertians, exact tertians, quartans, irregular fevers. Each of the fevers mentioned found many victims.
+      The whole year having been wet, cold and northerly, in the winter the public health in most respects was good, but in early spring many, in fact most, suffered illnesses. Now there began at first inflammations of the eyes, marked by rheum, pain, and unconcocted discharges. Small gummy sores, in many cases causing distress when they broke out; the great majority relapsed, and ceased late on the approach of autumn. In summer and autumn dysenteric diseases, tenesmus and lientery; bilious diarrhœa, with copious, thin, crude, smarting stools; in some cases it was also watery. In many cases there were also painful, bilious defluxions, watery, full of thin particles, purulent and causing strangury. No kidney trouble, but their various symptoms succeeded in various orders. Vomitings of phlegm, bile, and undigested food. Sweats; in all cases much moisture over all the body. These complaints in many cases were unattended with fever, and the sufferers were not confined to bed; but in many others there was fever, as I am going to describe. Those who showed all the symptoms mentioned above were consumptives who suffered pain. When autumn came, and during winter, continuous fevers—in some few cases ardent—day fevers, night fevers, semitertians, exact tertians, quartans, irregular fevers. Each of the fevers mentioned found many victims.
+    marks:
+      - { category: season, text: "in the winter" }
+      - { category: general, text: "the public health in most respects was good" }
+      - { category: season, text: "in early spring" }
+      - { category: general, text: "many, in fact most, suffered illnesses" }
+      - { category: eyes, text: "inflammations of the eyes, marked by rheum, pain, and unconcocted discharges" }
+      - { category: skin, text: "Small gummy sores, in many cases causing distress when they broke out; the great majority relapsed, and ceased late" }
+      - { category: season, text: "on the approach of autumn" }
+      - { category: season, text: "In summer and autumn" }
+      - { category: digestive, text: "dysenteric diseases, tenesmus and lientery; bilious diarrhœa, with copious, thin, crude, smarting stools; in some cases it was also watery" }
+      - { category: skin, text: "painful, bilious defluxions, watery, full of thin particles, purulent and causing strangury. No kidney trouble" }
+      - { category: digestive, text: "Vomitings of phlegm, bile, and undigested food" }
+      - { category: skin, text: "Sweats; in all cases much moisture over all the body" }
+      - { category: general, text: "These complaints in many cases were unattended with fever, and the sufferers were not confined to bed; but in many others there was fever" }
+      - { category: respiratory, text: "Those who showed all the symptoms mentioned above were consumptives who suffered pain" }
+      - { category: season, text: "When autumn came, and during winter" }
+      - { category: general, text: "continuous fevers—in some few cases ardent—day fevers, night fevers, semitertians, exact tertians, quartans, irregular fevers. Each of the fevers mentioned found many victims" }
   - chapter: "6"
     text: |
       Now the ardent fevers attacked the fewest persons, and these were less distressed than any of the other sick. There was no bleeding from the nose, except very slight discharges in a few cases, and no delirium. All the other symptoms were slight. The crises of these diseases were quite regular, generally in seventeen days, counting the days of intermission, and I know of no ardent fever proving fatal at this time, nor of any phrenitis. The tertians were more numerous than the ardent fevers and more painful. But all these had four regular periods from the first onset, had complete crises in seven, and in no case relapsed. But the quartans, while in many instances they began at first with quartan periodicity, yet in not a few they became quartan by an abscession from other fevers or illnesses. They were protracted, as quartans usually are, or even more protracted than usual. Many fell victims to quotidians, night fevers, or irregular fevers, and were ill for a long time, either in bed or walking about. In most of these cases the fevers continued during the season of the Pleiades or even until winter. In many patients, especially children, there were convulsions and slight feverishness from the beginning; sometimes, too, convulsions supervened upon fevers. Mostly these illnesses were protracted, but not dangerous, except for those who from all other causes were predisposed to die.
+    marks:
+      - { category: general, text: "the ardent fevers attacked the fewest persons, and these were less distressed than any of the other sick" }
+      - { category: head, text: "There was no bleeding from the nose, except very slight discharges in a few cases, and no delirium" }
+      - { category: general, text: "All the other symptoms were slight" }
+      - { category: general, text: "The tertians were more numerous than the ardent fevers and more painful" }
+      - { category: general, text: "the quartans, while in many instances they began at first with quartan periodicity, yet in not a few they became quartan by an abscession from other fevers or illnesses. They were protracted, as quartans usually are, or even more protracted than usual. Many fell victims to quotidians, night fevers, or irregular fevers, and were ill for a long time, either in bed or walking about" }
+      - { category: season, text: "until winter" }
+      - { category: general, text: "In many patients, especially children" }
+      - { category: head, text: "there were convulsions" }
+      - { category: general, text: "slight feverishness from the beginning" }
+      - { category: head, text: "sometimes, too, convulsions supervened upon fevers" }
+      - { category: general, text: "Mostly these illnesses were protracted, but not dangerous, except for those who from all other causes were predisposed to die" }
   - chapter: "7"
     text: |
       But those fevers which were altogether continuous and never intermitted at all, but in all cases grew worse after the manner of semitertians, with remission during one day followed by exacerbation during the next, were the most severe of all the fevers which occurred at this time, the longest and the most painful. Beginning mildly, and on the whole increasing always, with exacerbation, and growing worse, they had slight remissions followed quickly after an abatement by more violent exacerbations, generally becoming worse on the critical days. All patients had irregular rigors that followed no fixed law, most rarely and least in the semitertians, but more violent in the other fevers. Copious sweats, least copious in the semitertians; they brought no relief, but on the contrary caused harm. These patients suffered great chill in the extremities, which grew warm again with difficulty. Generally there was sleeplessness, especially with the semitertians, followed afterwards by coma. In all the bowels were disordered and in a bad state, but in the semitertians they were far the worst. In most of them urine either (a) thin, crude, colourless, after a time becoming slightly concocted with signs of crisis, or (b) thick enough but turbid, in no way settling or forming sediment, or (c) with small, bad, crude sediments, these being the worst of all. Coughs attended the fevers, but I cannot say that either harm or good resulted from the coughing on this occasion.
+    marks:
+      - { category: general, text: "those fevers which were altogether continuous and never intermitted at all, but in all cases grew worse after the manner of semitertians, with remission during one day followed by exacerbation during the next, were the most severe of all the fevers which occurred at this time, the longest and the most painful. Beginning mildly, and on the whole increasing always, with exacerbation, and growing worse, they had slight remissions followed quickly after an abatement by more violent exacerbations, generally becoming worse on the critical days. All patients had irregular rigors that followed no fixed law, most rarely and least in the semitertians, but more violent in the other fevers" }
+      - { category: skin, text: "Copious sweats, least copious in the semitertians; they brought no relief, but on the contrary caused harm" }
+      - { category: general, text: "These patients suffered great chill in the extremities, which grew warm again with difficulty" }
+      - { category: head, text: "Generally there was sleeplessness, especially with the semitertians, followed afterwards by coma" }
+      - { category: digestive, text: "In all the bowels were disordered and in a bad state, but in the semitertians they were far the worst" }
+      - { category: skin, text: "In most of them urine either (a) thin, crude, colourless, after a time becoming slightly concocted with signs of crisis, or (b) thick enough but turbid, in no way settling or forming sediment, or (c) with small, bad, crude sediments, these being the worst of all" }
+      - { category: respiratory, text: "Coughs attended the fevers, but I cannot say that either harm or good resulted from the coughing on this occasion" }
   - chapter: "8"
     text: |
       Now the greatest number of these symptoms continued to be protracted, troublesome, very disordered, very irregular, and without any critical signs, both in the case of those who came very near death and in the case of those who did not. For even if some patients enjoyed slight intermissions, there followed a quick relapse. A few of them experienced a crisis, the earliest being about the eightieth day, some of the latter having a relapse, so that most of them were still ill in the winter. The greatest number had no crisis before the disease terminated. These symptoms occurred in those who recovered just as much as in those who did not. The illnesses showed a marked absence of crisis and a great variety; the most striking and the worst symptom, which throughout attended the great majority, was a complete loss of appetite, especially in those whose general condition exhibited fatal signs, but in these fevers they did not suffer much from unseasonable thirst. After long intervals, with many pains and with pernicious wasting, there supervened abscessions either too severe to be endured, or too slight to be beneficial, so that there was a speedy return of the original symptoms, and an aggravation of the mischief.
+    marks:
+      - { category: season, text: "in the winter" }
+      - { category: digestive, text: "a complete loss of appetite, especially in those whose general condition exhibited fatal signs, but in these fevers they did not suffer much from unseasonable thirst" }
+      - { category: general, text: "with many pains and with pernicious wasting" }
+      - { category: skin, text: "there supervened abscessions either too severe to be endured, or too slight to be beneficial" }
   - chapter: "9"
     text: |
       The symptoms from which these patients suffered were dysenteries and tenesmus, lienteries also and fluxes. Some had dropsies also, either with or without these. Whenever any of these attacked violently they were quickly fatal, or, if mild, they did no good. Slight eruptions, which did not match the extent of the diseases and quickly disappeared again, or swellings by the ears that grew smaller and signified nothing, in some cases appearing at the joints, especially the hip-joint, in few instances leaving with signs of crisis, when they quickly re-established themselves in their original state.
+    marks:
+      - { category: digestive, text: "dysenteries and tenesmus, lienteries also and fluxes" }
+      - { category: skin, text: "Some had dropsies also, either with or without these" }
+      - { category: skin, text: "Slight eruptions, which did not match the extent of the diseases and quickly disappeared again, or swellings by the ears that grew smaller and signified nothing, in some cases appearing at the joints, especially the hip-joint" }
   - chapter: "10"
     text: |
-      From all the diseases some died, but the greatest number from these fevers, especially childrenthose just weaned, older children of eight or ten years, and those approaching puberty. These victims never suffered from the latter symptoms without the first I have described above, but often the first without the latter. The only good sign, the most striking that occurred, which saved very many of those who were in the greatest danger, was when there was a change to strangury, into which abscessions took place. The strangury, too, came mostly to patients of the ages mentioned, though it did happen to many of the others, either without their taking to bed or when they were ill. Rapid and great was the complete change that occurred in their case. For the bowels, even if they were perniciously loose, quickly recovered; their appetite for everything returned, and hereafter the fever abated. But the strangury, even in these cases, was long and painful. Their urine was copious, thick, varied, red, mixed with pus, and passed with pain. But they all survived, and I know of none of these that died.
+      From all the diseases some died, but the greatest number from these fevers, especially children—those just weaned, older children of eight or ten years, and those approaching puberty. These victims never suffered from the latter symptoms without the first I have described above, but often the first without the latter. The only good sign, the most striking that occurred, which saved very many of those who were in the greatest danger, was when there was a change to strangury, into which abscessions took place. The strangury, too, came mostly to patients of the ages mentioned, though it did happen to many of the others, either without their taking to bed or when they were ill. Rapid and great was the complete change that occurred in their case. For the bowels, even if they were perniciously loose, quickly recovered; their appetite for everything returned, and hereafter the fever abated. But the strangury, even in these cases, was long and painful. Their urine was copious, thick, varied, red, mixed with pus, and passed with pain. But they all survived, and I know of none of these that died.
+    marks:
+      - { category: general, text: "especially children—those just weaned, older children of eight or ten years, and those approaching puberty" }
+      - { category: skin, text: "a change to strangury, into which abscessions took place" }
+      - { category: general, text: "came mostly to patients of the ages mentioned, though it did happen to many of the others" }
+      - { category: digestive, text: "the bowels, even if they were perniciously loose, quickly recovered; their appetite for everything returned" }
+      - { category: general, text: "the fever abated" }
+      - { category: skin, text: "the strangury, even in these cases, was long and painful. Their urine was copious, thick, varied, red, mixed with pus, and passed with pain" }
   - chapter: "11"
     text: |
-      In all dangerous cases you should be on the watch for all favourable coctions of the evacuations from all parts, or for fair and critical abscessions. Coctions signify nearness of crisis and sure recovery of health, but crude and unconcocted evacuations, which change into bad abscessions, denote absence of crisis, pain, prolonged illness, death, or a return of the same symptoms. But it is by a consideration of other signs that one must decide which of these results will be most likely. Declare the past, diagnose the present, foretell the future; practise these acts. As to diseases, make a habit of two thingsto help, or at least to do no harm. The art has three factors, the disease, the patient, the physician. The physician is the servant of the art. The patient must co-operate with the physician in combating the disease.
+      In all dangerous cases you should be on the watch for all favourable coctions of the evacuations from all parts, or for fair and critical abscessions. Coctions signify nearness of crisis and sure recovery of health, but crude and unconcocted evacuations, which change into bad abscessions, denote absence of crisis, pain, prolonged illness, death, or a return of the same symptoms. But it is by a consideration of other signs that one must decide which of these results will be most likely. Declare the past, diagnose the present, foretell the future; practise these acts. As to diseases, make a habit of two things—to help, or at least to do no harm. The art has three factors, the disease, the patient, the physician. The physician is the servant of the art. The patient must co-operate with the physician in combating the disease.
   - chapter: "12"
     text: |
       Pains about the head and neck, and heaviness combined with pain, occur both without and with fever. Sufferers from phrenitis have convulsions, and eject verdigris-coloured vomit; some die very quickly. But in ardent and the other fevers, those with pain in the neck, heaviness of the temples, dimness of sight, and painless tension of the hypochondrium, bleed from the nose; those with a general heaviness of the head, cardialgia, and nausea, vomit afterwards bile and phlegm. Children for the most part in such cases suffer chiefly from the convulsions. Women have both these symptoms and pains in the womb. Older people, and those whose natural heat is failing, have paralysis or raving or blindness.
+    marks:
+      - { category: head, text: "Pains about the head and neck, and heaviness combined with pain" }
+      - { category: general, text: "occur both without and with fever" }
+      - { category: head, text: "Sufferers from phrenitis have convulsions" }
+      - { category: digestive, text: "eject verdigris-coloured vomit" }
+      - { category: head, text: "pain in the neck, heaviness of the temples" }
+      - { category: eyes, text: "dimness of sight" }
+      - { category: digestive, text: "painless tension of the hypochondrium" }
+      - { category: head, text: "bleed from the nose" }
+      - { category: head, text: "a general heaviness of the head" }
+      - { category: digestive, text: "cardialgia, and nausea, vomit afterwards bile and phlegm" }
+      - { category: head, text: "Children for the most part in such cases suffer chiefly from the convulsions" }
+      - { category: reproductive, text: "Women have both these symptoms and pains in the womb" }
+      - { category: general, text: "Older people, and those whose natural heat is failing" }
+      - { category: head, text: "paralysis or raving" }
+      - { category: eyes, text: "blindness" }
+synopsis: |
+  Epidemics I 4-12 describes the second Constitution. The specific weather pattern is that of stormy, rainy autumn, with north and south winds; northerly winter with heavy rains and snow, turning severely wintry again after the solstice; cold, northerly, wet spring; and summer not excessively hot, with continuous Etesian winds, followed by heavy rain with northerly winds near the rising of Arcturus. The text sums it up as a year "wet, cold and northerly". This does not correspond closely to any of the cases from Seasons (AWP 10-11): it is northerly throughout, like Case F, but wet rather than dry. I have highlighted the specific health observations during each season of the year with this weather pattern, and divided them into various categories based on the specific affected region or aspect of the body.
+highlightKey:
+  - { id: season, label: "Season", style: bold }
+  - { id: general, label: "General Health Characteristics" }
+  - { id: digestive, label: "Digestive & Dietary" }
+  - { id: head, label: "Head, Brain & Nervous" }
+  - { id: respiratory, label: "Respiratory & Chest" }
+  - { id: eyes, label: "Eye Conditions" }
+  - { id: skin, label: "Skin, Discharges & Other Bodily Afflictions" }
+  - { id: reproductive, label: "Reproductive Health" }
 citation: "Hippocrates, Epidemics I 4–12, trans. W. H. S. Jones, in Hippocrates, Vol. I, Loeb Classical Library (London: Heinemann; Cambridge, MA: Harvard University Press, 1923), pp. 153–165 [PLACEHOLDER: verify page range against the printed Loeb]. English text from the Perseus Digital Library TEI edition (urn:cts:greekLit:tlg0627.tlg006.perseus-eng4), CC BY-SA 4.0."
-sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0251:text=Epid.:book=1:chapter=2"
+sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0251%3Atext%3DEpid.%3Abook%3D1%3Achapter%3D2"
 ---
-
-## Synopsis
-
-*Draft synopsis of the translation above. Every point cites a chapter number
-([4](#ch-4) etc.) so it can be checked against the text on this page.*
-
-### Place
-
-[PLACEHOLDER: where the constitution is set, as the text states it.]
-
-### Seasons and weather
-
-[PLACEHOLDER: the sequence of seasons and weather, in order, with chapter references.]
-
-### Diseases that followed
-
-[PLACEHOLDER: the diseases described, in the text's own terms (no retrospective diagnosis).]
-
-### Who was affected
-
-[PLACEHOLDER: age, sex, constitution or other groups the text singles out.]
-
-### Causal and generalizing language
-
-[PLACEHOLDER: quoted phrases such as "most", "especially", "such constitutions…", with chapter references.]
-
-### Surprises and exceptions
-
-[PLACEHOLDER: anything the author flags as unexpected, and any exceptions to the general picture.]
 
 ## Commentary
 

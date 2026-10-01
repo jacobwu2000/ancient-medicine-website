@@ -23,20 +23,22 @@ epigraphic record of dream healing.
   The site has to show (1) real proof of fieldwork and (2) research that is
   small but real and defensible.
 
-## Current state (as of 2026-09-28)
+## Current state (as of 2026-09-30)
 
 - The scaffold, routing, schema and map all work.
 - Field Journal: 9 entries with real prose, written as travelogue and site
   description. Photos are still `<PhotoPlaceholder>` slots.
 - Epidemics constitution pages exist (`src/content/corpus/constitution-1.md`
   … `constitution-4.md`). Jones's translation is filled in (extracted by
-  script, not yet checked against the printed Loeb). **Constitution 1 is
-  annotated** (see "Author's annotations"): highlighting, key, synopsis, no
-  title, and a Commentary placeholder ending "Bearing on *Airs, Waters,
-  Places*". Constitutions 2–4 are not annotated yet: synopses and
-  commentary are still placeholders (their `title` placeholders were
-  dropped). The Epidemics index, like the AWP index, flags any page without
-  a `highlightKey` as "[WIP]". See "Epidemics constitution pages" below.
+  script, not yet checked against the printed Loeb). **All four
+  constitutions are annotated** (see "Author's annotations"): highlighting,
+  key, synopsis, no title, and a Commentary placeholder ending "Bearing on
+  *Airs, Waters, Places*". Constitution 1 was annotated by the author.
+  Constitutions 2–4 were annotated by Claude at the author's request
+  (2026-09-30), following Constitution 1 and Airs; their marks and
+  synopses are **not yet reviewed by the author**. The Epidemics index,
+  like the AWP index, flags any page without a `highlightKey` as "[WIP]".
+  See "Epidemics constitution pages" below.
 - AWP pages exist for Airs (ch. 3–6), Waters (7–9) and Seasons (10–11), in
   `airs.md`, `waters.md` and `seasons.md`, filled in the same way. **Airs
   and Seasons are annotated** (see "Author's annotations" below): the
@@ -45,8 +47,8 @@ epigraphic record of dream healing.
   still has the older placeholder sections, but no `title` placeholder. The
   AWP index flags any page without a `highlightKey` as "[WIP]", so the flag
   goes away by itself once a page is annotated.
-- The author plans to annotate Waters and Constitutions 2–4 the same way.
-  The claim list and the comparison itself haven't been started.
+- The author plans to annotate Waters the same way. The claim list and the
+  comparison itself haven't been started.
 - Home page: framing text (hero, the two "strands" cards for texts and
   places, the "fieldwork is context, not evidence" note) was drafted by
   Claude from this file and has not yet been reviewed by the author. The
@@ -90,19 +92,24 @@ epigraphic record of dream healing.
   (e.g. `1.2`) prints a constitution's chapters as YAML `passages:`, with
   Jones's footnotes and headings removed, plus the Loeb page range. Perseus's
   own XML endpoint blocks scripted requests, so the script reads from GitHub.
+  The GitHub TEI drops 11 of Jones's dashes in Constitutions 2–4, so the
+  words on either side run together ("feversin", "relapsein"). The script
+  restores them from its `DASH_FIXES` table as "—" ("fevers—in"). The table
+  was built by checking every "--" in the Perseus reader (hopper) against
+  the pages for Constitutions 1–4 and AWP 3–11; no other dashes are
+  missing. Pages extracted for new chapters should get the same check.
   The page ranges in the citations come from the TEI page breaks and are
   followed by a `[PLACEHOLDER: verify page range…]` until the author checks
   them.
 - **Page structure:** chapters go in the `passages` field and render with
-  `#ch-N` anchors. The unannotated pages still carry the original
-  placeholder body: a Synopsis with fixed headings (Place; Seasons and
-  weather; Diseases that followed; Who was affected; Causal and generalizing
-  language; Surprises and exceptions) and a Commentary ending "Bearing on
-  *Airs, Waters, Places*". When the author annotates a constitution,
-  convert it to the annotated layout (see "Author's annotations"). The
-  author chose the body for annotated constitutions (Constitution 1 is the
-  model): drop the fixed Synopsis headings and keep "## Commentary" (a
-  placeholder) with its "### Bearing on *Airs, Waters, Places*" subsection.
+  `#ch-N` anchors. All four constitutions use the annotated layout (see
+  "Author's annotations"). The author chose the body for annotated
+  constitutions (Constitution 1 is the model): no fixed Synopsis headings,
+  just "## Commentary" (a placeholder) with its "### Bearing on *Airs,
+  Waters, Places*" subsection. (The old fixed Synopsis headings were Place;
+  Seasons and weather; Diseases that followed; Who was affected; Causal and
+  generalizing language; Surprises and exceptions. They are worth covering
+  in the commentary.)
 - Case-history pages go in the same collection with `kind: case`.
 
 ## AWP pages
@@ -142,8 +149,9 @@ the annotations to the page. The current PDFs are named after the page
 ("Airs.docx.pdf", "Seasons.docx.pdf", "Constitution 1.docx.pdf", in the
 author's Downloads); they replace the earlier "Ancient Medicine Project
 (1)/(2).pdf". Airs (`airs.md`), Seasons (`seasons.md`) and Constitution 1
-(`constitution-1.md`) are the models. Waters and Constitutions 2–4 will
-presumably follow. The key can differ from page to page: Airs and
+(`constitution-1.md`) are the models. Waters will presumably follow.
+Constitutions 2–4 are the exception: the author asked Claude to annotate
+them (see "Claude-made annotations" below). The key can differ from page to page: Airs and
 Constitution 1 are by body system, Seasons by weather "case".
 
 - **Marks, not edited text.** Each passage keeps its extracted `text`
@@ -214,6 +222,48 @@ Constitution 1 are by body system, Seasons by weather "case".
   Constitution 1: `…%3Atext%3DEpid.%3Abook%3D1%3Achapter%3D1`).
   Per-chapter links for the Epidemics would need the reversed Perseus URL
   labels (see "Epidemics constitution pages").
+
+### Claude-made annotations (Constitutions 2–4)
+
+On 2026-09-30 the author asked Claude to annotate Constitutions 2–4 "in the
+exact same way" as Constitution 1, consistent with it and with Airs. They
+use Constitution 1's key and colours. The synopses are Claude's drafts in
+the pattern of Constitution 1's (weather by season, nearest Seasons case,
+what is highlighted). They stay on the site until the author revises them.
+If the author later sends PDFs for these pages, the PDFs win. Rules applied,
+taken from what the author did on Constitution 1 and Airs:
+
+- **Season (bold):** season names in the weather paragraph ("Winter",
+  "Spring"), and season phrases in the health paragraphs ("early in the
+  spring", "When autumn came, and during winter"). Solstices, equinoxes and
+  star risings are not bolded.
+- **General:** fevers and their course, rigors/shivering, chill in the
+  extremities, wasting, overall health ("the public health ... was good"),
+  and who was affected (ages, sexes, physical types).
+- **Digestive:** bowels, stools, dysentery, tenesmus, lientery, vomiting,
+  nausea, cardialgia, appetite and thirst, the hypochondrium.
+- **Head:** delirium, phrenitis, coma, sleeplessness, convulsions,
+  paralysis, head and neck pains, and **nosebleeds when the text says
+  "nose"/"epistaxis"/"nostrils"** (as in Airs ch. 4). A bare "hemorrhage"
+  is **skin**, as in Constitution 1.
+- **Respiratory:** consumption, coughs, sputa, throat, voice.
+- **Eyes:** eye inflammations, eyelid growths, dimness of sight, blindness.
+- **Skin:** sweats, urine and strangury, fluxes and discharges, swellings,
+  abscessions and suppuration, sores, eruptions, erysipelas, carbuncles,
+  dropsy, jaundice, mouth sores and abscesses.
+- **Reproductive:** testicles, genitals, menstruation, childbirth, abortion,
+  the womb.
+- **Not highlighted** (as in Constitution 1): crisis-day reckonings,
+  relapse arithmetic, bare death counts, named-patient anecdotes, the
+  weather itself, and chapters of general method rather than observation
+  (C2 ch. 11; C3 ch. 19's last paragraph and ch. 23–26; C4 ch. 15's causal
+  remarks and ch. 16).
+
+A Word copy of all four annotated constitutions (synopsis, key, highlighted
+text, in the layout of the author's PDFs) was made from the page files for
+the author: "Constitutions 1-4 (annotated).docx" in their Downloads. It
+isn't kept in the repo. If the marks change, regenerate it from the
+frontmatter rather than editing it by hand.
 
 ## Research project: history and chosen direction
 
@@ -371,7 +421,8 @@ component change, so discuss it before doing it.
   connect the fieldwork to the texts.
 - Translations on corpus pages come from `scripts/extract-jones.py`, copied
   word for word from the Perseus TEI. Never type, paraphrase or "fix" them by
-  hand. If the printed Loeb differs, the author makes that correction.
+  hand. Corrections go in the script, backed by a source (as with the
+  restored dashes), so a fresh extraction gives the same text as the page. If the printed Loeb differs, the author makes that correction.
 - Chapter labels follow the text, not the treatise's title. For example,
   AWP 10–11 is "Seasons" because that is what those chapters discuss. Check
   what a chapter range actually covers before naming a page.

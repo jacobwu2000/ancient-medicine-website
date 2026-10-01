@@ -16,44 +16,130 @@ passages:
   - chapter: "13"
     text: |
       In Thasos a little before and at the season of Arcturus many violent rains with northerly winds. About the equinox until the setting of the Pleiades slight, southerly rains. Winter northerly, droughts, cold periods, violent winds, snow. About the equinox very severe storms. Spring northerly, droughts, slight rains, periods of cold. About the summer solstice slight showers, periods of great cold until near the Dog Star. After the Dog Star, until Arcturus, hot summer. Great heat, not intermittent but continuous and severe. No rain fell. The Etesian winds blew. About Arcturus southerly rains until the equinox.
+    marks:
+      - { category: season, text: "Winter" }
+      - { category: season, text: "Spring" }
+      - { category: season, text: "summer", occurrence: 2 }
   - chapter: "14"
     text: |
       In this constitution during winter began paralyses which attacked many, a few of whom quickly died. In fact, the disease was generally epidemic. In other respects the public health continued good. Early in spring began ardent fevers which continued until the equinox and on to summer. Now those who began to be ill at once, in spring or the beginning of summer, in most cases got well, though a few died; but when autumn and the rains came the cases were dangerous, and more died.
 
       As to the peculiarities of the ardent fevers, the most likely patients to survive were those who had a proper and copious bleeding from the nose, in fact I do not know of a single case in this constitution that proved fatal when a proper bleeding occurred, For Philiscus and Epaminon and Silenus, who died, had only a slight epistaxis on the fourth and fifth days. Now the majority of the patients had rigors near the crisis, especially such as had no epistaxis, but these had sweats also as well as rigors.
+    marks:
+      - { category: season, text: "during winter" }
+      - { category: head, text: "paralyses which attacked many" }
+      - { category: general, text: "the disease was generally epidemic. In other respects the public health continued good" }
+      - { category: season, text: "Early in spring" }
+      - { category: general, text: "ardent fevers which continued until the equinox" }
+      - { category: season, text: "on to summer" }
+      - { category: season, text: "in spring or the beginning of summer" }
+      - { category: general, text: "in most cases got well, though a few died" }
+      - { category: season, text: "when autumn and the rains came" }
+      - { category: general, text: "the cases were dangerous, and more died" }
+      - { category: head, text: "the most likely patients to survive were those who had a proper and copious bleeding from the nose" }
+      - { category: general, text: "the majority of the patients had rigors near the crisis, especially such as had no epistaxis" }
+      - { category: skin, text: "but these had sweats also as well as rigors" }
   - chapter: "15"
     text: |
       Some had jaundice on the sixth day, but these were benefited by either a purging through the bladder or a disturbance of the bowels or a copious hemorrhage, as was the case with Heraclides, who lay sick at the house of Aristocydes. This patient, however, who had a crisis on the twentieth day, not only bled from the nose, but also experienced disturbance of the bowels and a purging through the bladder. Far otherwise was it with the servant of Phanagoras, who had none of these symptoms, and died. But the great majority had hemorrhage, especially youths and those in the prime of life, and of these the great majority who had no hemorrhage died. Older people had jaundice or disordered bowels, for example Bion, who lay sick at the house of Silenus. Dysenteries also were general in summer, and some too of those who had fallen ill, and also suffered from hemorrhage, finally had dysentery; for example, the slave of Erato and Myllus, after copious hemorrhage, lapsed into dysentery. They recovered.
 
-      This humour, then, especially was in great abundance, since even those who had no hemorrhage near the crisis, but swellings by the ears which disappearedand after their disappearance there was a heaviness along the left flank up to the extremity of the hipafter the crisis had pain and passed thin urine, and then began to suffer slight hemorrhage about the twenty-fourth day, and abscessions into hemorrhage occurred. In the case of Antipho, son of Critobulus, the illness ceased and came to a complete crisis about the fortieth day.
+      This humour, then, especially was in great abundance, since even those who had no hemorrhage near the crisis, but swellings by the ears which disappeared—and after their disappearance there was a heaviness along the left flank up to the extremity of the hip—after the crisis had pain and passed thin urine, and then began to suffer slight hemorrhage about the twenty-fourth day, and abscessions into hemorrhage occurred. In the case of Antipho, son of Critobulus, the illness ceased and came to a complete crisis about the fortieth day.
+    marks:
+      - { category: skin, text: "Some had jaundice on the sixth day" }
+      - { category: skin, text: "a purging through the bladder", occurrence: 1 }
+      - { category: digestive, text: "a disturbance of the bowels" }
+      - { category: skin, text: "a copious hemorrhage" }
+      - { category: skin, text: "the great majority had hemorrhage" }
+      - { category: general, text: "especially youths and those in the prime of life" }
+      - { category: skin, text: "Older people had jaundice" }
+      - { category: digestive, text: "disordered bowels" }
+      - { category: digestive, text: "Dysenteries also were general" }
+      - { category: season, text: "in summer" }
+      - { category: digestive, text: "some too of those who had fallen ill, and also suffered from hemorrhage, finally had dysentery" }
+      - { category: skin, text: "swellings by the ears which disappeared—and after their disappearance there was a heaviness along the left flank up to the extremity of the hip—after the crisis had pain and passed thin urine, and then began to suffer slight hemorrhage about the twenty-fourth day, and abscessions into hemorrhage occurred" }
   - chapter: "16"
     text: |
       Though many women fell ill, they were fewer than the men and less frequently died. But the great majority had difficult childbirth, and after giving birth they would fall ill, and these especially died, as did the daughter of Telebulus on the sixth day after delivery. Now menstruation appeared during the fevers in most cases, and with many maidens it occurred then for the first time. Some bled from the nose. Sometimes both epistaxis and menstruation appeared together; for example, the maiden daughter of Daitharses had her first menstruation during fever and also a violent discharge from the nose. I know of no woman who died if any of these symptoms showed themselves properly, but all to my knowledge had abortions if they chanced to fall ill when with child.
+    marks:
+      - { category: general, text: "Though many women fell ill, they were fewer than the men and less frequently died" }
+      - { category: reproductive, text: "the great majority had difficult childbirth, and after giving birth they would fall ill, and these especially died" }
+      - { category: reproductive, text: "Now menstruation appeared during the fevers in most cases, and with many maidens it occurred then for the first time" }
+      - { category: head, text: "Some bled from the nose" }
+      - { category: head, text: "epistaxis" }
+      - { category: reproductive, text: "menstruation appeared together" }
+      - { category: reproductive, text: "all to my knowledge had abortions if they chanced to fall ill when with child" }
   - chapter: "17"
     text: |
       Urine in most cases was of good colour, but thin and with slight sediments, and the bowels of most were disordered with thin, bilious excretions. Many after a crisis of the other symptoms ended with dysentery, as did Xenophanes and Critias. I will mention cases in which was passed copious, watery, clear and thin urine, even after a crisis in other respects favourable, and a favourable sediment: Bion, who lay sick at the house of Silenus, Cratis, who lodged with Xenophanes, the slave of Areto, and the wife of Mnesistratus. Afterwards all these suffered from dysentery.
 
       About the season of Arcturus many had crisis on the eleventh day, and these did not suffer even the normal relapses. There were also comatose fevers about this time, usually in children, and of all patients these showed the lowest mortality.
+    marks:
+      - { category: skin, text: "Urine in most cases was of good colour, but thin and with slight sediments" }
+      - { category: digestive, text: "the bowels of most were disordered with thin, bilious excretions. Many after a crisis of the other symptoms ended with dysentery" }
+      - { category: skin, text: "copious, watery, clear and thin urine" }
+      - { category: digestive, text: "Afterwards all these suffered from dysentery" }
+      - { category: head, text: "comatose fevers" }
+      - { category: general, text: "usually in children" }
   - chapter: "18"
     text: |
       About the equinox up to the setting of the Pleiades, and during winter, although the ardent fevers continued, yet cases of phrenitis were most frequent at this time, and most of them were fatal. In summer, too, a few cases had occurred. Now the sufferers from ardent fever, when fatal symptoms attended, showed signs at the beginning. For right from the beginning there was acute fever with slight rigors, sleeplessness, thirst, nausea, slight sweats about the forehead and collar-bones, but in no case general, much delirium, fears, depression, very cold extremities, toes and hands, especially the latter. The exacerbations on the even days; but in most cases the pains were greatest on the fourth day, with sweat for the most part chilly, while the extremities could not now be warmed again, remaining livid and cold; and in these cases the thirst ceased. Their urine was scanty, black, thin, with constipation of the bowels. Nor was there hemorrhage from the nose in any case when these symptoms occurred, but only slight epistaxis. None of these cases suffered relapse, but they died on the sixth day, with sweating. The cases of phrenitis had all the above symptoms, but the crises generally occurred on the eleventh day. Some had their crises on the twentieth day, namely those in whom the phrenitis did not begin at first, or began about the third or fourth day, but though these fared tolerably at the beginning, yet the disease assumed an acute form about the seventh day.
+    marks:
+      - { category: season, text: "during winter" }
+      - { category: general, text: "the ardent fevers continued" }
+      - { category: head, text: "cases of phrenitis were most frequent at this time, and most of them were fatal" }
+      - { category: season, text: "In summer" }
+      - { category: general, text: "acute fever with slight rigors" }
+      - { category: head, text: "sleeplessness" }
+      - { category: digestive, text: "thirst, nausea" }
+      - { category: skin, text: "slight sweats about the forehead and collar-bones, but in no case general" }
+      - { category: head, text: "much delirium, fears, depression" }
+      - { category: general, text: "very cold extremities, toes and hands, especially the latter" }
+      - { category: skin, text: "sweat for the most part chilly" }
+      - { category: general, text: "the extremities could not now be warmed again, remaining livid and cold" }
+      - { category: digestive, text: "the thirst ceased" }
+      - { category: skin, text: "Their urine was scanty, black, thin" }
+      - { category: digestive, text: "constipation of the bowels" }
+      - { category: head, text: "Nor was there hemorrhage from the nose in any case when these symptoms occurred, but only slight epistaxis" }
   - chapter: "19"
     text: |
       Now the number of illnesses was great. And of the patients there died chiefly striplings, young people, people in their prime, the smooth, the fair-skinned, the straight-haired, the black-haired, the black-eyed, those who had lived recklessly and care-lessly, the thin-voiced, the rough-voiced, the lispers, the passionate. Women too died in very great numbers who were of this kind. In this constitution there were four symptoms especially which denoted recovery:—-a proper hemorrhage through the nostrils; copious discharges by the bladder of urine with much sediment of a proper character; disordered bowels with bilious evacuations at the right time; the appearance of dysenteric characteristics. The crisis in many cases did not come with one only of the symptoms described above, but in most cases all symptoms were experienced, and the patients appeared to be more distressed; but all with these symptoms got well. Women and maidens experienced all the above symptoms, but besides, whenever any took place properly, and whenever copious menstruation supervened, there was a crisis therefrom which resulted in recovery; in fact I know of no woman who died when any of these symptoms took place properly. For the daughter of Philo, who died, though she had violent epistaxis, dined rather unseasonably on the seventh day.
 
       In acute fevers, more especially in ardent fevers, when involuntary weeping occurs, epistaxis is to be expected it the patient have no fatal symptoms besides; for when he is in a bad way such weeping portends not hemorrhage but death.
+    marks:
+      - { category: general, text: "the number of illnesses was great" }
+      - { category: general, text: "of the patients there died chiefly striplings, young people, people in their prime, the smooth, the fair-skinned, the straight-haired, the black-haired, the black-eyed, those who had lived recklessly and care-lessly, the thin-voiced, the rough-voiced, the lispers, the passionate. Women too died in very great numbers who were of this kind" }
+      - { category: head, text: "a proper hemorrhage through the nostrils" }
+      - { category: skin, text: "copious discharges by the bladder of urine with much sediment of a proper character" }
+      - { category: digestive, text: "disordered bowels with bilious evacuations at the right time; the appearance of dysenteric characteristics" }
+      - { category: reproductive, text: "whenever copious menstruation supervened" }
   - chapter: "20"
     text: |
       The painful swellings by the ears in fevers in some cases neither subsided nor suppurated when the fever ceased with a crisis. They were cured by bilious diarrhœa, or dysentery, or a sediment of thick urine such as closed the illness of Hermippus of Clazomenæ. The circumstances of the crises, from which too I formed my judgments, were either similar or dissimilar; for example, the two brothers, who fell sick together at the same time, and lay ill near the bungalow of Epigenes. The elder of these had a crisis on the sixth day, the younger on the seventh. Both suffered a relapse together at the same time with an intermission of five days. After the relapse both had a complete crisis together on the seventeenth day. But the great majority had a crisis on the sixth day, with an intermission of six days followed by a crisis on the fifth day after the relapse. Those who had a crisis on the seventh day had an intermission of seven days, with a crisis on the third day after the relapse. Others with a crisis on the seventh had an intermission of three days, with a crisis on the seventh day after the relapse. Some who had a crisis on the sixth day had an intermission of six and a relapse of three, an intermission of one and a relapse of one, followed by a crisis; for example, Euagon the son of Daitharses. Others with a crisis on the sixth had an intermission of seven days, and after the relapse a crisis on the fourth; for example, the daughter of Aglai+das. Now most of those who fell ill in this constitution went through their illness in this manner, and none of those who recovered, so far as I know, failed to suffer the relapses which were normal in these cases, but all, so far as I know, recovered if their relapses took place after this fashion. Further, I know of none who suffered a fresh relapse after going through the illness in the manner described above.
+    marks:
+      - { category: skin, text: "The painful swellings by the ears in fevers in some cases neither subsided nor suppurated" }
+      - { category: digestive, text: "bilious diarrhœa, or dysentery" }
+      - { category: skin, text: "a sediment of thick urine" }
   - chapter: "21"
     text: |
-      In these diseases most died on the sixth day, as did Epaminondas, Silenus and Philiscus the son of Antagoras. Those who had the swellings by the ears had a crisis on the twentieth day, but these subsided in all cases without suppuration, being diverted to the bladder. There were two cases of suppuration, both fatal, Cratistonax, who lived near the temple of Heracles, and the serving-maid of Scymnus the fuller. When there was a crisis on the seventh day, with an intermission of nine days followed by a relapse, there was a second crisis on the fourth day after the relapsein the case of Pantacles, for example, who lived by the temple of Dionysus. When there was a crisis on the seventh day, with an intermission of six days followed by a relapse, there was a second crisis on the seventh day after the relapsein the case of Phanocritus, for example, who lay sick at the house of Gnathon the fuller.
+      In these diseases most died on the sixth day, as did Epaminondas, Silenus and Philiscus the son of Antagoras. Those who had the swellings by the ears had a crisis on the twentieth day, but these subsided in all cases without suppuration, being diverted to the bladder. There were two cases of suppuration, both fatal, Cratistonax, who lived near the temple of Heracles, and the serving-maid of Scymnus the fuller. When there was a crisis on the seventh day, with an intermission of nine days followed by a relapse, there was a second crisis on the fourth day after the relapse—in the case of Pantacles, for example, who lived by the temple of Dionysus. When there was a crisis on the seventh day, with an intermission of six days followed by a relapse, there was a second crisis on the seventh day after the relapse—in the case of Phanocritus, for example, who lay sick at the house of Gnathon the fuller.
+    marks:
+      - { category: skin, text: "but these subsided in all cases without suppuration, being diverted to the bladder. There were two cases of suppuration, both fatal" }
   - chapter: "22"
     text: |
       During winter, near the time of the winter solstice, and continuing until the equinox, the ardent fevers and the phrenitis still caused many deaths, but their crises changed. Most cases had a crisis on the fifth day from the outset, then intermitted four days, relapsed, had a crisis on the fifth day after the relapse, that is, after thirteen days altogether. Mostly children experienced crises thus, but older people did so too. Some had a crisis on the eleventh day, a relapse on the fourteenth, and a complete crisis on the twentieth. But if rigor came on about the twentieth day the crisis came on the fortieth. Most had rigors near the first crisis, and those who had rigors at first near the crisis, had rigors again in the relapses at the time of the crisis. Fewest experienced rigors in the spring, more in summer, more still in autumn, but by far the most during winter. But the hemorrhages tended to cease.
+    marks:
+      - { category: season, text: "During winter" }
+      - { category: general, text: "the ardent fevers" }
+      - { category: head, text: "the phrenitis" }
+      - { category: general, text: "Fewest experienced rigors" }
+      - { category: season, text: "in the spring" }
+      - { category: season, text: "in summer" }
+      - { category: season, text: "in autumn" }
+      - { category: season, text: "during winter" }
+      - { category: skin, text: "But the hemorrhages tended to cease" }
   - chapter: "23"
     text: |
-      The following were the circumstances attending the diseases, from which I framed my judgments, learning from the common nature of all and the particular nature of the individual, from the disease, the patient, the regimen prescribed and the prescriberfor these make a diagnosis more favourable or less; from the constitution, both as a whole and with respect to the parts, of the weather and of each region; from the custom, mode of life, practices and ages of each patient; from talk, manner, silence, thoughts, sleep or absence of sleep, the nature and time of dreams, pluckings, scratchings, tears; from the exacerbations, stools, urine, sputa, vomit, the antecedents and consequents of each member in the successions of diseases, and the abscessions to a fatal issue or a crisis, sweat, rigor, chill, cough, sneezes, hiccoughs, breathing, belchings, flatulence, silent or noisy, hemorrhages, and hemorrhoids. From these things must we consider what their consequents also will be.
+      The following were the circumstances attending the diseases, from which I framed my judgments, learning from the common nature of all and the particular nature of the individual, from the disease, the patient, the regimen prescribed and the prescriber—for these make a diagnosis more favourable or less; from the constitution, both as a whole and with respect to the parts, of the weather and of each region; from the custom, mode of life, practices and ages of each patient; from talk, manner, silence, thoughts, sleep or absence of sleep, the nature and time of dreams, pluckings, scratchings, tears; from the exacerbations, stools, urine, sputa, vomit, the antecedents and consequents of each member in the successions of diseases, and the abscessions to a fatal issue or a crisis, sweat, rigor, chill, cough, sneezes, hiccoughs, breathing, belchings, flatulence, silent or noisy, hemorrhages, and hemorrhoids. From these things must we consider what their consequents also will be.
   - chapter: "24"
     text: |
       Some fevers are continuous, some have an access during the day and an intermission during the night, or an access during the night and an intermission during the day; there are semitertians, tertians, quartans, quintans, septans, nonans. The most acute diseases, the most severe, difficult and fatal, belong to the continuous fevers. The least fatal and least difficult of all, but the longest of all, is the quartan. Not only is it such in itself, but it also ends other, and serious, diseases. In the fever called semitertian, which is more fatal than any other, there occur also acute diseases, while it especially precedes the illness of consumptives, and of those who suffer from other and longer diseases. The nocturnal is not very fatal, but it is long. The diurnal is longer still, and to some it also brings a tendency to consumption. The septan is long but not fatal. The nonan is longer still but not fatal. The exact tertian has a speedy crisis and is not fatal. But the quintan is the worst of all. For if it comes on before consumption or during consumption the patient dies.
@@ -63,38 +149,20 @@ passages:
   - chapter: "26"
     text: |
       When the exacerbations are on even days, the crises are on even days. But the diseases exacerbated on odd days have their crises on odd days. The first period of diseases with crises on the even days is the fourth day, then the sixth, eighth, tenth, fourteenth, twentieth, twenty-fourth, thirtieth, fortieth, sixtieth, eightieth, hundred and twentieth. Of those with a crisis on the odd days the first period is the third, then the fifth, seventh, ninth, eleventh, seventeenth, twenty-first, twenty-seventh, thirty-first. Further, one must know that, if the crises be on other days than the above, there will be relapses, and there may also be a fatal issue. So one must be attentive and know that at these times there will be the crises resulting in recovery, or death, or a tendency for better or worse. One must also consider in what periods the crises occur of irregular fevers, of quartans, of quintans, of septans and of nonans.
+synopsis: |
+  Epidemics I 13-26 describes the third Constitution. The specific weather pattern is that of rainy autumn, northerly at first and then lightly southerly; dry, cold, northerly winter with violent winds and snow; dry, cold, northerly spring; and summer that was cold until the Dog Star, then hot and rainless with Etesian winds, followed by southerly rains about Arcturus. The dry, northerly summer followed by southerly rains comes closest to Case E from Seasons (AWP 10-11); the dry, northerly winter and spring have no exact match among the six cases. I have highlighted the specific health observations during each season of the year with this weather pattern, and divided them into various categories based on the specific affected region or aspect of the body. Chapters 23-26 are general remarks on method, fevers and critical days rather than observations of this constitution, so they are not highlighted.
+highlightKey:
+  - { id: season, label: "Season", style: bold }
+  - { id: general, label: "General Health Characteristics" }
+  - { id: digestive, label: "Digestive & Dietary" }
+  - { id: head, label: "Head, Brain & Nervous" }
+  - { id: respiratory, label: "Respiratory & Chest" }
+  - { id: eyes, label: "Eye Conditions" }
+  - { id: skin, label: "Skin, Discharges & Other Bodily Afflictions" }
+  - { id: reproductive, label: "Reproductive Health" }
 citation: "Hippocrates, Epidemics I 13–26, trans. W. H. S. Jones, in Hippocrates, Vol. I, Loeb Classical Library (London: Heinemann; Cambridge, MA: Harvard University Press, 1923), pp. 165–185 [PLACEHOLDER: verify page range against the printed Loeb]. English text from the Perseus Digital Library TEI edition (urn:cts:greekLit:tlg0627.tlg006.perseus-eng4), CC BY-SA 4.0."
-sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0251:text=Epid.:book=1:chapter=3"
+sourceUrl: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0251%3Atext%3DEpid.%3Abook%3D1%3Achapter%3D3"
 ---
-
-## Synopsis
-
-*Draft synopsis of the translation above. Every point cites a chapter number
-([13](#ch-13) etc.) so it can be checked against the text on this page.*
-
-### Place
-
-[PLACEHOLDER: where the constitution is set, as the text states it.]
-
-### Seasons and weather
-
-[PLACEHOLDER: the sequence of seasons and weather, in order, with chapter references.]
-
-### Diseases that followed
-
-[PLACEHOLDER: the diseases described, in the text's own terms (no retrospective diagnosis).]
-
-### Who was affected
-
-[PLACEHOLDER: age, sex, constitution or other groups the text singles out.]
-
-### Causal and generalizing language
-
-[PLACEHOLDER: quoted phrases such as "most", "especially", "such constitutions…", with chapter references.]
-
-### Surprises and exceptions
-
-[PLACEHOLDER: anything the author flags as unexpected, and any exceptions to the general picture.]
 
 ## Commentary
 
