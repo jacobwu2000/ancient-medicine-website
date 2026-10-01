@@ -30,23 +30,20 @@ npm run preview   # serve the production build locally
 ```
 src/
   content/                  ← content collections (edit prose here)
-    config.ts                 schema for all three collections below
+    config.ts                 schema for both collections below
     corpus/                    Hippocratic Corpus sections (AWP + Epidemics)
-    site-archaeology/          per-site dossiers (Messene, Epidauros, Argos,
-                                Corinth, Kos, Trikka, Athens)
     journal/                   Field Journal entries (9, covering the 2026
                                 fieldwork trip end to end)
 
   data/                      ← structured data (edit here, not in components)
-    sites.json                 canonical site geo/identity — powers BOTH the
-                                map and the site-archaeology "quick facts"
+    sites.json                 canonical site geo/identity for the map,
+                                incl. each site's Field Journal entry (`journal`)
     inscriptions.json          epigraphy catalogue — powers BOTH the
                                 Epigraphy pages and the map popups
     bibliography.json          primary/secondary source list
 
   components/
     SiteMap.jsx                the interactive map (React + Leaflet island)
-    PersonalObservations.astro wrapper used inside site-archaeology .mdx
     RelatedSources.astro       "Related Sources" list on journal entries
     PhotoPlaceholder.astro     reserved, auto-numbered image slot ("Fig. N —
                                 caption") — drop into any .mdx entry where a
@@ -63,7 +60,7 @@ src/
   pages/                     ← routing + thin data-fetching glue (avoid
                                 touching unless you're changing behavior)
     index.astro                Home
-    the-argument.mdx           The Argument (long-form MDX)
+    findings.mdx               Findings (long-form MDX)
     map.astro                  Interactive Map
     sources/
       index.astro                 Sources landing: lists every Hippocratic
@@ -73,7 +70,6 @@ src/
         airs-waters-places/[slug].astro
         epidemics/[slug].astro
       epigraphy/{index,[id]}.astro
-      site-archaeology/{index,[slug]}.astro
     field-journal/{index,[...slug]}.astro
     bibliography.astro
     about.astro
@@ -98,9 +94,6 @@ src/
   which lists every corpus page. `scripts/extract-jones.py` prints Jones's chapters as
   ready-to-paste YAML from the Perseus TEI (needs Python 3.7+ and internet).
   Case-history pages go in the same collection with `kind: case`.
-- `src/content/site-archaeology/*.mdx` — one dossier per site. The
-  `<PersonalObservations>` block is the only component reference needed;
-  everything else is plain Markdown headings.
 - `src/content/journal/*.mdx` — one Field Journal entry per file, filename
   `YYYY-MM-DD-slug.mdx` (`.mdx` so `<PhotoPlaceholder>` can be dropped in
   wherever a picture will eventually go). List cross-links to Sources pages
@@ -108,7 +101,9 @@ src/
   Crete) — leave `relatedSources: []` for those.
 - `src/data/sites.json`, `src/data/inscriptions.json`,
   `src/data/bibliography.json` — structured records.
-- `the-argument.mdx`, `about.astro`, `bibliography.astro` — page-level prose.
+- `findings.mdx`, `about.astro`, `bibliography.astro` — page-level prose.
+  Bibliography citations are plain text; `*italics*` and bare URLs are
+  rendered as italics and links.
 
 **Avoid editing unless changing behavior:** anything in `src/layouts/`,
 `src/components/`, and the `[slug].astro` / `[id].astro` route files under
@@ -129,17 +124,17 @@ editing surface.
      "layers": ["cult-healing"],
      "relatedInscriptions": ["some-inscr-id"],
      "relatedHippocraticPassages": ["awp-1"],
-     "dossier": "/sources/site-archaeology/newsite"
+     "journal": "/field-journal/YYYY-MM-DD-newsite"
    }
    ```
    `layers` accepts `"hippocratic"`, `"cult-healing"`, or both — this is what
    the map's layer toggle filters on.
-2. Add `src/content/site-archaeology/newsite.mdx` (copy an existing dossier).
-3. Add any new inscription records to `src/data/inscriptions.json`
+   `journal` is the site's Field Journal entry; the map popup links to it.
+2. Add any new inscription records to `src/data/inscriptions.json`
    (`siteId: "newsite"`).
 
-No component code needs to change — `SiteMap.jsx` and the site-archaeology
-routes read `sites.json` directly.
+No component code needs to change — `SiteMap.jsx` reads `sites.json`
+directly.
 
 ## Design notes
 
@@ -150,7 +145,7 @@ routes read `sites.json` directly.
   `body[data-mode]` in `styles.css`, driven by the `mode` prop on
   `BaseLayout`/`ScholarlyLayout`/`JournalLayout`. The accent shows as a
   stripe on top of the header and on the current nav item.
-- The nav is grouped by the project's two strands: research (The Argument,
+- The nav is grouped by the project's two strands: research (Findings,
   Sources, Bibliography) and fieldwork (Field Journal, Map).
 - The home page explains the project as two strands (texts / places) and
   lists the journal entries as an itinerary; excerpts are pulled

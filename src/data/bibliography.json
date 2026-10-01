@@ -1,18 +1,23 @@
 [
   {
-    "id": "primary-1",
+    "id": "jones-loeb-1923",
     "category": "Primary Editions",
-    "citation": "[PLACEHOLDER: full citation for the primary edition/translation of the Hippocratic Corpus text used, e.g. a Loeb or CMG edition]"
+    "citation": "Hippocrates. *Hippocrates*, Vol. I: *Ancient Medicine. Airs, Waters, Places. Epidemics I and III. The Oath. Precepts. Nutriment.* Translated by W. H. S. Jones. Loeb Classical Library 147. London: William Heinemann; Cambridge, MA: Harvard University Press, 1923."
+  },
+  {
+    "id": "perseus-jones",
+    "category": "Primary Editions",
+    "citation": "Hippocrates. *Airs, Waters, Places* and *Epidemics* I and III. In *Hippocrates Collected Works* I, translated by W. H. S. Jones. Perseus Digital Library, Tufts University. https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0251"
+  },
+  {
+    "id": "perseus-tei",
+    "category": "Primary Editions",
+    "citation": "Hippocrates. *Airs Waters Places* (tlg0627.tlg002.perseus-eng4) and *Epidemics I and III* (tlg0627.tlg006.perseus-eng4). Translated by W. H. S. Jones. TEI XML. Perseus Digital Library, canonical-greekLit repository. CC BY-SA 4.0. https://github.com/PerseusDL/canonical-greekLit"
   },
   {
     "id": "primary-2",
     "category": "Primary Editions",
     "citation": "[PLACEHOLDER: full citation for the epigraphic edition of the Epidaurian iamata (cf. LiDonnici) and/or the relevant IG volume]"
-  },
-  {
-    "id": "primary-3",
-    "category": "Primary Editions",
-    "citation": "[PLACEHOLDER: additional primary source citation]"
   },
   {
     "id": "secondary-1",

@@ -8,7 +8,7 @@
     "layers": ["cult-healing"],
     "relatedInscriptions": [],
     "relatedHippocraticPassages": [],
-    "dossier": "/sources/site-archaeology/messene"
+    "journal": "/field-journal/2026-07-24-messene"
   },
   {
     "id": "epidauros",
@@ -19,7 +19,7 @@
     "layers": ["cult-healing"],
     "relatedInscriptions": ["iamata-001", "iamata-002"],
     "relatedHippocraticPassages": [],
-    "dossier": "/sources/site-archaeology/epidauros"
+    "journal": "/field-journal/2026-07-25-epidaurus"
   },
   {
     "id": "argos",
@@ -30,7 +30,7 @@
     "layers": ["cult-healing"],
     "relatedInscriptions": [],
     "relatedHippocraticPassages": [],
-    "dossier": "/sources/site-archaeology/argos"
+    "journal": "/field-journal/2026-07-26-argos"
   },
   {
     "id": "corinth",
@@ -41,7 +41,7 @@
     "layers": ["cult-healing"],
     "relatedInscriptions": [],
     "relatedHippocraticPassages": [],
-    "dossier": "/sources/site-archaeology/corinth"
+    "journal": "/field-journal/2026-07-26-corinth"
   },
   {
     "id": "kos",
@@ -52,7 +52,7 @@
     "layers": ["hippocratic", "cult-healing"],
     "relatedInscriptions": ["kos-inscr-001"],
     "relatedHippocraticPassages": [],
-    "dossier": "/sources/site-archaeology/kos"
+    "journal": "/field-journal/2026-07-29-kos"
   },
   {
     "id": "trikka",
@@ -63,7 +63,7 @@
     "layers": ["cult-healing"],
     "relatedInscriptions": ["trikka-inscr-001"],
     "relatedHippocraticPassages": [],
-    "dossier": "/sources/site-archaeology/trikka"
+    "journal": "/field-journal/2026-07-31-trikala"
   },
   {
     "id": "athens",
@@ -74,6 +74,6 @@
     "layers": ["cult-healing"],
     "relatedInscriptions": [],
     "relatedHippocraticPassages": [],
-    "dossier": "/sources/site-archaeology/athens"
+    "journal": "/field-journal/2026-08-02-athens"
   }
 ]

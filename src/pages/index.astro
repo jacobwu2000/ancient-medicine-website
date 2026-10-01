@@ -12,7 +12,7 @@ const stops = (await getCollection('journal')).sort(
 ---
 <BaseLayout title="Home" mode="scholarly">
   <section class="hero">
-    <p class="eyebrow">An undergraduate research notebook · Summer 2026</p>
+    <p class="eyebrow">Research Notebook</p>
     <h1>Word and Ritual in Greek Sanctuaries</h1>
     <p class="lede">
       How did Greek physicians explain disease, and how did it look beside the
@@ -25,7 +25,7 @@ const stops = (await getCollection('journal')).sort(
       different jobs, as set out below.
     </p>
     <div class="hero-actions">
-      <a class="button button--primary" href="/the-argument">Read the Argument</a>
+      <a class="button button--primary" href="/findings">Read the Findings</a>
       <a class="button" href="/field-journal">Open the Field Journal</a>
     </div>
   </section>
@@ -46,7 +46,7 @@ const stops = (await getCollection('journal')).sort(
         <li><strong>Translation:</strong> W. H. S. Jones, Loeb (1923)</li>
       </ul>
       <p class="strand__links">
-        <a href="/the-argument">The Argument &rarr;</a>
+        <a href="/findings">Findings &rarr;</a>
         <a href="/sources#epidemics">The constitutions &rarr;</a>
       </p>
     </article>
@@ -63,7 +63,7 @@ const stops = (await getCollection('journal')).sort(
       <ul class="strand__facts">
         <li><strong>Dates:</strong> 12 July – 2 August 2026</li>
         <li><strong>Stops:</strong> {stops.length} journal entries, from the Peloponnese to Crete, Kos and Thessaly</li>
-        <li><strong>Record:</strong> field journal, site dossiers, photographs</li>
+        <li><strong>Record:</strong> field journal, photographs</li>
       </ul>
       <p class="strand__links">
         <a href="/field-journal">Field Journal &rarr;</a>
@@ -99,7 +99,7 @@ const stops = (await getCollection('journal')).sort(
     <h2>The sites on the map</h2>
     <p class="home-section__intro">
       Every site is shown through two lenses: Hippocratic medical geography and
-      cult healing. Toggle either one, or click a marker to open that site’s dossier.
+      cult healing. Toggle either one, or click a marker to open that site’s journal entry.
     </p>
     <SiteMap client:only="react" sites={sites} />
   </section>

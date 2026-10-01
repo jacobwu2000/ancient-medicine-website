@@ -17,7 +17,7 @@ import sites from '../../../data/sites.json';
       return (
         <li>
           <a href={`/sources/epigraphy/${i.id}`}>{i.title}</a>
-          {site && <> — <a href={`/sources/site-archaeology/${site.id}`}>{site.name}</a></>}
+          {site && <> — {site.name}</>}
         </li>
       );
     })}

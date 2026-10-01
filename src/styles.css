@@ -296,7 +296,7 @@ code {
 .sources-card p { margin-bottom: 0; color: var(--color-ink-muted); font-size: 0.92rem; }
 
 /* ---------------------------------------------------------------------
-   Long-form pages (The Argument)
+   Long-form pages (Findings)
    --------------------------------------------------------------------- */
 
 .question-box {
@@ -683,42 +683,6 @@ code {
   font-size: 0.85rem;
   color: var(--color-ink-muted);
 }
-
-/* ---------------------------------------------------------------------
-   Site Archaeology dossiers
-   --------------------------------------------------------------------- */
-
-.site-quickfacts {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  color: var(--color-ink-muted);
-}
-
-.personal-observations {
-  background: var(--color-journal-tint);
-  border: 1px solid var(--color-journal);
-  border-left-width: 4px;
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  margin: 1.75rem 0;
-}
-.personal-observations__label {
-  font-family: var(--font-sans);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--color-journal);
-  margin-bottom: 0.5em;
-}
-.personal-observations__body :last-child { margin-bottom: 0; }
-
-.related-panel {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
-}
-.related-panel h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* ---------------------------------------------------------------------
    Field Journal

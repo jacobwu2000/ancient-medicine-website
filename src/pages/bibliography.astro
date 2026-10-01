@@ -3,14 +3,21 @@ import ScholarlyLayout from '../layouts/ScholarlyLayout.astro';
 import bibliography from '../data/bibliography.json';
 
 const categories = [...new Set(bibliography.map((b) => b.category))];
+// Citations are plain text with *italics* and bare URLs, rendered as <em>
+// and links. Escape first, since the result goes through set:html.
+const escape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const format = (s) =>
+  escape(s)
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/https?:\/\/[^\s]+[^\s.,;)]/g, (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`);
 ---
 <ScholarlyLayout title="Bibliography">
   <p class="eyebrow">Research</p>
   <h1>Bibliography</h1>
   <p class="bib-note">
-    [PLACEHOLDER: this is a placeholder structure pending the real bibliography.
-    Entries are data-driven from <code>src/data/bibliography.json</code> — add or
-    edit records there rather than in this page's markup.]
+    [PLACEHOLDER: the editions of the Hippocratic texts are filled in; the
+    epigraphic edition and secondary literature are still to come. Entries live
+    in <code>src/data/bibliography.json</code>.]
   </p>
 
   {categories.map((category) => (
@@ -19,7 +26,7 @@ const categories = [...new Set(bibliography.map((b) => b.category))];
       <ul class="bib-list">
         {bibliography
           .filter((b) => b.category === category)
-          .map((b) => <li id={b.id}>{b.citation}</li>)}
+          .map((b) => <li id={b.id} set:html={format(b.citation)} />)}
       </ul>
     </section>
   ))}

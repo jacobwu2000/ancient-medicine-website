@@ -19,7 +19,9 @@ epigraphic record of dream healing.
   The site title is *Word and Ritual in Greek Sanctuaries*. The map has two
   lenses: `hippocratic` (environmental-empirical medicine) and `cult-healing`
   (incubation / iamata).
-- **Author:** an undergraduate working alone, with intermediate Ancient Greek.
+- **Author:** working alone, with intermediate Ancient Greek. The site
+  doesn't describe the author's academic level anywhere: the home page
+  eyebrow is just "Research Notebook".
   The site has to show (1) real proof of fieldwork and (2) research that is
   small but real and defensible.
 
@@ -47,7 +49,7 @@ epigraphic record of dream healing.
 - **Sources page** (`src/pages/sources/index.astro`): lists all the corpus
   pages directly (AWP: Airs, Waters, Seasons; Epidemics: Constitutions
   1–4, then any `kind: case` pages), followed by the "How passages are
-  labeled" note and cards for Epigraphy and Site Archaeology. There are no
+  labeled" note and an Epigraphy card. There are no
   separate Hippocratic Corpus, AWP or Epidemics index pages any more. Their
   old URLs redirect to `/sources#awp` / `/sources#epidemics` (`redirects` in
   `astro.config.mjs`), and other links point at those anchors. A page
@@ -61,15 +63,31 @@ epigraphic record of dream healing.
   places, the "fieldwork is context, not evidence" note) was drafted by
   Claude from this file and has not yet been reviewed by the author. The
   itinerary excerpts are pulled automatically from the journal entries.
-- The Argument (`src/pages/the-argument.mdx`) is scaffolded around the
+- **Findings** (`src/pages/findings.mdx`, formerly "The Argument" at
+  `/the-argument`, which now redirects) is scaffolded around the
   chosen direction: title, working-question box, table of contents, and one
   section per part of "What the finished project looks like" below. Every
   section body, including the Summary (which replaces the old home-page
   abstract), is still a placeholder.
 - Almost everything else is `[PLACEHOLDER: ...]`: inscriptions,
   bibliography, About, the Sources framing paragraph, section intros on the
-  Epigraphy and Site Archaeology index pages, and site-dossier
-  sections other than `<PersonalObservations>`.
+  Epigraphy index page, and the bibliography's epigraphic edition and
+  secondary literature.
+- **Bibliography:** the Primary Editions list has the editions actually
+  used: Jones's Loeb volume (LCL 147, 1923; imprint from the TEI's
+  `sourceDesc`), the Perseus reader text (`1999.01.0251`), and the
+  GitHub TEI files (CC BY-SA 4.0). The iamata edition and all secondary
+  literature are still placeholders. Citations in `bibliography.json` are
+  plain text, and `*italics*` and bare URLs render as italics and links.
+- **No Site Archaeology section.** The author dropped the per-site dossiers
+  (2026-09-30) because the Field Journal already covers the sites. Their
+  `<PersonalObservations>` prose was all in the journal entries already.
+  The collection, routes and `PersonalObservations` component are gone. In
+  `sites.json`, each site's `dossier` became `journal` (its Field Journal
+  entry), which the map popup links to. Epigraphy pages show the findspot
+  as plain text, since Sources pages don't link into the journal. Old
+  `/sources/site-archaeology/*` URLs redirect to the matching journal
+  entries.
 - Map: no site links to a Hippocratic passage (`relatedHippocraticPassages`
   is empty everywhere). The old Kos → `epidemics-1` and Epidauros → `awp-1`
   links pointed at scaffold placeholders and were removed, because neither
@@ -362,16 +380,17 @@ overclaim. Its roles:
   alongside.
 - **NAM Athens:** medical instruments, the material side of the physicians'
   practice.
-- Photos and `<PersonalObservations>` count as proof of fieldwork.
+- Photos and the Field Journal's first-person prose count as proof of
+  fieldwork.
   Observations written up after the trip should be labeled as retrospective.
 
 The places the constitutions describe (Thasos etc.) were not visited. They
 could still go on the map as `hippocratic`-layer, text-only sites, if the
-map/dossier gets a clear "not visited" marker. That needs a small schema and
+map gets a clear "not visited" marker. That needs a small schema and
 component change, so discuss it before doing it.
 
 ### What the finished project looks like on the site
-- **The Argument:** the question, method (sample and reading rules), findings
+- **Findings:** the question, method (sample and reading rules), findings
   constitution by constitution, a hedged judgment on evidence vs.
   illustration, and limitations (small corpus, translation-based,
   retrospective diagnosis avoided).
@@ -383,9 +402,9 @@ component change, so discuss it before doing it.
   author (see "Author's annotations"). Each page's "Candidate claims"
   section collects claims for the list. The claim list itself could
   be a single page or table.
-- **Site dossiers and Journal:** real photos and personal observations that
-  keep the fieldwork visible.
-- **Bibliography:** real citations.
+- **Field Journal:** real photos and personal observations that keep the
+  fieldwork visible. There are no separate site pages.
+- **Bibliography:** real citations (the editions are done).
 - A side-by-side comparison page (constitution vs. AWP claims) is a likely
   addition.
 
@@ -414,8 +433,7 @@ component change, so discuss it before doing it.
   should check against a source.
 - Keep the `[PLACEHOLDER: ...]` convention for unfinished content so gaps
   stay easy to grep for.
-- Keep the author's own voice in Field Journal and `<PersonalObservations>`
-  prose: first person, informal. Edit lightly and don't rewrite it into
+- Keep the author's own voice in Field Journal prose: first person, informal. Edit lightly and don't rewrite it into
   academic register.
 - Claims should be hedged and sized to the sample. "The evidence leans
   toward X" is the target, not a definitive verdict.
@@ -431,7 +449,8 @@ component change, so discuss it before doing it.
 - Translations on corpus pages come from `scripts/extract-jones.py`, copied
   word for word from the Perseus TEI. Never type, paraphrase or "fix" them by
   hand. Corrections go in the script, backed by a source (as with the
-  restored dashes), so a fresh extraction gives the same text as the page. If the printed Loeb differs, the author makes that correction.
+  restored dashes), so a fresh extraction gives the same text as the page. If the printed
+  Loeb differs, the author makes that correction.
 - Chapter labels follow the text, not the treatise's title. For example,
   AWP 10–11 is "Seasons" because that is what those chapters discuss. Check
   what a chapter range actually covers before naming a page.

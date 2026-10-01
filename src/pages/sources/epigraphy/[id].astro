@@ -18,7 +18,7 @@ const site = entry ? sites.find((s) => s.id === entry.siteId) : null;
       <h1>{entry.title}</h1>
       {site && (
         <p class="inscription-site">
-          Findspot: <a href={`/sources/site-archaeology/${site.id}`}>{site.name}</a>
+          Findspot: {site.name}
         </p>
       )}
 

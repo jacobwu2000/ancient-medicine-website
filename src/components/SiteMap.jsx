@@ -110,7 +110,7 @@ export default function SiteMap({ sites }) {
                       </span>
                     )}
                   </p>
-                  <a href={site.dossier}>Open site dossier &rarr;</a>
+                  {site.journal && <a href={site.journal}>Read the journal entry &rarr;</a>}
                 </div>
               </Popup>
             </Marker>
