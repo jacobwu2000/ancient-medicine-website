@@ -36,17 +36,25 @@ epigraphic record of dream healing.
   *Airs, Waters, Places*". Constitution 1 was annotated by the author.
   Constitutions 2–4 were annotated by Claude at the author's request
   (2026-09-30), following Constitution 1 and Airs; their marks and
-  synopses are **not yet reviewed by the author**. The Epidemics index,
-  like the AWP index, flags any page without a `highlightKey` as "[WIP]".
+  synopses are **not yet reviewed by the author**.
   See "Epidemics constitution pages" below.
 - AWP pages exist for Airs (ch. 3–6), Waters (7–9) and Seasons (10–11), in
   `airs.md`, `waters.md` and `seasons.md`, filled in the same way. **Airs
   and Seasons are annotated** (see "Author's annotations" below): the
   author's highlighting and key, the author's synopsis, no title, and only a
   Candidate claims placeholder in the body. Waters is not annotated yet and
-  still has the older placeholder sections, but no `title` placeholder. The
-  AWP index flags any page without a `highlightKey` as "[WIP]", so the flag
-  goes away by itself once a page is annotated.
+  still has the older placeholder sections, but no `title` placeholder.
+- **Sources page** (`src/pages/sources/index.astro`): lists all the corpus
+  pages directly (AWP: Airs, Waters, Seasons; Epidemics: Constitutions
+  1–4, then any `kind: case` pages), followed by the "How passages are
+  labeled" note and cards for Epigraphy and Site Archaeology. There are no
+  separate Hippocratic Corpus, AWP or Epidemics index pages any more. Their
+  old URLs redirect to `/sources#awp` / `/sources#epidemics` (`redirects` in
+  `astro.config.mjs`), and other links point at those anchors. A page
+  without a `highlightKey` (now just Waters) is listed as "[WIP]" with **no
+  link**. Its page still builds at its URL, and the link appears by itself
+  once the page is annotated. The text pages keep their URLs under
+  `/sources/hippocratic-corpus/{airs-waters-places,epidemics}/`.
 - The author plans to annotate Waters the same way. The claim list and the
   comparison itself haven't been started.
 - Home page: framing text (hero, the two "strands" cards for texts and
@@ -59,7 +67,8 @@ epigraphic record of dream healing.
   section body, including the Summary (which replaces the old home-page
   abstract), is still a placeholder.
 - Almost everything else is `[PLACEHOLDER: ...]`: inscriptions,
-  bibliography, About, section intros on the index pages, and site-dossier
+  bibliography, About, the Sources framing paragraph, section intros on the
+  Epigraphy and Site Archaeology index pages, and site-dossier
   sections other than `<PersonalObservations>`.
 - Map: no site links to a Hippocratic passage (`relatedHippocraticPassages`
   is empty everywhere). The old Kos → `epidemics-1` and Epidauros → `awp-1`

@@ -66,11 +66,12 @@ src/
     the-argument.mdx           The Argument (long-form MDX)
     map.astro                  Interactive Map
     sources/
-      index.astro                 Sources landing
-      hippocratic-corpus/
-        index.astro
-        airs-waters-places/{index,[slug]}.astro
-        epidemics/{index,[slug]}.astro
+      index.astro                 Sources landing: lists every Hippocratic
+                                   Corpus text page (AWP + Epidemics) directly
+      hippocratic-corpus/          (no index pages; old index URLs redirect
+                                    to /sources via astro.config.mjs)
+        airs-waters-places/[slug].astro
+        epidemics/[slug].astro
       epigraphy/{index,[id]}.astro
       site-archaeology/{index,[slug]}.astro
     field-journal/{index,[...slug]}.astro
@@ -93,8 +94,8 @@ src/
   (`constitution-1.md`…`constitution-4.md`, Jones's translation) use
   `passages` instead: one item per Jones chapter, rendered with `#ch-N`
   anchors, and so do the AWP chapter groups (`airs.md`, `waters.md`,
-  `seasons.md`). The labeling schemes are explained on the Epidemics and AWP
-  index pages. `scripts/extract-jones.py` prints Jones's chapters as
+  `seasons.md`). The labeling schemes are explained on the Sources page,
+  which lists every corpus page. `scripts/extract-jones.py` prints Jones's chapters as
   ready-to-paste YAML from the Perseus TEI (needs Python 3.7+ and internet).
   Case-history pages go in the same collection with `kind: case`.
 - `src/content/site-archaeology/*.mdx` — one dossier per site. The

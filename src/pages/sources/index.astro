@@ -1,16 +1,79 @@
 ---
+import { getCollection } from 'astro:content';
 import ScholarlyLayout from '../../layouts/ScholarlyLayout.astro';
+
+// Every Hippocratic Corpus text page is listed here directly; there are no
+// separate index pages for Airs, Waters, Places or Epidemics.
+const corpus = (await getCollection('corpus')).sort((a, b) => a.data.order - b.data.order);
+const awp = corpus.filter((s) => s.data.work === 'awp');
+const epidemics = corpus.filter((s) => s.data.work === 'epidemics');
+const constitutions = epidemics.filter((s) => s.data.kind === 'constitution');
+const cases = epidemics.filter((s) => s.data.kind === 'case');
+
+const base = { awp: '/sources/hippocratic-corpus/airs-waters-places', epidemics: '/sources/hippocratic-corpus/epidemics' };
+const heading = (s) => `${s.data.label ?? `§${s.data.sectionNumber}`}${s.data.title ? `. ${s.data.title}` : ''}`;
+// Pages not yet annotated by the author (no highlight key) are flagged [WIP]
+// and not linked.
+const wip = (s) => !s.data.highlightKey;
 ---
 <ScholarlyLayout title="Sources">
   <p class="eyebrow">Research</p>
   <h1>Sources</h1>
   <p>[PLACEHOLDER: framing paragraph describing the three bodies of source material this project draws on and how they relate.]</p>
 
+  <h2>Hippocratic Corpus</h2>
+  <p>
+    W. H. S. Jones’s Loeb translation (1923), as encoded by the Perseus Digital
+    Library. Annotated pages add a synopsis and highlight the text by
+    category; pages marked [WIP] are not annotated yet.
+  </p>
+
+  {[
+    { id: 'awp', title: 'Airs, Waters, Places', groups: [{ items: awp }] },
+    { id: 'epidemics', title: 'Epidemics', groups: [{ items: constitutions }, { label: 'Case histories', items: cases }] },
+  ].map((work) => (
+    <section id={work.id}>
+      <h3><em>{work.title}</em></h3>
+      {work.groups.filter((g) => g.items.length > 0).map((g) => (
+        <>
+          {g.label && <h4>{g.label}</h4>}
+          <ol class="corpus-toc">
+            {g.items.map((s) => (
+              <li>
+                {wip(s)
+                  ? <span class="corpus-toc-wip">{heading(s)} [WIP]</span>
+                  : <a href={`${base[work.id]}/${s.slug}`}>{heading(s)}</a>}
+                {s.data.reference && <span class="corpus-toc-ref"> — {s.data.reference}</span>}
+              </li>
+            ))}
+          </ol>
+        </>
+      ))}
+    </section>
+  ))}
+
+  <h3>How passages are labeled</h3>
+  <p>
+    <em>Airs, Waters, Places</em> pages each cover a run of chapters read
+    together, named for the topic this site uses to group them. The four
+    <em>Epidemics</em> constitutions are numbered 1–4 in text order across both
+    books: Constitutions 1–3 are the three in <em>Epidemics</em> I, and
+    Constitution 4 is the single constitution in <em>Epidemics</em> III (Jones
+    heads it simply “Constitution”). That numbering is this site’s own
+    shorthand.
+  </p>
+  <p>
+    Chapters carry the numbers of Jones’s translation as encoded by Perseus,
+    cited as “AWP 5”, “Epid. I 5” or “Epid. III 13”. In <em>Epidemics</em> I the
+    numbers run continuously through the three constitutions (1–3, 4–12,
+    13–26); in Book III the constitution occupies chapters 2–16 of its section.
+    Every chapter has its own link (for example <code>constitution-2#ch-5</code>),
+    so the synopses and <a href="/the-argument">The Argument</a> can point to a
+    specific chapter.
+  </p>
+
+  <h2>Other sources</h2>
   <div class="sources-grid">
-    <a class="sources-card" href="/sources/hippocratic-corpus">
-      <h2>Hippocratic Corpus</h2>
-      <p>Close readings of Airs, Waters, Places and Epidemics.</p>
-    </a>
     <a class="sources-card" href="/sources/epigraphy">
       <h2>Epigraphy</h2>
       <p>The Epidaurian iamata and related dream-healing inscriptions.</p>

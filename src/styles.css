@@ -781,3 +781,6 @@ code {
   font-size: 0.82rem;
   color: var(--color-ink-muted);
 }
+
+/* Unannotated corpus page on the Sources list: shown but not linked. */
+.corpus-toc-wip { color: var(--color-ink-muted); }
