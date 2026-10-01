@@ -1,7 +1,16 @@
 ---
+// A Field Journal entry, laid out like the former Site Archaeology dossiers
+// (merged into the journal): quick facts, the site's scholarly sections, the
+// author's first-person notes in <PersonalObservations>, and the site's
+// related inscriptions. The site is matched through its `journal` link in
+// sites.json; entries for places not on the map (Crete) simply have no
+// quick facts or inscriptions.
 import { getCollection } from 'astro:content';
-import JournalLayout from '../../layouts/JournalLayout.astro';
+import ScholarlyLayout from '../../layouts/ScholarlyLayout.astro';
 import RelatedSources from '../../components/RelatedSources.astro';
+import sites from '../../data/sites.json';
+import inscriptions from '../../data/inscriptions.json';
+import { formatDate } from '../../utils/journal.js';
 
 export async function getStaticPaths() {
   const entries = await getCollection('journal');
@@ -10,14 +19,35 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const site = sites.find((s) => s.journal === `/field-journal/${entry.slug}`);
+const relatedInscriptions = site
+  ? inscriptions.filter((i) => site.relatedInscriptions.includes(i.id))
+  : [];
 ---
-<JournalLayout title={entry.data.title}>
+<ScholarlyLayout title={entry.data.title}>
   <p class="eyebrow">Field Journal</p>
   <h1>{entry.data.title}</h1>
   <p class="journal-date">
-    {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+    {formatDate(entry.data.date)}
     {entry.data.location ? ` — ${entry.data.location}` : ''}
   </p>
+  {site && (
+    <p class="site-quickfacts">
+      {site.lat.toFixed(4)}, {site.lng.toFixed(4)} — <a href="/map">view on the interactive map</a>
+    </p>
+  )}
+
   <Content />
+
+  {relatedInscriptions.length > 0 && (
+    <aside class="related-panel">
+      <h2>Related Inscriptions</h2>
+      <ul>
+        {relatedInscriptions.map((i) => (
+          <li><a href={`/epigraphy/${i.id}`}>{i.title}</a></li>
+        ))}
+      </ul>
+    </aside>
+  )}
   <RelatedSources items={entry.data.relatedSources} />
-</JournalLayout>
+</ScholarlyLayout>

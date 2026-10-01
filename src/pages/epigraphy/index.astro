@@ -1,10 +1,10 @@
 ---
-import ScholarlyLayout from '../../../layouts/ScholarlyLayout.astro';
-import inscriptions from '../../../data/inscriptions.json';
-import sites from '../../../data/sites.json';
+import ScholarlyLayout from '../../layouts/ScholarlyLayout.astro';
+import inscriptions from '../../data/inscriptions.json';
+import sites from '../../data/sites.json';
 ---
 <ScholarlyLayout title="Epigraphy">
-  <p class="eyebrow">Sources</p>
+  <p class="eyebrow">Fieldwork</p>
   <h1>Epigraphy</h1>
   <p>
     [PLACEHOLDER: introduction to the epigraphic corpus — the Epidaurian iamata and
@@ -16,8 +16,8 @@ import sites from '../../../data/sites.json';
       const site = sites.find((s) => s.id === i.siteId);
       return (
         <li>
-          <a href={`/sources/epigraphy/${i.id}`}>{i.title}</a>
-          {site && <> — {site.name}</>}
+          <a href={`/epigraphy/${i.id}`}>{i.title}</a>
+          {site && <> — {site.journal ? <a href={site.journal}>{site.name}</a> : site.name}</>}
         </li>
       );
     })}

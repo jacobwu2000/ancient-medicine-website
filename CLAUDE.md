@@ -28,8 +28,10 @@ epigraphic record of dream healing.
 ## Current state (as of 2026-09-30)
 
 - The scaffold, routing, schema and map all work.
-- Field Journal: 9 entries with real prose, written as travelogue and site
-  description. Photos are still `<PhotoPlaceholder>` slots.
+- **Field Journal** (fieldwork strand): 8 entries, one per site, laid out
+  like the old Site Archaeology dossiers (see "Field Journal and Epigraphy"
+  below). The author's prose is real; photos are still `<PhotoPlaceholder>`
+  slots, and the dossier sections are placeholders.
 - Epidemics constitution pages exist (`src/content/corpus/constitution-1.md`
   … `constitution-4.md`). Jones's translation is filled in (extracted by
   script, not yet checked against the printed Loeb). **All four
@@ -49,7 +51,7 @@ epigraphic record of dream healing.
 - **Sources page** (`src/pages/sources/index.astro`): lists all the corpus
   pages directly (AWP: Airs, Waters, Seasons; Epidemics: Constitutions
   1–4, then any `kind: case` pages), followed by the "How passages are
-  labeled" note and an Epigraphy card. There are no
+  labeled" note. Epigraphy is no longer under Sources. There are no
   separate Hippocratic Corpus, AWP or Epidemics index pages any more. Their
   old URLs redirect to `/sources#awp` / `/sources#epidemics` (`redirects` in
   `astro.config.mjs`), and other links point at those anchors. A page
@@ -71,7 +73,8 @@ epigraphic record of dream healing.
   abstract), is still a placeholder.
 - Almost everything else is `[PLACEHOLDER: ...]`: inscriptions,
   bibliography, About, the Sources framing paragraph, section intros on the
-  Epigraphy index page, and the bibliography's epigraphic edition and
+  Epigraphy index page, the site sections on each Field Journal entry
+  (Excavation History etc.), and the bibliography's epigraphic edition and
   secondary literature.
 - **Bibliography:** the Primary Editions list has the editions actually
   used: Jones's Loeb volume (LCL 147, 1923; imprint from the TEI's
@@ -79,15 +82,30 @@ epigraphic record of dream healing.
   GitHub TEI files (CC BY-SA 4.0). The iamata edition and all secondary
   literature are still placeholders. Citations in `bibliography.json` are
   plain text, and `*italics*` and bare URLs render as italics and links.
-- **No Site Archaeology section.** The author dropped the per-site dossiers
-  (2026-09-30) because the Field Journal already covers the sites. Their
-  `<PersonalObservations>` prose was all in the journal entries already.
-  The collection, routes and `PersonalObservations` component are gone. In
-  `sites.json`, each site's `dossier` became `journal` (its Field Journal
-  entry), which the map popup links to. Epigraphy pages show the findspot
-  as plain text, since Sources pages don't link into the journal. Old
-  `/sources/site-archaeology/*` URLs redirect to the matching journal
-  entries.
+- **Field Journal and Epigraphy** (2026-09-30). The author first dropped
+  the Site Archaeology dossiers, then had them merged into the Field
+  Journal (the same places), with Epigraphy moved into the fieldwork
+  strand ("Strand 2" on the home page; nav group Field Journal, Epigraphy,
+  Map):
+  - Each journal entry (`src/content/journal/*.mdx`) has the dossier
+    layout: the dossier's placeholder sections (Excavation History; Key
+    Finds & Inscriptions; Ancient Testimonia), then the journal prose
+    inside `<PersonalObservations>` ("Field Notes — Personal
+    Observation"). The page template (`field-journal/[...slug].astro`,
+    scholarly teal mode like the dossiers) adds the coordinates with a map
+    link and a Related Inscriptions panel, from the `sites.json` entry
+    whose `journal` points at it. Crete isn't in `sites.json`, so it has
+    generic placeholder sections and no coordinates. The prose came from
+    the journal entries, not the old dossiers: the dossier copy had an
+    error the journal had fixed (Epidauros "4th century AD" → BC).
+  - The former "Arrival: Living Greek in Greece" entry is now the
+    introduction on `/field-journal` (`field-journal/_intro.mdx`), and the
+    entries are listed under it chronologically. Its old URL redirects.
+  - Epigraphy is at `/epigraphy` (old `/sources/epigraphy/*` URLs
+    redirect). Findspots link to the site's journal entry.
+  - Old `/sources/site-archaeology/*` URLs redirect to the journal entries.
+  - Excerpts on the home and journal index come from the first paragraph
+    of each entry's `<PersonalObservations>` (`utils/journal.js`).
 - Map: no site links to a Hippocratic passage (`relatedHippocraticPassages`
   is empty everywhere). The old Kos → `epidemics-1` and Epidauros → `awp-1`
   links pointed at scaffold placeholders and were removed, because neither
@@ -380,8 +398,8 @@ overclaim. Its roles:
   alongside.
 - **NAM Athens:** medical instruments, the material side of the physicians'
   practice.
-- Photos and the Field Journal's first-person prose count as proof of
-  fieldwork.
+- Photos and the Field Journal's first-person prose (the
+  `<PersonalObservations>` boxes) count as proof of fieldwork.
   Observations written up after the trip should be labeled as retrospective.
 
 The places the constitutions describe (Thasos etc.) were not visited. They
@@ -402,8 +420,9 @@ component change, so discuss it before doing it.
   author (see "Author's annotations"). Each page's "Candidate claims"
   section collects claims for the list. The claim list itself could
   be a single page or table.
-- **Field Journal:** real photos and personal observations that keep the
-  fieldwork visible. There are no separate site pages.
+- **Field Journal:** one page per site, combining the scholarly site
+  sections with real photos and personal observations that keep the
+  fieldwork visible. **Epigraphy** sits beside it in the fieldwork strand.
 - **Bibliography:** real citations (the editions are done).
 - A side-by-side comparison page (constitution vs. AWP claims) is a likely
   addition.
@@ -433,16 +452,19 @@ component change, so discuss it before doing it.
   should check against a source.
 - Keep the `[PLACEHOLDER: ...]` convention for unfinished content so gaps
   stay easy to grep for.
-- Keep the author's own voice in Field Journal prose: first person, informal. Edit lightly and don't rewrite it into
-  academic register.
+- Keep the author's own voice in Field Journal prose (inside
+  `<PersonalObservations>` and the journal intro): first person, informal.
+  Edit lightly and don't rewrite it into academic register.
 - Claims should be hedged and sized to the sample. "The evidence leans
   toward X" is the target, not a definitive verdict.
 - Don't expand scope back toward the original workflow: no full-corpus
   extraction, no statistics, no attempts to settle disputed disease
   identifications.
 - Information architecture: journal entries link *out* to Sources via
-  `relatedSources`, and Sources pages never link back in. Site
-  geo/cross-reference data lives only in `src/data/sites.json`.
+  `relatedSources`, and Sources pages never link back in. Epigraphy is in
+  the fieldwork strand, not Sources, so it and the journal entries link to
+  each other (findspot ↔ Related Inscriptions). Site geo/cross-reference
+  data lives only in `src/data/sites.json`.
 - Only link a map site to a Hippocratic passage (`relatedHippocraticPassages`)
   if the text actually concerns that place. Don't add links just to
   connect the fieldwork to the texts.

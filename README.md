@@ -32,8 +32,8 @@ src/
   content/                  ← content collections (edit prose here)
     config.ts                 schema for both collections below
     corpus/                    Hippocratic Corpus sections (AWP + Epidemics)
-    journal/                   Field Journal entries (9, covering the 2026
-                                fieldwork trip end to end)
+    journal/                   Field Journal entries, one per site visited
+                                (8), each laid out like a site dossier
 
   data/                      ← structured data (edit here, not in components)
     sites.json                 canonical site geo/identity for the map,
@@ -44,6 +44,8 @@ src/
 
   components/
     SiteMap.jsx                the interactive map (React + Leaflet island)
+    PersonalObservations.astro "Field Notes — Personal Observation" box that
+                                holds the author's prose in a journal entry
     RelatedSources.astro       "Related Sources" list on journal entries
     PhotoPlaceholder.astro     reserved, auto-numbered image slot ("Fig. N —
                                 caption") — drop into any .mdx entry where a
@@ -69,8 +71,10 @@ src/
                                     to /sources via astro.config.mjs)
         airs-waters-places/[slug].astro
         epidemics/[slug].astro
-      epigraphy/{index,[id]}.astro
+    epigraphy/{index,[id]}.astro    Epigraphy (fieldwork strand, not Sources)
     field-journal/{index,[...slug]}.astro
+    field-journal/_intro.mdx     introduction at the top of the journal
+                                  index (formerly the Arrival entry)
     bibliography.astro
     about.astro
 
@@ -94,11 +98,15 @@ src/
   which lists every corpus page. `scripts/extract-jones.py` prints Jones's chapters as
   ready-to-paste YAML from the Perseus TEI (needs Python 3.7+ and internet).
   Case-history pages go in the same collection with `kind: case`.
-- `src/content/journal/*.mdx` — one Field Journal entry per file, filename
-  `YYYY-MM-DD-slug.mdx` (`.mdx` so `<PhotoPlaceholder>` can be dropped in
-  wherever a picture will eventually go). List cross-links to Sources pages
-  in `relatedSources`. Not every stop has a corresponding Sources page (e.g.
-  Crete) — leave `relatedSources: []` for those.
+- `src/content/journal/*.mdx` — one Field Journal entry per site, filename
+  `YYYY-MM-DD-slug.mdx`. Each entry is laid out like the former Site
+  Archaeology dossiers: placeholder sections (Excavation History; Key Finds &
+  Inscriptions; Ancient Testimonia), then the author's first-person prose and
+  `<PhotoPlaceholder>`s inside `<PersonalObservations>`. The page adds the
+  site's coordinates and related inscriptions from `sites.json` (matched by
+  the site's `journal` link). List cross-links to Sources pages in
+  `relatedSources`; leave `relatedSources: []` when there are none.
+- `src/pages/field-journal/_intro.mdx` — the journal's introduction.
 - `src/data/sites.json`, `src/data/inscriptions.json`,
   `src/data/bibliography.json` — structured records.
 - `findings.mdx`, `about.astro`, `bibliography.astro` — page-level prose.
@@ -107,7 +115,7 @@ src/
 
 **Avoid editing unless changing behavior:** anything in `src/layouts/`,
 `src/components/`, and the `[slug].astro` / `[id].astro` route files under
-`src/pages/sources/**` and `src/pages/field-journal/` — these just fetch
+`src/pages/sources/**`, `src/pages/epigraphy/` and `src/pages/field-journal/` — these just fetch
 content/data and hand it to a layout; the schema files above are the actual
 editing surface.
 
@@ -146,10 +154,14 @@ directly.
   `BaseLayout`/`ScholarlyLayout`/`JournalLayout`. The accent shows as a
   stripe on top of the header and on the current nav item.
 - The nav is grouped by the project's two strands: research (Findings,
-  Sources, Bibliography) and fieldwork (Field Journal, Map).
+  Sources, Bibliography) and fieldwork (Field Journal, Epigraphy, Map).
+  On desktop the nav sits on the same row as the site title, which only
+  just fits the 980px container. Adding a nav item will push the nav
+  onto its own row unless the nav spacing in `styles.css` is tightened.
 - The home page explains the project as two strands (texts / places) and
   lists the journal entries as an itinerary; excerpts are pulled
-  automatically from each entry's first paragraph.
+  automatically from the first paragraph of each entry's
+  `<PersonalObservations>`.
 - The map's layer toggle is a custom control bar above the map (not
   Leaflet's built-in corner control), since it's the site's core scholarly
   contribution and needs to stay visible.

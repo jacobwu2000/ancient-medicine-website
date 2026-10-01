@@ -63,10 +63,11 @@ const stops = (await getCollection('journal')).sort(
       <ul class="strand__facts">
         <li><strong>Dates:</strong> 12 July – 2 August 2026</li>
         <li><strong>Stops:</strong> {stops.length} journal entries, from the Peloponnese to Crete, Kos and Thessaly</li>
-        <li><strong>Record:</strong> field journal, photographs</li>
+        <li><strong>Record:</strong> field journal, inscriptions, photographs</li>
       </ul>
       <p class="strand__links">
         <a href="/field-journal">Field Journal &rarr;</a>
+        <a href="/epigraphy">Epigraphy &rarr;</a>
         <a href="/map">Map of sites &rarr;</a>
       </p>
     </article>
@@ -80,7 +81,7 @@ const stops = (await getCollection('journal')).sort(
   <section class="home-section">
     <h2>The itinerary</h2>
     <p class="home-section__intro">
-      Nine field-journal entries, in the order the sites were visited.
+      {stops.length} field-journal entries, in the order the sites were visited.
     </p>
     <ol class="itinerary">
       {stops.map((e, i) => (

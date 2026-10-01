@@ -6,9 +6,13 @@ export default defineConfig({
   site: 'https://jacobwu2000.github.io',
   integrations: [react(), mdx()],
   // Old URLs: the Hippocratic Corpus index pages were folded into /sources,
-  // The Argument became Findings, and the Site Archaeology dossiers were
-  // dropped in favour of the Field Journal.
+  // The Argument became Findings, the Site Archaeology dossiers were merged
+  // into the Field Journal entries, Epigraphy moved out of Sources, and the
+  // Arrival entry became the Field Journal's introduction.
   redirects: {
+    '/sources/epigraphy': '/epigraphy',
+    '/sources/epigraphy/[id]': '/epigraphy/[id]',
+    '/field-journal/2026-07-12-arrival': '/field-journal',
     '/the-argument': '/findings',
     '/sources/site-archaeology': '/field-journal',
     '/sources/site-archaeology/messene': '/field-journal/2026-07-24-messene',

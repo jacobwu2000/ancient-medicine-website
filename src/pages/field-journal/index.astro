@@ -2,20 +2,24 @@
 import { getCollection } from 'astro:content';
 import JournalLayout from '../../layouts/JournalLayout.astro';
 import { excerpt, formatDate, stopNumber } from '../../utils/journal.js';
+import Intro from './_intro.mdx';
 
 const entries = (await getCollection('journal')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
 );
 ---
 <JournalLayout title="Field Journal">
   <p class="eyebrow">Fieldwork · 12 July – 2 August 2026</p>
   <h1>Field Journal</h1>
-  <p>[PLACEHOLDER: introduction to the field journal — travel narrative framing, kept reverse-chronological. Entries link out to Sources pages; Sources pages don't link back.]</p>
-  <ol class="itinerary" reversed>
+  <div class="journal-intro">
+    <Intro />
+  </div>
+  <h2>The sites</h2>
+  <ol class="itinerary">
     {entries.map((e, i) => (
       <li class="itinerary__stop">
         <a href={`/field-journal/${e.slug}`}>
-          <span class="itinerary__date">{stopNumber(entries.length - i)} · {formatDate(e.data.date, 'short')}</span>
+          <span class="itinerary__date">{stopNumber(i + 1)} · {formatDate(e.data.date, 'short')}</span>
           <span class="itinerary__title">{e.data.title}</span>
           {e.data.location && <span class="itinerary__place">{e.data.location}</span>}
           <span class="itinerary__excerpt">{excerpt(e.body, 220)}</span>

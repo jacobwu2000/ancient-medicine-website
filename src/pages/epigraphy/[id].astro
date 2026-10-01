@@ -1,7 +1,7 @@
 ---
-import ScholarlyLayout from '../../../layouts/ScholarlyLayout.astro';
-import inscriptions from '../../../data/inscriptions.json';
-import sites from '../../../data/sites.json';
+import ScholarlyLayout from '../../layouts/ScholarlyLayout.astro';
+import inscriptions from '../../data/inscriptions.json';
+import sites from '../../data/sites.json';
 
 export function getStaticPaths() {
   return inscriptions.map((i) => ({ params: { id: i.id } }));
@@ -14,11 +14,11 @@ const site = entry ? sites.find((s) => s.id === entry.siteId) : null;
 <ScholarlyLayout title={entry ? entry.title : 'Inscription'}>
   {entry ? (
     <article class="inscription-entry">
-      <p class="eyebrow">Sources — Epigraphy</p>
+      <p class="eyebrow">Fieldwork — Epigraphy</p>
       <h1>{entry.title}</h1>
       {site && (
         <p class="inscription-site">
-          Findspot: {site.name}
+          Findspot: {site.journal ? <a href={site.journal}>{site.name}</a> : site.name}
         </p>
       )}
 
